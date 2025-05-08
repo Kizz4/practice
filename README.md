@@ -40,10 +40,35 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 
 Each project is contained in its level category and its own folder inside the repository:
 
-/beginner_projects/single_page_cv
-/beginner_projects/basic_html_website
-/beginner_projects/personal_portfolio
-...
-/intermediate_projects/custom_dropdown
-...
-/advanced_projects/24hr_tory_feature
+
+```
+/beginner_projects/
+├── single_page_cv/
+├── basic_html_website/
+├── personal_portfolio/
+├── changelog_component/
+├── testimonial_cards/
+├── datepicker_ui/
+├── accessible_form_ui/
+├── image_grid_layout/
+├── tooltip_ui/
+├── tabs/
+├── cookie_consent/
+├── restricted_textarea/
+├── accordion/
+├── age_calculator/
+├── flash_cards/
+
+/intermediate_projects/
+├── custom_dropdown/
+├── task_tracker/
+├── reddit_client/
+├── temperature_converter/
+├── quiz_app/
+├── weather_web_app/
+├── github_random_repository/
+├── pomodoro_timer/
+
+/advanced_projects/
+├── 24hr_story_feature/
+```

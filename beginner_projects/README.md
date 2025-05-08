@@ -21,10 +21,11 @@ The structure of your CV should be easily understandable and ready for styling i
 
 ## Project Structure
 
+```
 single-page-cv/
 ├── index.html
 └── icon_onglet.png
-
+```
 
 ---
 
