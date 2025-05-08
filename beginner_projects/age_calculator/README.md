@@ -1,3 +1,3 @@
-# age calculator
+# Age calculator
 
-This is the 'age calculator' project from the Beginner section of the roadmap.sh frontend project list.
+This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for beginners. And the [link](https://roadmap.sh/projects/age-calculator) of the project himself 

@@ -1,3 +1,3 @@
-# github random repository
+# Github random repository
 
-This is the 'github random repository' project from the Intermediate section of the roadmap.sh frontend project list.
+This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for intermediate developers. And the [link](https://roadmap.sh/projects/github-random-repo) of the project himself 

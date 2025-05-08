@@ -1,3 +1,3 @@
-# custom dropdown
+# Custom dropdown
 
-This is the 'custom dropdown' project from the Intermediate section of the roadmap.sh frontend project list.
+This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for intermediate developers. And the [link](https://roadmap.sh/projects/custom-dropdown) of the project himself 

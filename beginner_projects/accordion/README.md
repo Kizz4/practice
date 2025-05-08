@@ -1,3 +1,3 @@
-# accordion
+# Accordion
 
-This is the 'accordion' project from the Beginner section of the roadmap.sh frontend project list.
+This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for beginners. And the [link](https://roadmap.sh/projects/accordion) of the project himself 

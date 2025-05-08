@@ -7,32 +7,33 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 
 ## ✅ Project Progress Overview
 
-| Level      | Project Name                 | Status    |
-|------------|------------------------------|-----------|
-| Beginner   | Single-Page CV               | ✅ Finished |
-| Beginner   | Basic HTML Website           | ⏳ Not started |
-| Beginner   | Personal Portfolio           | ⏳ Not started |
-| Beginner   | Changelog Component          | ⏳ Not started |
-| Beginner   | Testimonial Cards            | ⏳ Not started |
-| Beginner   | Datepicker UI                | ⏳ Not started |
-| Beginner   | Accessible Form UI           | ⏳ Not started |
-| Beginner   | Image Grid Layout            | ⏳ Not started |
-| Beginner   | Tooltip UI                   | ⏳ Not started |
-| Beginner   | Tabs                         | ⏳ Not started |
-| Beginner   | Cookie Consent               | ⏳ Not started |
-| Beginner   | Restricted Textarea          | ⏳ Not started |
-| Beginner   | Accordion                    | ⏳ Not started |
-| Beginner   | Age Calculator               | ⏳ Not started |
-| Beginner   | Flash Cards                  | ⏳ Not started |
-| Intermediate | Custom Dropdown           | ⏳ Not started |
-| Intermediate | Task Tracker              | ⏳ Not started |
-| Intermediate | Reddit Client             | ⏳ Not started |
-| Intermediate | Temperature Converter     | ⏳ Not started |
-| Intermediate | Quiz App                  | ⏳ Not started |
-| Intermediate | Weather Web App           | ⏳ Not started |
-| Intermediate | GitHub Random Repository  | ⏳ Not started |
-| Intermediate | Pomodoro Timer            | ⏳ Not started |
-| Advanced     | 24hr Story Feature        | ⏳ Not started |
+| Level        | Project Name                  | Status            | 🔗 Link                                                   |
+|--------------|-------------------------------|-------------------|-----------------------------------------------------------|
+| Beginner     | Single-Page CV                | ✅ Finished       | [Link](https://roadmap.sh/projects/single-page-cv)        |
+| Beginner     | Basic HTML Website            | ⏳ Not started    | [Link](https://roadmap.sh/projects/basic-html-website)    |
+| Beginner     | Personal Portfolio            | ⏳ Not started    | [Link](https://roadmap.sh/projects/portfolio-website)     |
+| Beginner     | Changelog Component           | ⏳ Not started    | [Link](https://roadmap.sh/projects/changelog-component)   |
+| Beginner     | Testimonial Cards             | ⏳ Not started    | [Link](https://roadmap.sh/projects/testimonial-cards)     |
+| Beginner     | Datepicker UI                 | ⏳ Not started    | [Link](https://roadmap.sh/projects/datepicker-ui)         |
+| Beginner     | Accessible Form UI            | ⏳ Not started    | [Link](https://roadmap.sh/projects/accessible-form-ui)    |
+| Beginner     | Image Grid Layout             | ⏳ Not started    | [Link](https://roadmap.sh/projects/image-grid)            |
+| Beginner     | Tooltip UI                    | ⏳ Not started    | [Link](https://roadmap.sh/projects/tooltip-ui)            |
+| Beginner     | Tabs                          | ⏳ Not started    | [Link](https://roadmap.sh/projects/simple-tabs)           |
+| Beginner     | Cookie Consent                | ⏳ Not started    | [Link](https://roadmap.sh/projects/cookie-consent)        |
+| Beginner     | Restricted Textarea           | ⏳ Not started    | [Link](https://roadmap.sh/projects/restricted-textarea)   |
+| Beginner     | Accordion                     | ⏳ Not started    | [Link](https://roadmap.sh/projects/accordion)             |
+| Beginner     | Age Calculator                | ⏳ Not started    | [Link](https://roadmap.sh/projects/age-calculator)        |
+| Beginner     | Flash Cards                   | ⏳ Not started    | [Link](https://roadmap.sh/projects/flash-cards)           |
+| Intermediate | Custom Dropdown               | ⏳ Not started    | [Link](https://roadmap.sh/projects/custom-dropdown)       |
+| Intermediate | Task Tracker                  | ⏳ Not started    | [Link](https://roadmap.sh/projects/task-tracker-js)       |
+| Intermediate | Reddit Client                 | ⏳ Not started    | [Link](https://roadmap.sh/projects/reddit-client)         |
+| Intermediate | Temperature Converter         | ⏳ Not started    | [Link](https://roadmap.sh/projects/temperature-converter) |
+| Intermediate | Quiz App                      | ⏳ Not started    | [Link](https://roadmap.sh/projects/quiz-app)              |
+| Intermediate | Weather Web App               | ⏳ Not started    | [Link](https://roadmap.sh/projects/weather-app)           |
+| Intermediate | GitHub Random Repository      | ⏳ Not started    | [Link](https://roadmap.sh/projects/github-random-repo)    |
+| Intermediate | Pomodoro Timer                | ⏳ Not started    | [Link](https://roadmap.sh/projects/pomodoro-timer)        |
+| Advanced     | 24hr Story Feature            | ⏳ Not started    | [Link](https://roadmap.sh/projects/stories-feature)       |
+
 
 ---
 

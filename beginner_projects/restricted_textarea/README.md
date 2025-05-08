@@ -1,3 +1,3 @@
-# restricted textarea
+# Restricted textarea
 
-This is the 'restricted textarea' project from the Beginner section of the roadmap.sh frontend project list.
+This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for beginners. And the [link](https://roadmap.sh/projects/restricted-textarea) of the project himself 

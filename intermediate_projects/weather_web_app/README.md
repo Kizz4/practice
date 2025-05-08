@@ -1,3 +1,3 @@
 # weather web app
 
-This is the 'weather web app' project from the Intermediate section of the roadmap.sh frontend project list.
+This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for intermediate developers. And the [link](https://roadmap.sh/projects/weather-app) of the project himself 

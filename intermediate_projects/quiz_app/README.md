@@ -1,3 +1,3 @@
-# quiz app
+# Quiz app
 
-This is the 'quiz app' project from the Intermediate section of the roadmap.sh frontend project list.
+This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for intermediate developers. And the [link](https://roadmap.sh/projects/quiz-app) of the project himself 

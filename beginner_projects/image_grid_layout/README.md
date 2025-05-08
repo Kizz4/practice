@@ -1,3 +1,3 @@
-# image grid layout
+# Image grid layout
 
-This is the 'image grid layout' project from the Beginner section of the roadmap.sh frontend project list.
+This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for beginners. And the [link](https://roadmap.sh/projects/image-grid) of the project himself 

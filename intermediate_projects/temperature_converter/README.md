@@ -1,3 +1,3 @@
-# temperature converter
+# Temperature converter
 
-This is the 'temperature converter' project from the Intermediate section of the roadmap.sh frontend project list.
+This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for intermediate developers. And the [link](https://roadmap.sh/projects/temperature-converter) of the project himself 

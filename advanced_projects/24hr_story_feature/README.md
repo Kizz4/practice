@@ -1,3 +1,3 @@
 # 24hr story feature
 
-This is the '24hr story feature' project from the Advanced section of the roadmap.sh frontend project list.
+This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for intermediate developers. And the [link](https://roadmap.sh/projects/stories-feature) of the project himself 

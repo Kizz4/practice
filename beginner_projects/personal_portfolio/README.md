@@ -1,3 +1,3 @@
-# personal portfolio
+# Personal portfolio
 
-This is the 'personal portfolio' project from the Beginner section of the roadmap.sh frontend project list.
+This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for beginners. And the [link](https://roadmap.sh/projects/portfolio-website) of the project himself 
