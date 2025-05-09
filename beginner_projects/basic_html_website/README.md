@@ -30,3 +30,35 @@ By completing this project, you'll gain a solid understanding of how to organize
 
 ## 📁 Project Structure
 
+```
+basic-html-website/
+├── index.html
+├── projects.html
+├── articles.html
+├── contact.html
+├── images/
+│   └── icon_onglet.png
+├── favicon.ico
+└── style/
+    ├── common.css
+    └── page-specific.css (optional)
+```
+
+---
+
+## 🔍 Preview
+
+You can open `index.html` directly in your browser or use a simple local server:
+
+```bash
+# From the project root
+python3 -m http.server
+```
+
+Then go to [http://localhost:8000](http://localhost:8000) in your browser.
+
+---
+
+## 🚀 Next Step
+
+This website will serve as a solid HTML foundation. You'll style it and make it responsive in future roadmap projects using CSS and potentially JavaScript.
