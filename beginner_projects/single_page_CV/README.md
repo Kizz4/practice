@@ -38,4 +38,4 @@ You can open `index.html` directly in your browser or run a local server:
 python3 -m http.server
 ```
 
-Then go to http://localhost:8000
+Then go to [http://localhost:8000](http://localhost:8000) in your browser.

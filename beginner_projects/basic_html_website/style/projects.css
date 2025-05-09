@@ -1,0 +1,39 @@
+section {
+    margin: 20px 0;
+}
+  
+#projects {
+    display: flex;
+    flex-direction: column;
+}
+  
+#projects > article:first-child {
+    margin: 0 10px 100px 10px;
+}
+  
+#university-projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+#university-projects h2{
+    grid-column: 1/-1;
+}
+
+#university-projects > article:nth-child(3) {
+    margin-top: 4vh;
+}
+#university-projects > article:nth-child(4) {
+    margin-top: 8vh;
+}
+  
+#projects > article:nth-child(even) {
+    align-self: flex-end;
+}
+  
+.project {
+    margin: 15px 10px;
+}
+  
+  
