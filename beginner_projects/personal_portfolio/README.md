@@ -1,3 +1,65 @@
-# Personal portfolio
+# Personal Portfolio
 
-This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for beginners. And the [link](https://roadmap.sh/projects/portfolio-website) of the project himself 
+This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for beginners.  
+You can find the specific project details [here](https://roadmap.sh/projects/portfolio-website).
+
+The goal of this project is to teach you how to style a website using CSS.  
+You will take the structure from the previous HTML-only project and apply various CSS techniques to enhance its appearance and responsiveness.
+
+---
+
+## 📚 Key Requirements
+
+- **Responsive Design**: Ensure the website is responsive and looks good on different screen sizes using CSS techniques like Flexbox and media queries
+- **Consistent Color Scheme and Typography**: Apply a consistent color scheme and typography throughout the website
+- **Proper use of CSS techniques** : use of technique like Flexbox, media queries, and the box model.
+- **Bonus**: Implement dark mode using CSS variables
+
+---
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+---
+
+## 📁 Project Structure
+
+```
+personal-portfolio/
+├── index.html
+├── projects.html
+├── articles.html
+├── contact.html
+├── images/
+│   └── icon_onglet.png
+├── favicon.ico
+└── style/
+    ├── common.css
+    ├── home.css
+    ├── about_mentorship.css
+    ├── contact.css
+    └── projects.css
+```
+
+---
+
+## 🔍 Preview
+
+You can open `index.html` directly in your browser or use a simple local server:
+
+```bash
+# From the project html files
+python3 -m http.server
+```
+
+Then go to [http://localhost:8000](http://localhost:8000) in your browser.
+
+---
+
+## 🚀 Features
+
+- **Responsive Layout**: Adapts seamlessly to various screen sizes, ensuring usability across devices.
+- **Dark Mode Support**: Utilizes CSS variables to switch between light and dark themes based on user preference.
+- **Interactive Elements**: Includes hover effects and transitions to enhance user experience.
+- **Accessible Design**: Follows best practices to ensure the website is accessible to all users.
