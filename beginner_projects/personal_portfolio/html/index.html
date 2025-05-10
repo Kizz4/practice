@@ -13,34 +13,37 @@
     <meta property="og:url" content="https://mywebsite.example.com">
     <meta property="og:image" content="https://mywebsite.example.com/preview.png">
 
+    <meta charset="UTF-8">
+    
     <link rel="icon" href="../images/icon_onglet.png" type="image/png">
 
     <link rel="stylesheet" href="../style/common.css">
     <link rel="stylesheet" href="../style/home.css">
 
-    <title>Home - Basic Website</title>
+    <title>Home - Personal Portfolio</title>
 </head>
 
 <body>
-    
-    <div class="layout">
+    <div id="layout">
         <header id="banner">
-            <div>
-              <img src="../images/icon_onglet.png" alt="icon of a salary man">
-              Gabriel Chamboredon
+            <div id="profil">
+                Gabriel 
+                <img src="../images/icon_onglet.png" alt="icon of a salary man"> 
+                Chamboredon
             </div>
-            <nav>
-              <a href="#">Home</a> /
-              <a href="projects.html">Projects</a> /
-              <a href="about_mentorship.html">About & Mentorship</a> /
-              <a href="contact.html">Contact</a>
+            <nav id="menu">
+                <a href="#">Home</a> /
+                <a href="projects.html">Projects</a> /
+                <a href="about_mentorship.html">About & Mentorship</a> /
+                <a href="contact.html">Contact</a>
             </nav>
             <h1>Frontend Developer</h1>
-          </header>
+            <hr>
+        </header>
         <main>
             <div id="wrapper">
                 <section id="projects">
-                    <h2>Projects</h2>
+                    <h3>Projects</h3>
                     University projects
                     <hr>
                     Single-Page CV
@@ -51,13 +54,13 @@
                 </section>
 
                 <section id="work-exp">
-                    <h2>Work Experience</h2>
+                    <h3>Work Experience</h3>
                     <p>McDonald's, Caen - Team member</p>
                     <p>Samsic, Caen - Passenger service agent</p>
                 </section>
 
                 <section id="education">
-                    <h2>Education</h2>
+                    <h3>Education</h3>
                     <p>University of Caen Normandie - Bachelor's degree in Computer Science</p>
                     <p>High School - Mortagne au Perche - French 'Baccalauréat' - Scientific track (Maths, Physics, Chemistry)</p>     
                 </section>

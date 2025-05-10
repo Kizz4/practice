@@ -56,9 +56,3 @@ python3 -m http.server
 ```
 
 Then go to [http://localhost:8000](http://localhost:8000) in your browser.
-
----
-
-## 🚀 Next Step
-
-This website will serve as a solid HTML foundation. You'll style it and make it responsive in future roadmap projects using CSS and potentially JavaScript.

@@ -13,44 +13,38 @@
     <meta property="og:url" content="https://mywebsite.example.com/projects">
     <meta property="og:image" content="https://mywebsite.example.com/projects/preview.png">
 
+    <meta charset="UTF-8">
+    
     <link rel="icon" href="../images/icon_onglet.png" type="image/png">
 
     <link rel="stylesheet" href="../style/common.css">
     <link rel="stylesheet" href="../style/projects.css">
 
-    <title>Projects - Basic Website</title>
+    <title>Projects - Personal Portfolio</title>
 </head>
 
 <body>
-  <div class="layout">
+  <div id="layout">
     <header id="banner">
-      <div>
-        <img src="../images/icon_onglet.png" alt="icon of a salary man">
-        Gabriel Chamboredon
-      </div>
-      <nav>
-        <a href="index.html">Home</a> /
-        <a href="#">Projects</a> /
-        <a href="about_mentorship.html">About & Mentorship</a> /
-        <a href="contact.html">Contact</a>
-      </nav>
-      <h1>Projects</h1>
+        <div id="profil">
+          Gabriel 
+          <img src="../images/icon_onglet.png" alt="icon of a salary man"> 
+          Chamboredon
+        </div>
+        <nav id="menu">
+          <a href="index.html">Home</a> /
+          <a href="#">Projects</a> /
+          <a href="about_mentorship.html">About & Mentorship</a> /
+          <a href="contact.html">Contact</a>
+        </nav>
+        <h1>Projects</h1>
+        <hr>
     </header>
     <main>
       <section id="projects">
         <h2 class="visually-hidden">All my Projects</h2>
         <article class="project" id="university-projects">
           <h2>University Projects</h2>
-
-          <article>
-            <h3>TraClus</h3>
-            <ul>
-              <li>Implemented trajectory approximation using the MDL principle</li>
-              <li>Clustering with DBSCAN to identify common sub-trajectory patterns</li>
-              <li>Used PrefixSpan to extract recurring patterns</li>
-              <li>Tech: Python, Numpy, Matplotlib, Scipy</li>
-            </ul>
-          </article>
 
           <article>
             <h3>Website in MVC + REST API (PHP/MySQL)</h3>
@@ -63,6 +57,16 @@
           </article>
 
           <article>
+            <h3>TraClus</h3>
+            <ul>
+              <li>Implemented trajectory approximation using the MDL principle</li>
+              <li>Clustering with DBSCAN to identify common sub-trajectory patterns</li>
+              <li>Used PrefixSpan to extract recurring patterns</li>
+              <li>Tech: Python, Numpy, Matplotlib, Scipy</li>
+            </ul>
+          </article>
+
+         <article>
             <h3>React App + GraphQL: Task Manager</h3>
             <ul>
               <li>SPA with authentication, CRUD, filters, and task counter</li>
@@ -71,6 +75,8 @@
               <li>Tech: React, GraphQL, JavaScript, Git</li>
             </ul>
           </article>
+
+          
         </article>
 
         <article class="project">

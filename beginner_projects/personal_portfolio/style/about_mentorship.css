@@ -1,0 +1,108 @@
+
+.auto-bio {
+  background: linear-gradient(
+        to bottom right,
+        rgba(247, 37, 133, .05),
+        rgba(181, 23, 158, .05), 
+        rgba(114, 9, 183, .05),  
+        rgba(86, 11, 173, .05), 
+        rgba(72, 12, 168, .05),  
+        rgba(63, 55, 201, .05),  
+        rgba(67, 97, 238, .05),  
+        rgba(72, 149, 239, .05),  
+        rgba(76, 201, 240, .05)  
+      );
+  padding: 2em;
+  border-radius: 10% / 30px;
+  box-shadow: 0 4px 10px var(--shadow);
+  color: var(--text-main);
+}
+
+.auto-bio h2 {
+  background: linear-gradient(to right, var(--accent-strong), var(--depth-deep));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.auto-bio h3 {
+  background: linear-gradient(to right, var(--accent), var(--depth-blue));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#testimony {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  gap: 2em;
+  justify-items: center;
+}
+
+#testimony h2 {
+  background: linear-gradient(to right, var(--brand-primary), var(--brand-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  grid-column: span 2;
+  grid-row: 1;
+  margin-top: 2em;
+}
+
+#testimony article:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#testimony article:nth-child(2) {
+  grid-column: 2;
+  grid-row: 2 / span 2;
+  align-self: center;
+}
+
+#testimony article:nth-child(3) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+article:has(> blockquote) {
+  background: var(--bg-main-light);
+  border: 2px solid var(--depth-blue-light);
+  box-shadow: 0 3px 8px var(--shadow);
+  border-radius: 20px;
+  padding: 1em;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+blockquote p::before {
+  content: "\201C";
+}
+
+blockquote p::after {
+  content: "\201D";
+}
+
+blockquote + p {
+  text-align: center;
+  font-style: italic, bold;
+  color: var(--author);
+}
+
+@media (max-width: 800px){
+  #testimony {
+    display: block;
+  }
+
+  #testimony article{
+    margin: 1em auto;
+    width: 70%;
+  }
+
+  #testimony h2{
+    text-align: center;
+  }
+}
