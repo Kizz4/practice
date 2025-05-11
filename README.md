@@ -10,9 +10,9 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 | Level        | Project Name                  | Status            | 🔗 Link                                                   |
 |--------------|-------------------------------|-------------------|-----------------------------------------------------------|
 | Beginner     | Single-Page CV                | ✅ Finished       | [Link](https://roadmap.sh/projects/single-page-cv)        |
-| Beginner     | Basic HTML Website            | ⏳ Not started    | [Link](https://roadmap.sh/projects/basic-html-website)    |
-| Beginner     | Personal Portfolio            | ⏳ Not started    | [Link](https://roadmap.sh/projects/portfolio-website)     |
-| Beginner     | Changelog Component           | ⏳ Not started    | [Link](https://roadmap.sh/projects/changelog-component)   |
+| Beginner     | Basic HTML Website            | ✅ Finished       | [Link](https://roadmap.sh/projects/basic-html-website)    |
+| Beginner     | Personal Portfolio            | ✅ Finished       | [Link](https://roadmap.sh/projects/portfolio-website)     |
+| Beginner     | Changelog Component           | ✅ Finished       | [Link](https://roadmap.sh/projects/changelog-component)   |
 | Beginner     | Testimonial Cards             | ⏳ Not started    | [Link](https://roadmap.sh/projects/testimonial-cards)     |
 | Beginner     | Datepicker UI                 | ⏳ Not started    | [Link](https://roadmap.sh/projects/datepicker-ui)         |
 | Beginner     | Accessible Form UI            | ⏳ Not started    | [Link](https://roadmap.sh/projects/accessible-form-ui)    |
