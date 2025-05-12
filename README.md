@@ -9,12 +9,12 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 
 | Level        | Project Name                  | Status            | 🔗 Link                                                   |
 |--------------|-------------------------------|-------------------|-----------------------------------------------------------|
-| Beginner     | Single-Page CV                | ✅ Finished       | [Link](https://roadmap.sh/projects/single-page-cv)        |
-| Beginner     | Basic HTML Website            | ✅ Finished       | [Link](https://roadmap.sh/projects/basic-html-website)    |
-| Beginner     | Personal Portfolio            | ✅ Finished       | [Link](https://roadmap.sh/projects/portfolio-website)     |
-| Beginner     | Changelog Component           | ✅ Finished       | [Link](https://roadmap.sh/projects/changelog-component)   |
-| Beginner     | Testimonial Cards             | ⏳ Not started    | [Link](https://roadmap.sh/projects/testimonial-cards)     |
-| Beginner     | Datepicker UI                 | ⏳ Not started    | [Link](https://roadmap.sh/projects/datepicker-ui)         |
+| Beginner     | Single-Page CV                | ✅ Done           | [Link](https://roadmap.sh/projects/single-page-cv)        |
+| Beginner     | Basic HTML Website            | ✅ Done           | [Link](https://roadmap.sh/projects/basic-html-website)    |
+| Beginner     | Personal Portfolio            | ✅ Done           | [Link](https://roadmap.sh/projects/portfolio-website)     |
+| Beginner     | Changelog Component           | ✅ Done           | [Link](https://roadmap.sh/projects/changelog-component)   |
+| Beginner     | Testimonial Cards             | ✅ Done           | [Link](https://roadmap.sh/projects/testimonial-cards)     |
+| Beginner     | Datepicker UI                 | ▶️ On Going       | [Link](https://roadmap.sh/projects/datepicker-ui)         |
 | Beginner     | Accessible Form UI            | ⏳ Not started    | [Link](https://roadmap.sh/projects/accessible-form-ui)    |
 | Beginner     | Image Grid Layout             | ⏳ Not started    | [Link](https://roadmap.sh/projects/image-grid)            |
 | Beginner     | Tooltip UI                    | ⏳ Not started    | [Link](https://roadmap.sh/projects/tooltip-ui)            |
