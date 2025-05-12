@@ -14,8 +14,8 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 | Beginner     | Personal Portfolio            | ✅ Done           | [Link](https://roadmap.sh/projects/portfolio-website)     |
 | Beginner     | Changelog Component           | ✅ Done           | [Link](https://roadmap.sh/projects/changelog-component)   |
 | Beginner     | Testimonial Cards             | ✅ Done           | [Link](https://roadmap.sh/projects/testimonial-cards)     |
-| Beginner     | Datepicker UI                 | ▶️ On Going       | [Link](https://roadmap.sh/projects/datepicker-ui)         |
-| Beginner     | Accessible Form UI            | ⏳ Not started    | [Link](https://roadmap.sh/projects/accessible-form-ui)    |
+| Beginner     | Datepicker UI                 | ✅ Done           | [Link](https://roadmap.sh/projects/datepicker-ui)         |
+| Beginner     | Accessible Form UI            | ▶️ On Going       | [Link](https://roadmap.sh/projects/accessible-form-ui)    |
 | Beginner     | Image Grid Layout             | ⏳ Not started    | [Link](https://roadmap.sh/projects/image-grid)            |
 | Beginner     | Tooltip UI                    | ⏳ Not started    | [Link](https://roadmap.sh/projects/tooltip-ui)            |
 | Beginner     | Tabs                          | ⏳ Not started    | [Link](https://roadmap.sh/projects/simple-tabs)           |
