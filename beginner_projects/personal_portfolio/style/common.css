@@ -94,11 +94,12 @@ main {
 a {
     color: var(--text-main);
     text-decoration: none;
+    transition: color 500ms;
+
 }
 
 a:hover {
     color: var(--brand-primary);
-    transition: 400ms;
 }
 
 footer {
