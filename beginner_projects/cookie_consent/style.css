@@ -46,7 +46,7 @@ button.no-default-style {
   background-color: black;
   color: white;
   border-radius: 40px/80px;
-  padding: 4em;
+  padding: 3em;
   text-align: center;
 }
 
@@ -105,6 +105,10 @@ button.no-default-style {
   border-radius: 15px;
   text-align: center;
   padding: .5em 1em;
+}
+
+.visually-hidden{
+  display: none;
 }
 
 @media (max-width:400px) {

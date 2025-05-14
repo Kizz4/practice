@@ -44,7 +44,6 @@ footer {
 }
 
 .visually-hidden {
-    position: absolute;
     display: none;
 }
   

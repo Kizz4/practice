@@ -43,8 +43,12 @@ main {
   background-color: black;
   color: white;
   border-radius: 40px/80px;
-  padding: 4em;
+  padding: 2em;
   text-align: center;
+}
+
+.visually-hidden {
+  display: none;
 }
 
 

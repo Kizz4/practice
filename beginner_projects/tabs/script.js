@@ -7,7 +7,7 @@ let tabsContent = ['First Tab content is good',
     'Fourth Tab content is LEGENDARYYYYY !!!'
 ];
 
-let contentTab = document.getElementById("content-tab");
+let contentTab = document.querySelector("#content-tab p");
 
 let currentButtonActive = buttonsTabs[0];
 
