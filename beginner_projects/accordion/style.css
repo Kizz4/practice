@@ -1,0 +1,77 @@
+/* ========== Style from previous project 'Tabs' ========== */
+
+@font-face {
+  font-family: 'Quicksand-SemiBold';
+  src: url('../common/font/static/Quicksand-SemiBold.ttf') format('truetype');
+  font-style: normal;
+}
+
+html,
+body {
+  max-height: 100%;
+  margin: 0;
+  font-family: 'Quicksand-SemiBold';
+}
+
+main {
+  max-width: 800px;
+  margin: 2vh auto;
+}
+
+#faq-buttons-container{
+  display: grid;
+  gap: .5em;
+}
+
+#faq-buttons-container > *{
+  margin: 0;
+}
+
+#faq-buttons-container p:first-of-type{
+  margin-bottom: 1em;
+}
+
+#faq-buttons-container button{
+  all: unset;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  padding: 1em;
+  position: relative;
+  transition: color 400ms ease-in-out, box-shadow 150ms ease-out;
+}
+
+#faq-buttons-container button::after{
+  content: "v";
+  position: absolute;
+  right: 1em;
+}
+
+#faq-buttons-container button.active-button::after{
+  content: ">";
+}
+
+#faq-buttons-container button:hover{
+  color: purple;
+}
+
+#faq-buttons-container button:active{
+    box-shadow: 3px 3px 1px gray;
+}
+
+.button-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.active-content {
+    max-height: 500px;
+    opacity: 1;
+    padding: 1em;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-top: 0.5em;
+}

@@ -21,8 +21,8 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 | Beginner     | Tabs                          | ✅ Done           | [Link](https://roadmap.sh/projects/simple-tabs)           |
 | Beginner     | Cookie Consent                | ✅ Done           | [Link](https://roadmap.sh/projects/cookie-consent)        |
 | Beginner     | Restricted Textarea           | ✅ Done           | [Link](https://roadmap.sh/projects/restricted-textarea)   |
-| Beginner     | Accordion                     | ▶️ On Going       | [Link](https://roadmap.sh/projects/accordion)             |
-| Beginner     | Age Calculator                | ⏳ Not started    | [Link](https://roadmap.sh/projects/age-calculator)        |
+| Beginner     | Accordion                     | ✅ Done           | [Link](https://roadmap.sh/projects/accordion)             |
+| Beginner     | Age Calculator                | ▶️ On Going       | [Link](https://roadmap.sh/projects/age-calculator)        |
 | Beginner     | Flash Cards                   | ⏳ Not started    | [Link](https://roadmap.sh/projects/flash-cards)           |
 | Intermediate | Custom Dropdown               | ⏳ Not started    | [Link](https://roadmap.sh/projects/custom-dropdown)       |
 | Intermediate | Task Tracker                  | ⏳ Not started    | [Link](https://roadmap.sh/projects/task-tracker-js)       |
