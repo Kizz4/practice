@@ -1,0 +1,52 @@
+#card{
+  border: 1px solid gray;
+  border-radius: 20px;
+}
+
+#card-answer-question, #button-container{
+  display: flex;
+  background-color: rgba(128, 128, 128, 0.1);
+  border-radius: 10px;
+  margin: .5em;
+}
+
+#card-answer-question{
+  align-items: center;
+  height: 20em;
+}
+
+#card-answer-question p{
+  width: 100%;
+  font-size: 2em;
+  text-align: center;
+  opacity: 0;
+  position: absolute;
+}
+
+#question{
+  font-weight: bold;
+}
+
+#card-answer-question p.active{
+  transition: opacity 1s ease-in-out;
+  opacity: 1;
+  position: inherit;
+}
+
+#button-container{
+  justify-content:space-between;
+  padding: 1em;
+}
+
+#button-container button{
+  all: unset;
+  cursor: pointer;
+}
+
+#button-container #hide-show-state{
+  font-weight: 600;
+}
+
+#button-container button:hover, #button-container #hide-show-state:hover{
+  font-weight: bold;
+}

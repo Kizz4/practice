@@ -23,8 +23,8 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 | Beginner     | Restricted Textarea           | ✅ Done           | [Link](https://roadmap.sh/projects/restricted-textarea)   |
 | Beginner     | Accordion                     | ✅ Done           | [Link](https://roadmap.sh/projects/accordion)             |
 | Beginner     | Age Calculator                | ✅ Done           | [Link](https://roadmap.sh/projects/age-calculator)        |
-| Beginner     | Flash Cards                   | ▶️ On Going       | [Link](https://roadmap.sh/projects/flash-cards)           |
-| Intermediate | Custom Dropdown               | ⏳ Not started    | [Link](https://roadmap.sh/projects/custom-dropdown)       |
+| Beginner     | Flash Cards                   | ✅ Done           | [Link](https://roadmap.sh/projects/flash-cards)           |
+| Intermediate | Custom Dropdown               | ▶️ On Going       | [Link](https://roadmap.sh/projects/custom-dropdown)       |
 | Intermediate | Task Tracker                  | ⏳ Not started    | [Link](https://roadmap.sh/projects/task-tracker-js)       |
 | Intermediate | Reddit Client                 | ⏳ Not started    | [Link](https://roadmap.sh/projects/reddit-client)         |
 | Intermediate | Temperature Converter         | ⏳ Not started    | [Link](https://roadmap.sh/projects/temperature-converter) |
