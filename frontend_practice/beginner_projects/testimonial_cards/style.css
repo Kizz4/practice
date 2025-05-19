@@ -1,0 +1,242 @@
+@font-face {
+    font-family: 'Quicksand-SemiBold';
+    src: url('../../common/font/static/Quicksand-SemiBold.ttf') format('truetype');
+    font-style: normal;
+}
+
+:root {
+    --border-radius: 20px;
+    --color-dark: rgb(24, 24, 24);
+    --color-light: #f4f4f4;
+    --star-color: gold;
+}
+
+html, body {
+    margin: 0;
+    max-height: 100%;
+    font-family: 'Quicksand-SemiBold';
+}
+
+main {
+    max-width: 800px;
+    width: 80%;
+    margin: auto;
+}
+
+blockquote {
+    margin: 0;
+}
+
+/* === LAYOUT GENERAL === */
+
+#testimonials {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+}
+
+/* === PROFIL PICTURE (commune) === */
+
+.profil-picture, .profil-picture-for-swap {
+    width: 15vw;
+    max-width: 5em;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top;
+    border: 2px solid black;
+    border-radius: 100%;
+    margin: auto 0;
+}
+
+/* === FLEX GRID PROFIL === */
+
+.profil, .profile-picture-aside-testimonial {
+    display: flex;
+    gap: 1em;
+}
+
+.profil-info {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.job {
+    font-size: 80%;
+    font-weight: normal;
+}
+
+/* === BLOCKQUOTE STYLE === */
+
+.testimonial blockquote {
+    padding: 1em;
+    border-radius: var(--border-radius);
+}
+
+#testimonials > article:nth-of-type(odd) blockquote {
+    background-color: var(--color-dark);
+    color: white;
+}
+
+#testimonials > article:nth-of-type(even) blockquote {
+    border: 2px solid black;
+}
+
+/* === MSG TESTIMONIAL === */
+
+.msg-testimonial .profil {
+    margin-top: 1em;
+}
+
+.msg-testimonial blockquote :last-child {
+    position: relative;
+}
+
+.msg-testimonial blockquote :last-child::after {
+    content: "▼";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 2.5em;
+    color: var(--color-dark);
+}
+
+/* === SPECIAL GRID === */
+
+.profile-picture-aside-testimonial,
+.swapable-testimonial {
+    grid-column: 1 / -1;
+}
+
+/* === PROFILE PICTURE ASIDE TESTIMONIAL === */
+
+.profile-picture-aside-testimonial .profil-info {
+    font-size: 1.6em;
+}
+
+.profile-picture-aside-testimonial .profil-info .job {
+    color: gray;
+}
+
+.profile-picture-aside-testimonial p {
+    margin-top: 0;
+}
+
+.profile-picture-aside-testimonial .profil-picture {
+    border-radius: 100% 20px 20px 100%;
+    flex: 1;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-picture-aside-testimonial .comment {
+    flex: 2;
+}
+
+/* === STAR RATING === */
+
+.rating {
+    display: flex;
+    font-size: 2em;
+}
+
+.rating p {
+    color: var(--star-color);
+    margin: 0;
+}
+
+/* === SWAPABLE TESTIMONIAL === */
+
+.swapable-testimonial {
+    text-align: center;
+}
+
+.swapable-testimonial .profil {
+    padding-top: 1em;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 0;
+}
+
+.swapable-testimonial .profil-info {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+/* === SWAP SLIDER === */
+
+.swap-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.swapable-testimonial .profil-picture {
+    width: 7.5vw;
+    height: auto;
+}
+
+.profil-picture-for-swap {
+    width: 6vw;
+    opacity: 25%;
+}
+
+/* === SLIDER BEHAVIOR === */
+
+.swapable-testimonial input {
+    display: none;
+}
+
+.slides .slide {
+    display: none;
+}
+
+#slide1:checked ~ .slides #s1,
+#slide2:checked ~ .slides #s2,
+#slide3:checked ~ .slides #s3 {
+    display: block;
+}
+
+.slide {
+    padding: 1em;
+    background: var(--color-light);
+    border-radius: 10px;
+    margin: 1em 0;
+    text-align: center;
+}
+
+.swapable-testimonial label {
+    margin: 0 0.5em;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/* === ACCESSIBILITÉ === */
+
+.visually-hidden {
+    position: absolute;
+    display: none;
+}
+
+/* === MEDIA QUERIES === */
+
+@media (max-width: 800px) {
+
+    .profile-picture-aside-testimonial .profil-picture {
+        border-radius: 100%;
+        height: auto;
+    }
+
+    body {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 500px) {
+    #testimonials{
+        grid-template-columns: 1fr;
+    }
+}

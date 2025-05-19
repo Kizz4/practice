@@ -1,0 +1,50 @@
+/* ========== Style from previous project 'Tabs' ========== */
+
+@font-face {
+  font-family: 'Quicksand-SemiBold';
+  src: url('../../common/font/static/Quicksand-SemiBold.ttf') format('truetype');
+  font-style: normal;
+}
+
+html,
+body {
+  max-height: 100%;
+  margin: 0;
+  font-family: 'Quicksand-SemiBold';
+}
+
+main {
+  width: 80%;
+  margin: 2vh auto;
+}
+
+form{
+  display: grid;
+  font-size: 1.4em;
+  font-weight: bold;
+  max-width: 400px;
+  margin: auto;
+  position: relative;
+}
+
+textarea{
+  resize: none;
+  font-weight: inherit;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: .5em 1em;
+  max-width: 400px;
+}
+
+#message-counter-length{
+  font-size: 0.6em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateX(-50%);
+}
+
+.error-length{
+  border-color: rgb(255, 45, 45);
+  color: rgb(255, 45, 45);
+}

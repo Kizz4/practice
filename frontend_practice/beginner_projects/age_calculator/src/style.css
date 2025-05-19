@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'Quicksand-SemiBold';
+  src: url('../../../common/font/static/Quicksand-SemiBold.ttf') format('truetype');
+  font-style: normal;
+}
+
+html,
+body {
+  max-height: 100%;
+  margin: 0;
+  font-family: 'Quicksand-SemiBold';
+}
+
+main {
+  max-width: 800px;
+  margin: 2vh auto;
+}
+
+#age-calculator {
+  max-width: 300px;
+  margin: auto;
+}
+
+#age-calculator h2,
+#age-calculator p {
+  text-align: center;
+}
+
+#age-calculator p {
+  font-size: 1.2em;
+}
+
+#age-calculator form {
+  display: grid;
+  gap: 0.5em;
+}
+
+#age-calculator input,
+#age-calculator button {
+  all: unset;
+  padding: 0.5em;
+  border-radius: 5px;
+}
+
+#age-calculator input {
+  border: 2px solid black;
+  cursor: pointer;
+  background-image: url("img/icon_calendar.jpg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 2em;
+}
+
+
+
+#age-calculator button {
+  background-color: rgb(71, 71, 71);
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 200ms ease, box-shadow 100ms ease;
+}
+
+#age-calculator button:hover {
+  background-color: black;
+}
+
+#age-calculator button:active {
+  box-shadow: 3px 2px 1px gray;
+}

@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Quicksand-SemiBold';
+    src: url('../../common/font/static/Quicksand-SemiBold.ttf') format('truetype');
+    font-style: normal;
+}
+
+:root {
+    --border: 3px solid black;
+}
+
+html, body {
+    margin: 0;
+    max-height: 100%;
+    font-family: 'Quicksand-SemiBold';
+}
+
+main {
+    max-width: 800px;
+    width: 80%;
+    margin: auto;
+}
+
+#date-picker{
+    margin-top: 2em;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    font-size: 2em;
+}
+
+
+#date-picker > *{
+    border: var(--border);
+}
+
+#date-selector{
+    margin-bottom: 1em;
+    display: flex;
+}
+
+#date-selector *{
+    border: none;
+}
+
+#date-selector input{
+    width: 100%;
+    text-align: justify;
+}
+
+button{
+    all: unset;
+    cursor: pointer;
+}
+
+#date-selector button img{
+    margin-left: auto;
+    max-width: 1em;
+    display: block;
+    border-left: var(--border);
+}
+
+#month-selector{
+    border-bottom: none;
+    padding: .3em 0;
+}
+
+#month-selector button{
+    padding: 0 1em;
+}
+
+#date-picker table{
+    border-top: none;
+}
+
+#date-picker table tbody th{
+    border: var(--border);
+}
+
+
+@media (max-width: 500px){
+    #date-picker{
+        font-size: 1em;
+    }
+}

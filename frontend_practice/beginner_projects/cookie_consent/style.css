@@ -1,0 +1,120 @@
+/* ========== Style from previous project 'Tabs' ========== */
+
+@font-face {
+  font-family: 'Quicksand-SemiBold';
+  src: url('../../common/font/static/Quicksand-SemiBold.ttf') format('truetype');
+  font-style: normal;
+}
+
+html,
+body {
+  max-height: 100%;
+  margin: 0;
+  font-family: 'Quicksand-SemiBold';
+}
+
+main {
+  width: 80%;
+  margin: 2vh auto;
+}
+
+#tabs-selector {
+  display: flex;
+  gap: 2em;
+  width: fit-content;
+  margin-bottom: 2em;
+}
+
+button.no-default-style {
+  all: unset;
+  cursor: pointer;
+}
+
+#tabs-selector button {
+  font-size: 1.2em;
+  margin: auto;
+  padding: .5em;
+  padding-left: 0;
+  border-bottom: 2px solid transparent;
+}
+
+#tabs-selector button.active {
+  border-bottom: 2px solid black;
+}
+
+#content-tab {
+  background-color: black;
+  color: white;
+  border-radius: 40px/80px;
+  padding: 3em;
+  text-align: center;
+}
+
+/* ========== Style for this project ========== */
+
+
+#cookie-consent , #reset-cookie {
+  background-color: black;
+  color: white;
+  padding: 1em;
+  border-radius: 20px;
+  max-width: 200px;
+  font-size: 1.2em;
+}
+
+#reset-cookie{
+  display: block;
+  text-align: center;
+  margin: 5em auto;
+}
+
+#reset-cookie:hover{
+  color: purple;
+}
+
+#reset-cookie:active{
+  box-shadow: 2px 2px gray;
+}
+
+#cookie-consent {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+}
+
+
+#cookie-consent img {
+  width: 4em;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+  margin-bottom: 2em;
+}
+
+#close-cookie-consent {
+  position: absolute;
+  font-size: 1.5em;
+  top: .5em;
+  right: 1em;
+}
+
+#accept-cookie-consent {
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 15px;
+  text-align: center;
+  padding: .5em 1em;
+}
+
+.visually-hidden{
+  display: none;
+}
+
+@media (max-width:400px) {
+  #tabs-selector {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,61 @@
+/* ========== Base ========== */
+
+@font-face {
+  font-family: 'Quicksand-SemiBold';
+  src: url('../../common/font/static/Quicksand-SemiBold.ttf') format('truetype');
+  font-style: normal;
+}
+
+html,
+body {
+  max-height: 100%;
+  margin: 0;
+  font-family: 'Quicksand-SemiBold';
+}
+
+main {
+  width: 80%;
+  margin: 2vh auto;
+}
+
+#tabs-selector {
+  display: flex;
+  gap: 2em;
+  width: fit-content;
+  margin-bottom: 2em;
+}
+
+#tabs-selector button {
+  all: unset;
+  font-size: 1.2em;
+  margin: auto;
+  padding: .5em;
+  padding-left: 0;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+#tabs-selector button.active {
+  border-bottom: 2px solid black;
+}
+
+#content-tab {
+  background-color: black;
+  color: white;
+  border-radius: 40px/80px;
+  padding: 2em;
+  text-align: center;
+}
+
+.visually-hidden {
+  display: none;
+}
+
+
+@media (max-width:400px) {
+  #tabs-selector {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

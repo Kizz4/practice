@@ -1,0 +1,115 @@
+/* ========== Base ========== */
+html,
+body {
+  max-height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* ========== Banner layout ========== */
+#banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  gap: 3em;
+}
+
+#menu {
+  justify-self: end;
+  width: max-content;
+}
+
+#profil img {
+  vertical-align: middle;
+  height: 2em;
+}
+
+/* ========== Links & Hover Effects ========== */
+a {
+  color: black;
+  text-decoration: none;
+  position: relative;
+  transition: color 500ms;
+}
+
+a:hover{
+    color: purple;
+}
+
+/* Common ::before and ::after styles */
+a::before,
+a::after {
+  opacity: 0;
+  white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  transform: translateX(0%);
+  pointer-events: none;
+  transition: transform 1s ease-in-out;
+}
+
+/* ▼ arrow below the tooltip */
+a::after {
+  content: "▼";
+  color: black;
+  font-size: 2em;
+  bottom: 50%;
+}
+
+/* Tooltip style */
+a::before {
+  font-size: 0.9em;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  padding: 1em;
+  bottom: 150%;
+}
+
+/* Show tooltip & arrow on hover */
+a:hover::before,
+a:hover::after {
+  opacity: 1;
+  transform: translateX(-50%);
+}
+
+a:hover::after {
+  transition: opacity 1.5s;
+}
+
+/* Alternate tooltip side for odd links */
+#menu a:nth-child(odd)::before {
+  left: auto;
+  right: 50%;
+}
+
+#menu a:nth-child(odd):hover::before {
+  transform: translateX(50%);
+}
+
+/* ========== Tooltip Content ========== */
+#home::before {
+  content: "There's the Home-Page";
+}
+
+#projects::before {
+  content: "Here is everything I have built";
+}
+
+#mentorship::before {
+  content: "It's about my educational background";
+}
+
+#contact::before {
+  content: "This is how to contact me";
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 500px) {
+  #menu {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}

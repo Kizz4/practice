@@ -1,0 +1,50 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0 2vw;
+}
+  
+main {
+    flex: 1;
+}
+
+div > :nth-child(){
+    margin: 500px;
+}
+
+#banner{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#banner nav{
+    justify-self: end;
+}
+
+#banner h1{
+    padding: 20px 0 20px 0;
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+#banner img {
+    vertical-align: middle;
+    height: 2em;
+}
+
+
+footer {
+    text-align: center;
+}
+
+.visually-hidden {
+    display: none;
+}
+  
+  

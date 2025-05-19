@@ -1,0 +1,28 @@
+section{
+    margin: 20px 0 20px 0;
+}
+
+#wrapper{
+    display: grid;
+    grid-template-columns: .5fr repeat(2, 1fr);
+}
+
+#wrapper > section {
+    border: 2px solid black;
+}
+
+#reviews-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#reviews-container h2{
+    grid-column: 1 / -1;
+}
+
+.review{
+    border: 1px solid black;
+    border-radius: 50px;
+    width: 25vw;
+    padding: 1em;
+}
