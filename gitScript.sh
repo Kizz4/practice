@@ -35,12 +35,19 @@ update_files(){
     exit 1
   fi
 
-  project_name=$1
+  local BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-  php update-readme.php "$project_name"
+  local PHP_SCRIPT="$BASE_DIR/php_scripts/updateFiles.php"
+
+  if [ ! -f "$PHP_SCRIPT" ]; then
+    echo "Error: PHP script not found at $PHP_SCRIPT"
+    return 1
+  fi
+
+  echo "Running $PHP_SCRIPT with project: $project_name"
+  php "$PHP_SCRIPT" "$project_name"
 
   git add -A
-
   git commit -m "Update of README's files for $project_name"
 }
 
