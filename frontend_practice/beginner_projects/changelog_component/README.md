@@ -24,11 +24,11 @@ It showcases a timeline-style table of project updates, with date and descriptio
 
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
-changelog_component
+```changelog_component
 	index.html
 	style.css
 	README.md
-
+```
 <!-- END PROJECT STRUCTURE -->
 
 ---

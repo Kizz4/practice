@@ -28,7 +28,7 @@ The objective of this project is to build an interactive flash card application 
 
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
-flash_cards
+```flash_cards
 	vite.config.ts
 	eslint.config.js
 	tsconfig.app.json
@@ -51,7 +51,7 @@ flash_cards
 			Cards.ts
 	tsconfig.json
 	tsconfig.node.json
-
+```
 <!-- END PROJECT STRUCTURE -->
 
 ---

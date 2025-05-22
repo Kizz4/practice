@@ -26,12 +26,12 @@ The objective of this project is to build an interactive accordion component usi
 
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
-accordion
+```accordion
 	index.html
 	script.js
 	style.css
 	README.md
-
+```
 <!-- END PROJECT STRUCTURE -->
 
 ---

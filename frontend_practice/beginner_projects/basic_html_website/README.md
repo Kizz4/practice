@@ -30,7 +30,7 @@ By completing this project, you'll gain a solid understanding of how to organize
 
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
-basic_html_website
+```basic_html_website
 	html
 		contact.html
 		index.html
@@ -43,7 +43,7 @@ basic_html_website
 		contact.css
 		projects.css
 	README.md
-
+```
 <!-- END PROJECT STRUCTURE -->
 
 ---

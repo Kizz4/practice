@@ -7,7 +7,7 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 
 ## 🔍 Repo Overview
 <!-- START REPO OVERVIEW -->
-| Sub-Repo Name | 🔗 Link to the GitHub Page | Status |
+```| Sub-Repo Name | 🔗 Link to the GitHub Page | Status |
 |---|
 | Quiz App | [Link](https://kizz4.github.io/)/home/gabdev/Documents/practice/frontend_practice/intermediate_projects/quiz_app | ⏳ Not Started |
 | Github Random Repository | [Link](https://kizz4.github.io/)/home/gabdev/Documents/practice/frontend_practice/intermediate_projects/github_random_repository | ⏳ Not Started |
@@ -17,5 +17,5 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 | Task Tracker | [Link](https://kizz4.github.io/)/home/gabdev/Documents/practice/frontend_practice/intermediate_projects/task_tracker | ⏳ Not Started |
 | Temperature Converter | [Link](https://kizz4.github.io/)/home/gabdev/Documents/practice/frontend_practice/intermediate_projects/temperature_converter | ⏳ Not Started |
 | Reddit Client | [Link](https://kizz4.github.io/)/home/gabdev/Documents/practice/frontend_practice/intermediate_projects/reddit_client | ⏳ Not Started |
-
+```
 <!-- END REPO OVERVIEW -->

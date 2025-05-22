@@ -23,14 +23,14 @@ The objective of this project is to create a cookie consent popup that notifies 
 
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
-cookie_consent
+```cookie_consent
 	img
 		icon-cookie.png
 	index.html
 	script.js
 	style.css
 	README.md
-
+```
 <!-- END PROJECT STRUCTURE -->
 
 ---

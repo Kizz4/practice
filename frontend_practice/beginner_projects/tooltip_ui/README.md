@@ -26,11 +26,11 @@ Tooltips are small pop-up boxes that provide additional information about an ele
 
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
-tooltip_ui
+```tooltip_ui
 	index.html
 	style.css
 	README.md
-
+```
 <!-- END PROJECT STRUCTURE -->
 
 ---

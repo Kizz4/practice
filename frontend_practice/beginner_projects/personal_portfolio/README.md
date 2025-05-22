@@ -25,7 +25,7 @@ You will take the structure from the previous HTML-only project and apply variou
 
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
-personal_portfolio
+```personal_portfolio
 	html
 		contact.html
 		index.html
@@ -40,7 +40,7 @@ personal_portfolio
 	README.md
 	images
 		icon_onglet.png
-
+```
 <!-- END PROJECT STRUCTURE -->
 
 ---

@@ -24,7 +24,7 @@ You will practice organizing multiple images in a grid layout that adapts to dif
 
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
-image_grid_layout
+```image_grid_layout
 	img
 		red-front-door.avif
 		white-room.avif
@@ -35,7 +35,7 @@ image_grid_layout
 	index.html
 	style.css
 	README.md
-
+```
 <!-- END PROJECT STRUCTURE -->
 
 ---
