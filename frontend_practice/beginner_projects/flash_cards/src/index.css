@@ -1,25 +1,3 @@
-@font-face {
-  font-family: 'Quicksand';
-  src: url('/fonts/Quicksand-Medium.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Quicksand';
-  src: url('/fonts/Quicksand-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Quicksand';
-  src: url('/fonts/Quicksand-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-
 html,
 body {
   max-height: 100%;

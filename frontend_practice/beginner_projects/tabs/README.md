@@ -25,13 +25,14 @@ Only one tab’s content should be visible at a time, and the first tab should b
 ---
 
 ## 📁 Project Structure
+<!-- START PROJECT STRUCTURE -->
+tabs
+	index.html
+	script.js
+	style.css
+	README.md
 
-```
-simple-tabs/
-├── index.html
-├── style.css
-├── script.js
-```
+<!-- END PROJECT STRUCTURE -->
 
 ---
 

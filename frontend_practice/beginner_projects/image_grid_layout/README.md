@@ -23,19 +23,20 @@ You will practice organizing multiple images in a grid layout that adapts to dif
 ---
 
 ## 📁 Project Structure
+<!-- START PROJECT STRUCTURE -->
+image_grid_layout
+	img
+		red-front-door.avif
+		white-room.avif
+		table-food.avif
+		beach.avif
+		white-appartment.avif
+		foggy-beach.avif
+	index.html
+	style.css
+	README.md
 
-```
-responsive-image-gallery/
-├── index.html
-├── style.css
-└── img/
-    ├── foggy-beach.avif
-    ├── table-food.avif
-    ├── white-appartment.avif
-    ├── white-room.avif
-    ├── red-front-door.avif
-    └── beach.avif
-```
+<!-- END PROJECT STRUCTURE -->
 
 ---
 

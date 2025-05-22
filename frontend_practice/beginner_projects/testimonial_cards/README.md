@@ -24,18 +24,17 @@ You are required to create a collection of testimonial cards—quotes or stateme
 ---
 
 ## 📁 Project Structure
+<!-- START PROJECT STRUCTURE -->
+testimonial_cards
+	img
+		profile_picture1.jpg
+		profile_picture2.jpg
+		profile_picture3.png
+	index.html
+	style.css
+	README.md
 
-```
-testimonial-cards/
-├── index.html
-├── style.css
-├── img/
-│   ├── icon_onglet.png
-│   ├── profil-picture1.jpg
-│   ├── profil-picture1.jpg
-│   └── profil-picture3.png
-└── font/
-```
+<!-- END PROJECT STRUCTURE -->
 
 ---
 

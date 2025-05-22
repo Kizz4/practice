@@ -27,33 +27,32 @@ The objective of this project is to build an interactive flash card application 
 ---
 
 ## 📁 Project Structure
+<!-- START PROJECT STRUCTURE -->
+flash_cards
+	vite.config.ts
+	eslint.config.js
+	tsconfig.app.json
+	package.json
+	index.html
+	package-lock.json
+	README.md
+	src
+		components
+			ProgressBar.css
+			FlashCard.css
+			ProgressBar.tsx
+			FlashCard.tsx
+		App.css
+		vite-env.d.ts
+		index.css
+		main.tsx
+		App.tsx
+		data
+			Cards.ts
+	tsconfig.json
+	tsconfig.node.json
 
-```
-flash_cards/
-├── .gitignore
-├── README.md
-├── eslint.config.js
-├── index.html
-├── package-lock.json
-├── package.json
-├── tsconfig.app.json
-├── tsconfig.json
-├── tsconfig.node.json
-├── vite.config.ts
-└── src/
-    ├── App.css
-    ├── App.tsx
-    ├── index.css
-    ├── main.tsx
-    ├── vite-env.d.ts
-    ├── data/
-    │   └── Cards.ts
-    └── components/
-        ├── FlashCard.css
-        ├── FlashCard.tsx
-        ├── ProgressBar.css
-        └── ProgressBar.tsx
-```
+<!-- END PROJECT STRUCTURE -->
 
 ---
 

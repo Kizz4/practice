@@ -5,9 +5,18 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 
 ---
 
-## ✅ Project Progress Overview
+## 🔍 Repo Overview
+<!-- START REPO OVERVIEW -->
+| Sub-Repo Name | 🔗 Link to the GitHub Page | Status |
+|---|
+| Advanced Projects | [Link](https://kizz4.github.io/)/home/gabdev/Documents/practice/frontend_practice/advanced_projects | ⏳ Not Started |
+| Beginner Projects | [Link](https://kizz4.github.io/)/home/gabdev/Documents/practice/frontend_practice/beginner_projects | ⏳ Not Started |
+| Intermediate Projects | [Link](https://kizz4.github.io/)/home/gabdev/Documents/practice/frontend_practice/intermediate_projects | ⏳ Not Started |
 
-| Level        | Project Name                  | Status            | 🔗 Link                                                   |
+<!-- END REPO OVERVIEW -->
+
+
+| Level        | Project Name                  | Status            | 🔗 RoadMap Project Link                                   |
 |--------------|-------------------------------|-------------------|-----------------------------------------------------------|
 | Beginner     | Single-Page CV                | ✅ Done           | [Link](https://roadmap.sh/projects/single-page-cv)        |
 | Beginner     | Basic HTML Website            | ✅ Done           | [Link](https://roadmap.sh/projects/basic-html-website)    |
@@ -33,43 +42,4 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 | Intermediate | GitHub Random Repository      | ⏳ Not started    | [Link](https://roadmap.sh/projects/github-random-repo)    |
 | Intermediate | Pomodoro Timer                | ⏳ Not started    | [Link](https://roadmap.sh/projects/pomodoro-timer)        |
 | Advanced     | 24hr Story Feature            | ⏳ Not started    | [Link](https://roadmap.sh/projects/stories-feature)       |
-
-
 ---
-
-## 🔧 Project structure
-
-Each project is contained in its level category and its own folder inside the repository:
-
-
-```
-/beginner_projects/
-├── single_page_cv/
-├── basic_html_website/
-├── personal_portfolio/
-├── changelog_component/
-├── testimonial_cards/
-├── datepicker_ui/
-├── accessible_form_ui/
-├── image_grid_layout/
-├── tooltip_ui/
-├── tabs/
-├── cookie_consent/
-├── restricted_textarea/
-├── accordion/
-├── age_calculator/
-├── flash_cards/
-
-/intermediate_projects/
-├── custom_dropdown/
-├── task_tracker/
-├── reddit_client/
-├── temperature_converter/
-├── quiz_app/
-├── weather_web_app/
-├── github_random_repository/
-├── pomodoro_timer/
-
-/advanced_projects/
-├── 24hr_story_feature/
-```

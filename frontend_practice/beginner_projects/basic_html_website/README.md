@@ -29,20 +29,22 @@ By completing this project, you'll gain a solid understanding of how to organize
 ---
 
 ## 📁 Project Structure
+<!-- START PROJECT STRUCTURE -->
+basic_html_website
+	html
+		contact.html
+		index.html
+		projects.html
+		about_mentorship.html
+	style
+		home.css
+		about_mentorship.css
+		common.css
+		contact.css
+		projects.css
+	README.md
 
-```
-basic-html-website/
-├── index.html
-├── projects.html
-├── articles.html
-├── contact.html
-├── images/
-│   └── icon_onglet.png
-├── favicon.ico
-└── style/
-    ├── common.css
-    └── page-specific.css (optional)
-```
+<!-- END PROJECT STRUCTURE -->
 
 ---
 

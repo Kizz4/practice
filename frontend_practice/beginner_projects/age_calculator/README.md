@@ -31,20 +31,21 @@ The goal of this project is to create an accessible and responsive application t
 
 
 ## 📁 Project Structure
+<!-- START PROJECT STRUCTURE -->
+age_calculator
+	package.json
+	webpack.config.js
+	package-lock.json
+	README.md
+	src
+		img
+			icon_calendar.jpg
+		index.html
+		style.css
+		script.ts
+	tsconfig.json
 
-```
-age_calculator/
-├── src/
-│   ├── index.html
-│   ├── style.css
-│   ├── script.ts
-│   └── img/
-│       └── icon_calendar.jpg
-├── package.json
-├── tsconfig.json
-├── webpack.config.js
-└── README.md
-```
+<!-- END PROJECT STRUCTURE -->
 
 ---
 

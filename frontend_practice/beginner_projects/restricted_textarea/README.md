@@ -24,15 +24,14 @@ The purpose of this project is to build a restricted textarea component that lim
 ---
 
 ## 📁 Project Structure
+<!-- START PROJECT STRUCTURE -->
+restricted_textarea
+	index.html
+	script.js
+	style.css
+	README.md
 
-```
-restricted-textarea/
-├── index.html
-├── style.css
-├── script.js
-└── assets/
-    └── icon_onglet.png
-```
+<!-- END PROJECT STRUCTURE -->
 
 ---
 

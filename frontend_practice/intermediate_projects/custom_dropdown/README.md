@@ -23,23 +23,21 @@ This project implements a fully accessible, keyboard-navigable custom dropdown m
 ---
 
 ## 📁 Project Structure
+<!-- START PROJECT STRUCTURE -->
+custom_dropdown
+	package.json
+	index.html
+	package-lock.json
+	README.md
+	src
+		icon_check.png
+		custom_dropdown.ts
+		main.ts
+		vite-env.d.ts
+		style.css
+	tsconfig.json
 
-```
-custom_dropdown/
-├── .gitignore
-├── README.md
-├── index.html
-├── package-lock.json
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-└── src/
-    ├── custom_dropdown.ts   # Core dropdown logic & ARIA handling
-    ├── main.ts              # App initialization and HTML injection
-    ├── style.css            # Styling and transitions
-    ├── icon_check.png       # Checkmark icon for selected option
-    └── vite-env.d.ts
-```
+<!-- END PROJECT STRUCTURE -->
 
 ---
 

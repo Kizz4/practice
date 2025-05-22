@@ -1,16 +1,10 @@
 /* ========== Style from previous project 'Tabs' ========== */
-
-@font-face {
-  font-family: 'Quicksand-SemiBold';
-  src: url('../../common/font/static/Quicksand-SemiBold.ttf') format('truetype');
-  font-style: normal;
-}
-
 html,
 body {
   max-height: 100%;
   margin: 0;
-  font-family: 'Quicksand-SemiBold';
+  font-family: 'Quicksand';
+  font-weight: 600;
 }
 
 main {

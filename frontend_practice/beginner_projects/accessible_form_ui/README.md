@@ -25,20 +25,17 @@ While this version of the form won’t be functional, it will be a static UI com
 ---
 
 ## 📁 Project Structure
+<!-- START PROJECT STRUCTURE -->
+accessible_form_ui
+	img
+		icon_hidden-password.svg
+		icon_calendar.jpg
+		icon_visible-password.png
+	index.html
+	style.css
+	README.md
 
-```
-accessible-form-ui/
-├── index.html
-├── style.css
-├── img/
-│   ├── icon_onglet.png
-│   ├── icon_visible-password.png
-│   └── icon_hidden-password.svg
-└── font/
-    └── static/
-        └── Quicksand-SemiBold.ttf
-```
-
+<!-- END PROJECT STRUCTURE -->
 ---
 
 ## 🔍 Preview

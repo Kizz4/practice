@@ -20,12 +20,12 @@ The structure of your CV is easily understandable and ready for styling in a fut
 ---
 
 ## Project Structure
+<!-- START PROJECT STRUCTURE -->
+single_page_CV
+	index.html
+	README.md
 
-```
-single-page-cv/
-├── index.html
-└── icon_onglet.png
-```
+<!-- END PROJECT STRUCTURE -->
 
 ---
 

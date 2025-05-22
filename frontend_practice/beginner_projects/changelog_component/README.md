@@ -23,13 +23,13 @@ It showcases a timeline-style table of project updates, with date and descriptio
 ---
 
 ## 📁 Project Structure
+<!-- START PROJECT STRUCTURE -->
+changelog_component
+	index.html
+	style.css
+	README.md
 
-```
-changelog-component/
-├── index.html
-├── style.css
-├── icon_onglet.png
-```
+<!-- END PROJECT STRUCTURE -->
 
 ---
 
