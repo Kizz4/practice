@@ -35,6 +35,8 @@ update_files(){
     exit 1
   fi
 
+  local project_name="$1"
+
   local BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
   local PHP_SCRIPT="$BASE_DIR/php_scripts/updateFiles.php"

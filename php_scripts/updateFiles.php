@@ -1,4 +1,3 @@
-
 <?php 
 if ($argc < 2) {
     echo "No project name given.\n";

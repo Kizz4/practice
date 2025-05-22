@@ -27,9 +27,9 @@ class FileInjector {
 
             if(file_get_contents($path) !== $newContent){
                 file_put_contents($path, $newContent);
-                echo "<pre>Files Path: $path\nNew Content : $newContent</pre>";
+                echo "Files Path: $path\nNew Content : $newContent";
 
-            }else echo "<pre>Files Path: $path\nNew Content : Any update perform</pre>";
+            }else echo "Files Path: $path\nNew Content : Any update perform";
             
         }
     }
