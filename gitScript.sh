@@ -80,9 +80,9 @@ set_project_status() {
     --title="Status Selection" \
     --width=$WIN_WIDTH --height=$WIN_HEIGHT \
     --column="Selected" --column="Status" --column="Description" \
-    TRUE  "✅ Done"         "The project is complete" \
-    FALSE "▶️ On Going"     "The project is still in progress" \
-    FALSE "⏳ Not Started"  "The project hasn't started yet" \
+    TRUE  "Done ✅"         "The project is complete" \
+    FALSE "On Going ▶️"     "The project is still in progress" \
+    FALSE "Not Started ⏳"  "The project hasn't started yet" \
     FALSE "Cancel"          "Cancel this action")
   show_exit_message "$status"
 
@@ -91,6 +91,12 @@ set_project_status() {
   fi
 
   git add -A
+  commitMsg=""
+  
+  for dir in "${dirArray[@]}"; do
+    base=$(basename "$dir")
+    commitMsg+="Project/Repo: $dir is $status"$'\n\n'
+  done
   git commit -m "Status '$status' set for:" -m "$selected"
   update_files $(basename "$PWD")
   git push

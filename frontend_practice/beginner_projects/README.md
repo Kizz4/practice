@@ -7,8 +7,8 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 
 ## 🔍 Repo Overview
 <!-- START REPO OVERVIEW -->
-```| Sub-Repo Name | 🔗 Link to the GitHub Page | Status |
-|---|
+| Sub-Repo Name | 🔗 Link to the GitHub Page | Status |
+|---|---|---|
 | Cookie Consent | [Link](https://kizz4.github.io/)/home/gabdev/Documents/practice/frontend_practice/beginner_projects/cookie_consent | ⏳ Not Started |
 | Single Page CV | [Link](https://kizz4.github.io/)/home/gabdev/Documents/practice/frontend_practice/beginner_projects/single_page_CV | ⏳ Not Started |
 | Basic Html Website | [Link](https://kizz4.github.io/)/home/gabdev/Documents/practice/frontend_practice/beginner_projects/basic_html_website | ⏳ Not Started |
@@ -24,5 +24,5 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 | Flash Cards | [Link](https://kizz4.github.io/)/home/gabdev/Documents/practice/frontend_practice/beginner_projects/flash_cards | ⏳ Not Started |
 | Image Grid Layout | [Link](https://kizz4.github.io/)/home/gabdev/Documents/practice/frontend_practice/beginner_projects/image_grid_layout | ⏳ Not Started |
 | Changelog Component | [Link](https://kizz4.github.io/)/home/gabdev/Documents/practice/frontend_practice/beginner_projects/changelog_component | ⏳ Not Started |
-```
+
 <!-- END REPO OVERVIEW -->

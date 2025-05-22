@@ -17,7 +17,7 @@ function arrayToTableString(array $columnsName, array $rows): string{
 
         foreach($columnsName as $name){
             $head .= "| $name ";
-            $headSeparator = "|---";
+            $headSeparator .= "|---";
         }
 
         $head .= "|\n";

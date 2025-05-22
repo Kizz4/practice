@@ -64,12 +64,13 @@ class DynamicContentModifier{
     private function findStatus(string $name): string {
         
         foreach (Status::cases() as $status) {
-            $pattern = $name . "[[:space:]]*(is|:)[[:space:]]*" . $status->value;
+            $pattern = ".*" . $name . "[[:space:]]*(is|:)[[:space:]]*" . $status->value;
             $command = "cd " . escapeshellarg($this->rootPath)
                     . " && git log --extended-regexp --regexp-ignore-case"
                     . " --grep=" . escapeshellarg($pattern)
                     . " --oneline";
 
+            echo "output : $output\n\n";
             $output = shell_exec($command);
             if(!empty($output)) return $status->value;
         }
@@ -125,7 +126,7 @@ class DynamicContentModifier{
         $treeBuilder = new FileTreeBuilder();
         $treeBuilder->makeTree($dirName, $treeIt);
 
-        $content = $treeBuilder->toString();
+        $content = "```" . $treeBuilder->toString() . "```";
         $tags = ["<!-- START PROJECT STRUCTURE -->", "<!-- END PROJECT STRUCTURE -->"];
 
 
@@ -136,7 +137,7 @@ class DynamicContentModifier{
     public function updateAllContent(string $rootRepoPath, 
         bool $updateRepoOverview=true, 
         bool $updateProjectStructure=true,
-        bool $updateHtml=true): void
+        bool $updateHtml=false): void
         {
 
         if($updateHtml) self::updateCommonHTMLTags();
