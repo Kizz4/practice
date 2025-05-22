@@ -18,7 +18,7 @@ class FileInjector {
                 $end = $tags[$i+1];
 
                 $pattern = '/' . $start . '(.*?)' . $end . '/s';
-                $element = "$start\n" . $contentsToInject[$i/2] . "\n$end";
+                $element = "$start\n```" . $contentsToInject[$i/2] . "```\n$end";
 
                 if (preg_match($pattern, $newContent)) {
                     $newContent = preg_replace($pattern, $element, $newContent);
@@ -27,9 +27,9 @@ class FileInjector {
 
             if(file_get_contents($path) !== $newContent){
                 file_put_contents($path, $newContent);
-                echo "Files Path: $path\nNew Content : $newContent";
+                echo "Files Path: $path\nNew Content : $newContent\n\n";
 
-            }else echo "Files Path: $path\nNew Content : Any update perform";
+            }else echo "Files Path: $path\nNew Content : Any update perform\n\n";
             
         }
     }
