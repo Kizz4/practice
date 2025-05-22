@@ -16,6 +16,7 @@ include("DynamicContentModifier.php");
 
 $rootName = $argv[1];
 $rootPath = stristr(__DIR__, $rootName, true) . $rootName;
+$dynamicContentModifier = new DynamicContentModifier($rootPath);
 $dynamicContentModifier->updateAllContent($rootPath);
 ?>
 
