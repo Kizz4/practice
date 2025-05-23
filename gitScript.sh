@@ -64,7 +64,20 @@ set_project_status() {
       --filename="$~/(pwd)/" \
       --title="Select Project(s) or Repo(s) to assign a status" \
       --width=$WIN_WIDTH --height=$WIN_HEIGHT)
-    show_exit_message "$paths"
+
+    show_exit_message "$paths$allSelected"
+    if [[ -n "$allSelected" && -z "$paths" ]]; then
+      zenity --question \
+        --title="Do you want commit to be proceed ?" \
+        --text=" " \
+        --width=$WIN_WIDTH
+      
+      if [ $? -ne 0 ]; then
+        show_exit_message ""
+      else 
+        break
+      fi
+    fi
 
     IFS=":" read -ra dirArray <<< "$paths"
     selected=""
@@ -101,15 +114,15 @@ set_project_status() {
       allSelected+="$finalPath"$'\n'
     done
 
-    zenity --question --text="Do you want to add more projects?" --width=$WIN_WIDTH
-    [ $? -ne 0 ] && break
+    zenity --question --text="Have you done?" --width=$WIN_WIDTH
+    [ $? -eq 0 ] && break
   done
 
   if [ -z $allSelected ]; then
     zenity --question \
       --title="Are you sure to quit without commiting?" \
       --text=" " \
-      --width=100 --height=50
+      --width=$WIN_WIDTH
 
     if [ $? -eq 0 ]; then
       show_exit_message ""
