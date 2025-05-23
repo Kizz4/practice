@@ -1,8 +1,3 @@
----
-layout: default
----
-
-
 # Frontend Practice Projects : **<u>Beginner</u>** Part
 
 This repository gathers all **<u>beginner</u>** frontend practice projects inspired by the [roadmap.sh frontend project list](https://roadmap.sh/frontend/projects).  
