@@ -6,7 +6,7 @@ class FactoryRecursiveItIt{
     private array $targetFiles;
     private int $maxDepth;
 
-    public function __construct(string $path, array $dirFilesToExclude = [], array $dirToInclude = [], array $targetFiles = [], int $maxDepth = -1){
+    public function __construct(string $path="", array $dirFilesToExclude = [], array $dirToInclude = [], array $targetFiles = [], int $maxDepth = -1){
         $this->path = $path;
         $this->dirFilesToExclude = $dirFilesToExclude;
         $this->dirToInclude = $dirToInclude;
@@ -43,6 +43,8 @@ class FactoryRecursiveItIt{
 
     
     private function createIterator(int $flagsRecursiveItIt, int $flagsDirIt): RecursiveIteratorIterator{
+        if(empty($this->path)) throw new InvalidArgumentException("The path must be initialize before create an iterator");
+        
         $dirIterator = new \RecursiveDirectoryIterator($this->path, $flagsDirIt);
         $filterIterator = new CustomRecursiveFilterIterator($dirIterator, 
             dirFilesToExclude:$this->dirFilesToExclude, 
