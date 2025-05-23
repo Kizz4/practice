@@ -21,9 +21,11 @@ The structure of your CV is easily understandable and ready for styling in a fut
 
 ## Project Structure
 <!-- START PROJECT STRUCTURE -->
-```single_page_CV
+```
+single_page_CV
 	index.html
 	README.md
+
 ```
 <!-- END PROJECT STRUCTURE -->
 

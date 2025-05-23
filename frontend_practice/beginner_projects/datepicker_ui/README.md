@@ -24,12 +24,14 @@ It is a static component that can later be enhanced with JavaScript for interact
 
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
-```datepicker_ui
+```
+datepicker_ui
 	img
 		icon_calendar.jpg
 	index.html
 	style.css
 	README.md
+
 ```
 <!-- END PROJECT STRUCTURE -->
 

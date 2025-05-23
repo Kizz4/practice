@@ -19,7 +19,6 @@ class FileInjector {
 
                 $pattern = '/' . $start . '(.*?)' . $end . '/s';
                 $element = "$start\n" . $contentsToInject[$i/2] . "\n$end";
-
                 if (preg_match($pattern, $newContent)) {
                     $newContent = preg_replace($pattern, $element, $newContent);
                 }

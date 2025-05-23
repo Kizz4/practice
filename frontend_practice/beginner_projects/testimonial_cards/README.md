@@ -25,7 +25,8 @@ You are required to create a collection of testimonial cards—quotes or stateme
 
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
-```testimonial_cards
+```
+testimonial_cards
 	img
 		profile_picture1.jpg
 		profile_picture2.jpg
@@ -33,6 +34,7 @@ You are required to create a collection of testimonial cards—quotes or stateme
 	index.html
 	style.css
 	README.md
+
 ```
 <!-- END PROJECT STRUCTURE -->
 

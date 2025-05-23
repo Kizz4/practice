@@ -54,55 +54,97 @@ update_files(){
 }
 
 set_project_status() {
-  paths=$(zenity --file-selection --directory --multiple \
-    --separator=":" \
-    --filename="~/$(pwd)/" \
-    --title="Select Project(s) or Repo(s)" \
-    --width=$WIN_WIDTH --height=$WIN_HEIGHT)
-  show_exit_message "$paths"
+  declare -A project_status_map 
+  allSelected=""
+  repoName="$(basename "$PWD")"
 
-  IFS=":" read -ra dirArray <<< "$paths"
-  selected=""
-  for dir in "${dirArray[@]}"; do
-    selected+="Project/Repo: $dir"$'\n\n'
+  while true; do
+    paths=$(zenity --file-selection --directory --multiple \
+      --separator=":" \
+      --filename="$~/(pwd)/" \
+      --title="Select Project(s) or Repo(s) to assign a status" \
+      --width=$WIN_WIDTH --height=$WIN_HEIGHT)
+
+    show_exit_message "$paths$allSelected"
+    if [[ -n "$allSelected" && -z "$paths" ]]; then
+      zenity --question \
+        --title="Do you want commit to be proceed ?" \
+        --text=" " \
+        --width=$WIN_WIDTH
+      
+      if [ $? -ne 0 ]; then
+        show_exit_message ""
+      else 
+        break
+      fi
+    fi
+
+    IFS=":" read -ra dirArray <<< "$paths"
+    selected=""
+    for dir in "${dirArray[@]}"; do
+      selected+="$dir"$'\n'
+    done
+
+    zenity --question \
+      --title="Confirm Selection?" \
+      --text="You selected:\n\n$selected\n\n" \
+      --width=$WIN_WIDTH --height=$WIN_HEIGHT
+    if [ $? -ne 0 ]; then
+      continue
+    fi
+
+    status=$(zenity --list \
+      --radiolist \
+      --title="Status Selection" \
+      --width=$WIN_WIDTH --height=$WIN_HEIGHT \
+      --column="Selected" --column="Status" --column="Description" \
+      TRUE  "Done ✅"         "The project is complete" \
+      FALSE "On Going ▶️"     "The project is still in progress" \
+      FALSE "Not Started ⏳"  "The project hasn't started yet" \
+      FALSE "Cancel"          "Cancel this action")
+
+    if [[ "$status" = "Cancel" || -z "$status" ]]; then
+      break
+    fi
+
+    for dir in "${dirArray[@]}"; do
+      relativePath="${dir#$PWD/}" 
+      finalPath="$repoName/$relativePath" 
+      project_status_map["$finalPath"]="$status"
+      allSelected+="$finalPath"$'\n'
+    done
+
+    zenity --question --text="Have you done?" --width=$WIN_WIDTH
+    [ $? -eq 0 ] && break
   done
 
-  zenity --question \
-    --title="Confirm Selection?" \
-    --text="You selected:\n\n$selected\n\n" \
-    --width=$WIN_WIDTH --height=$WIN_HEIGHT
-  if [ $? -ne 0 ]; then
-    show_exit_message ""
+  if [ -z $allSelected ]; then
+    zenity --question \
+      --title="Are you sure to quit without commiting?" \
+      --text=" " \
+      --width=$WIN_WIDTH
+
+    if [ $? -eq 0 ]; then
+      show_exit_message ""
+    else 
+      set_project_status
+    fi
   fi
-
-  status=$(zenity --list \
-    --radiolist \
-    --title="Status Selection" \
-    --width=$WIN_WIDTH --height=$WIN_HEIGHT \
-    --column="Selected" --column="Status" --column="Description" \
-    TRUE  "Done ✅"         "The project is complete" \
-    FALSE "On Going ▶️"     "The project is still in progress" \
-    FALSE "Not Started ⏳"  "The project hasn't started yet" \
-    FALSE "Cancel"          "Cancel this action")
-  show_exit_message "$status"
-
-  if [ "$status" = "Cancel" ]; then
-    show_exit_message ""
-  fi
-
+ 
   git add -A
+
   commitMsg=""
-  
-  for dir in "${dirArray[@]}"; do
-    base=$(basename "$dir")
-    commitMsg+="Project/Repo: $dir is $status"$'\n\n'
+  for project in "${!project_status_map[@]}"; do
+    commitMsg+="- $project is ${project_status_map[$project]}"$'\n'
   done
-  git commit -m "Status '$status' set for:" -m "$selected"
-  update_files $(basename "$PWD")
+
+  git commit -m "Updating status for:" -m "$commitMsg"
+  update_files $repoName
   git push
 
-  zenity --info --text="Status '$status' set for:\n\n$selected" --width=$WIN_WIDTH
+  zenity --info --text="Statuses applied to:\n\n$commitMsg" --width=$WIN_WIDTH
 }
+
 
 make_simple_commit() {
   msg=$(zenity --entry --title="Commit Message" --text="Enter your commit message:" --width=$WIN_WIDTH)
@@ -114,14 +156,8 @@ make_simple_commit() {
     git push
     zenity --info --text="Commit created with message:\n\n$msg" --width=$WIN_WIDTH
   else
-    zenity --warning --text="Empty commit message. Nothing was done." --width=$WIN_WIDTH
+    zenity --warning --text="Empty commit message. Nothing was done." --width=$WIN_WIDTH --timeout
   fi
-}
-
-
-show_error() {
-  zenity --error --text="No valid option selected." --width=$WIN_WIDTH
-  exit 1
 }
 
 # ========== Main Script ==========
@@ -135,10 +171,7 @@ case "$choice" in
   "Make a simple commit")
     make_simple_commit
     ;;
-  "Quit")
+  "Quit"*)
     show_exit_message ""
-    ;;
-  *)
-    show_error
     ;;
 esac

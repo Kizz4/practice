@@ -26,7 +26,8 @@ While this version of the form won’t be functional, it will be a static UI com
 
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
-```accessible_form_ui
+```
+accessible_form_ui
 	img
 		icon_hidden-password.svg
 		icon_calendar.jpg
@@ -34,6 +35,7 @@ While this version of the form won’t be functional, it will be a static UI com
 	index.html
 	style.css
 	README.md
+
 ```
 <!-- END PROJECT STRUCTURE -->
 ---

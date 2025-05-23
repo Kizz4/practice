@@ -9,10 +9,12 @@ class DynamicContentModifier{
     const ROOT_URL_GITHUB_PAGES = "https://kizz4.github.io/";
     const STATUS_LABEL = ['done' => '✅ Done', 'on going' => '▶️ In Progress', 'not started' => '⏳ Not Started'];
     private string $rootPath;
+    private string $rootName;
     private FactoryRecursiveItIt $factoryIterator;
 
-    public function __construct(string $rootPath){
+    public function __construct(string $rootPath, string $rootName){
         $this->rootPath = $rootPath;
+        $this->rootName = $rootName;
         $this->factoryIterator = new FactoryRecursiveItIt($rootPath);
     }
 
@@ -65,12 +67,10 @@ class DynamicContentModifier{
         
         foreach (Status::cases() as $status) {
             $pattern = ".*" . $name . "[[:space:]]*(is|:)[[:space:]]*" . $status->value;
-            $command = "cd " . escapeshellarg($this->rootPath)
-                    . " && git log --extended-regexp --regexp-ignore-case"
-                    . " --grep=" . escapeshellarg($pattern)
-                    . " --oneline";
+            $command =  "cd " . escapeshellarg($this->rootPath)
+                        . " && git log --pretty=format:%B --extended-regexp --regexp-ignore-case"
+                        . " --grep=" . escapeshellarg($pattern);
 
-            echo "output : $output\n\n";
             $output = shell_exec($command);
             if(!empty($output)) return $status->value;
         }
@@ -78,11 +78,11 @@ class DynamicContentModifier{
         return "not started";
     }
 
-    private function getReadMeIterator(string $dirPath, array $dirToExclude=[".*", "node_modules"], $maxDepth=0){  
+    private function getReadMeIterator(?string $dirPath=null, array $dirToExclude=[".*", "node_modules"], $maxDepth=0){  
         $this->factoryIterator->setFilters(dirFilesToExclude:$dirToExclude, 
                                             targetFiles:["README.md"],
                                             maxDepth: $maxDepth);
-        $this->factoryIterator->setPath($dirPath);
+        if(isset($dirPath)) $this->factoryIterator->setPath($dirPath);
 
         return $this->factoryIterator->getIterator();
     }
@@ -96,9 +96,10 @@ class DynamicContentModifier{
         $rows = [];
         foreach($dirNames as $subRepoName){
             $betterSubRepoName = ucwords(str_replace("_", " ", $subRepoName));
+            $relativePath = stristr($dirPath, $this->rootName) . "/" . $subRepoName;
             $status = self::STATUS_LABEL[self::findStatus($subRepoName)];
-            
-            $row = [$betterSubRepoName, "[Link](".self::ROOT_URL_GITHUB_PAGES.")$dirPath/$subRepoName", $status];
+
+            $row = [$betterSubRepoName, "[Link](".self::ROOT_URL_GITHUB_PAGES . $relativePath. ")", $status];
             array_push($rows, $row);
         }
         $content = arrayToTableString($columnsName, $rows);
@@ -122,19 +123,17 @@ class DynamicContentModifier{
                                         maxDepth:-1);
 
         $treeIt = $this->factoryIterator->getIterator();
-        
         $treeBuilder = new FileTreeBuilder();
         $treeBuilder->makeTree($dirName, $treeIt);
 
-        $content = "```" . $treeBuilder->toString() . "```";
+        $content = "```\n" . $treeBuilder->toString() . "\n```";
         $tags = ["<!-- START PROJECT STRUCTURE -->", "<!-- END PROJECT STRUCTURE -->"];
-
 
         FileInjector::inject([$content], $tags, $it);
     }
 
 
-    public function updateAllContent(string $rootRepoPath, 
+    public function updateAllContent(
         bool $updateRepoOverview=true, 
         bool $updateProjectStructure=true,
         bool $updateHtml=false): void
@@ -144,11 +143,12 @@ class DynamicContentModifier{
 
         if(!($updateRepoOverview || $updateProjectStructure)) return;
 
-        $it = self::getReadMeIterator($rootRepoPath, maxDepth:-1);
+        $it = self::getReadMeIterator(maxDepth:-1);
         foreach($it as $readMeFile){
             $pathFile = $readMeFile->getPathname();
             $filePart = strrpos($pathFile, "/");   
             $dirPath = substr($pathFile, 0, $filePart);
+
 
             if($updateRepoOverview) self::updateOneRepoOverviewContent_ReadMe($dirPath);
             if($updateProjectStructure) self::updateOneProjectStructureContentReadMe($dirPath);

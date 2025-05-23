@@ -25,11 +25,13 @@ The purpose of this project is to build a restricted textarea component that lim
 
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
-```restricted_textarea
+```
+restricted_textarea
 	index.html
 	script.js
 	style.css
 	README.md
+
 ```
 <!-- END PROJECT STRUCTURE -->
 
