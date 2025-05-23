@@ -123,13 +123,11 @@ class DynamicContentModifier{
                                         maxDepth:-1);
 
         $treeIt = $this->factoryIterator->getIterator();
-        
         $treeBuilder = new FileTreeBuilder();
         $treeBuilder->makeTree($dirName, $treeIt);
 
-        $content = "```" . $treeBuilder->toString() . "```";
+        $content = "```\n" . $treeBuilder->toString() . "\n```";
         $tags = ["<!-- START PROJECT STRUCTURE -->", "<!-- END PROJECT STRUCTURE -->"];
-
 
         FileInjector::inject([$content], $tags, $it);
     }

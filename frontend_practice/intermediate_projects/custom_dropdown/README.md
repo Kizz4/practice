@@ -24,7 +24,8 @@ This project implements a fully accessible, keyboard-navigable custom dropdown m
 
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
-```custom_dropdown
+```
+custom_dropdown
 	package.json
 	index.html
 	package-lock.json
@@ -36,6 +37,7 @@ This project implements a fully accessible, keyboard-navigable custom dropdown m
 		vite-env.d.ts
 		style.css
 	tsconfig.json
+
 ```
 <!-- END PROJECT STRUCTURE -->
 

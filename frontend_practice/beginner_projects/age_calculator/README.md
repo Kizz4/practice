@@ -32,7 +32,8 @@ The goal of this project is to create an accessible and responsive application t
 
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
-```age_calculator
+```
+age_calculator
 	package.json
 	webpack.config.js
 	package-lock.json
@@ -44,6 +45,7 @@ The goal of this project is to create an accessible and responsive application t
 		style.css
 		script.ts
 	tsconfig.json
+
 ```
 <!-- END PROJECT STRUCTURE -->
 
