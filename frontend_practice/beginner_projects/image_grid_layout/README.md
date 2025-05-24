@@ -36,6 +36,7 @@ image_grid_layout
 	index.html
 	style.css
 	README.md
+	index.md
 
 ```
 <!-- END PROJECT STRUCTURE -->

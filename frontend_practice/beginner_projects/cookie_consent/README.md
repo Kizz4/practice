@@ -31,6 +31,7 @@ cookie_consent
 	script.js
 	style.css
 	README.md
+	index.md
 
 ```
 <!-- END PROJECT STRUCTURE -->

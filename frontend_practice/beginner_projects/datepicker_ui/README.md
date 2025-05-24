@@ -31,6 +31,7 @@ datepicker_ui
 	index.html
 	style.css
 	README.md
+	index.md
 
 ```
 <!-- END PROJECT STRUCTURE -->

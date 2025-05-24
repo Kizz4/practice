@@ -10,9 +10,9 @@ A **GitHub Pages site** is available to **navigate visually through the projects
 ## 🔍 Repo Overview
 
 <!-- START REPO OVERVIEW -->
-| Sub-Repo Name | 🔗 Link to the GitHub Page | Status |
-|---|---|---|
-| Frontend Practice | [Link](https://kizz4.github.io/practice/frontend_practice) | ▶️ In Progress |
+| Sub-Repo Name | Status | 🔗 Link to the GitHub | 🔗 Link to the GitHub Page |
+|---|---|---|---|
+| Frontend Practice | ▶️ In Progress | [View it on GitHub](https://github.com/Kizz4/practice/practice/frontend_practice) | [View it on GitHub Pages](https://kizz4.github.io/practice/frontend_practice) |
 
 <!-- END REPO OVERVIEW -->
 ---

@@ -50,6 +50,7 @@ flash_cards
 		App.tsx
 		data
 			Cards.ts
+	index.md
 	tsconfig.json
 	tsconfig.node.json
 

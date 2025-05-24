@@ -44,6 +44,7 @@ basic_html_website
 		contact.css
 		projects.css
 	README.md
+	index.md
 
 ```
 <!-- END PROJECT STRUCTURE -->

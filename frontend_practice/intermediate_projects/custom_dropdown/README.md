@@ -36,6 +36,7 @@ custom_dropdown
 		main.ts
 		vite-env.d.ts
 		style.css
+	index.md
 	tsconfig.json
 
 ```

@@ -1,1 +1,3 @@
-markdown: kramdown
+title: My Practice Projects
+description: This website gather all my practice projects.
+theme: jekyll-theme-midnight

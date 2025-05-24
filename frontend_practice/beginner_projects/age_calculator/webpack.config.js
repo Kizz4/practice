@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/script.ts',
@@ -19,17 +18,9 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './index.html'
         }),
 
-        new CopyWebpackPlugin({
-            patterns: [
-                {
-                    from: path.resolve(__dirname, '../../common/img/icon_onglet.png'),
-                    to: 'icon_onglet.png'
-                }
-            ]
-        })
     ],
     resolve: {
         extensions: ['.ts', '.js'],
@@ -46,7 +37,7 @@ module.exports = {
         },
         open: true,
         liveReload: true,
-        watchFiles: ['src/**/*']
+        watchFiles: ['src/**/*', "index.html"]
     },
     mode: 'development'
 };

@@ -14,7 +14,6 @@
   "devDependencies": {
     "@types/flatpickr": "^3.0.2",
     "@types/luxon": "^3.6.2",
-    "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
     "style-loader": "^4.0.0",

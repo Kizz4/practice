@@ -7,8 +7,8 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 
 ## 🔍 Repo Overview
 <!-- START REPO OVERVIEW -->
-| Sub-Repo Name | 🔗 Link to the GitHub Page | Status |
-|---|---|---|
-| 24hr Story Feature | [Link](https://kizz4.github.io/practice/frontend_practice/advanced_projects/24hr_story_feature) | ⏳ Not Started |
+| Sub-Repo Name | Status | 🔗 Link to the GitHub | 🔗 Link to the GitHub Page |
+|---|---|---|---|
+| 24hr Story Feature | ⏳ Not Started | [View it on GitHub](https://github.com/Kizz4/practice/practice/frontend_practice/advanced_projects/24hr_story_feature) | [View it on GitHub Pages](https://kizz4.github.io/practice/frontend_practice/advanced_projects/24hr_story_feature) |
 
 <!-- END REPO OVERVIEW -->
