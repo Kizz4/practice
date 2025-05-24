@@ -25,7 +25,6 @@ The structure of your CV is easily understandable and ready for styling in a fut
 single_page_CV
 	index.html
 	README.md
-	index.md
 
 ```
 <!-- END PROJECT STRUCTURE -->

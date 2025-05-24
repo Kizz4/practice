@@ -29,7 +29,6 @@ changelog_component
 	index.html
 	style.css
 	README.md
-	index.md
 
 ```
 <!-- END PROJECT STRUCTURE -->

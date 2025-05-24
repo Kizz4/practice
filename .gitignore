@@ -1,2 +1,4 @@
 .toInclude
 .toExclude
+docs
+**/docs/

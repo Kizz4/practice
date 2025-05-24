@@ -41,6 +41,10 @@ update_files(){
 
   local PHP_SCRIPT="$BASE_DIR/php_scripts/updateFiles.php"
 
+  local SCRIPT="$BASE_DIR/create_index_from_readme.sh"
+  chmod +x "$SCRIPT"
+
+
   if [ ! -f "$PHP_SCRIPT" ]; then
     echo "Error: PHP script not found at $PHP_SCRIPT"
     return 1
@@ -48,7 +52,7 @@ update_files(){
 
   echo "Running $PHP_SCRIPT with project: $project_name"
   php "$PHP_SCRIPT" "$project_name"
-
+  "$SCRIPT"
   git add -A
   git commit -m "Update of README's files for $project_name"
 }

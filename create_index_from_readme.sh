@@ -1,21 +1,35 @@
 #!/bin/bash
 
-# Ton message personnalisé en haut de chaque index.md
 HEADER="---
 layout: default
 ---"
 
-# Cherche tous les README.md sauf dans node_modules
 find . -type f -name "README.md" ! -path "*/node_modules/*" | while read -r readme; do
     dir=$(dirname "$readme")
-    mkdir -p docs
+    mkdir -p "$dir/docs"
     index="$dir/docs/index.md"
 
-    # Crée un nouveau index.md en ajoutant le header + contenu du README
+
     {
         echo -e "$HEADER"
         cat "$readme"
     } > "$index"
 
     echo "✔️ Created $index"
+
+    toExcludeFile="$dir/.toExclude"
+
+    if [ ! -f "$toExcludeFile" ]; then
+        echo "docs"$'\n' > "$toExcludeFile"
+        echo "🆕 Created .toExclude with 'docs'"
+    else
+
+        if ! grep -Fxq "docs" "$toExcludeFile"; then
+            echo $'\n'"docs" >> "$toExcludeFile"
+            echo "➕ Added 'docs' to existing .toExclude"
+        else
+            echo "✔️ 'docs' already in .toExclude"
+        fi
+    fi
+
 done

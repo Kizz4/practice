@@ -41,7 +41,6 @@ personal_portfolio
 	README.md
 	images
 		icon_onglet.png
-	index.md
 
 ```
 <!-- END PROJECT STRUCTURE -->

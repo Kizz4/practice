@@ -32,7 +32,6 @@ accordion
 	script.js
 	style.css
 	README.md
-	index.md
 
 ```
 <!-- END PROJECT STRUCTURE -->
