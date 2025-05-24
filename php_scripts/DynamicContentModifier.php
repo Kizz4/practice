@@ -101,12 +101,13 @@ layout: default
         foreach($dirNames as $subRepoName){
             $betterSubRepoName = ucwords(str_replace("_", " ", $subRepoName));
             $relativePath = stristr($dirPath, $this->rootName) . "/" . $subRepoName;
+            $relativePathGitHub = stristr($dirPath, $this->rootName) . "/tree/master/" . $subRepoName;
             $status = self::STATUS_LABEL[self::findStatus($subRepoName)];
 
             $row = [
                 $betterSubRepoName, 
                 $status, 
-                "[View it on GitHub](".self::ROOT_URL_GITHUB . $relativePath. ")", 
+                "[View it on GitHub](".self::ROOT_URL_GITHUB . $relativePathGitHub. ")", 
                 "[View it on GitHub Pages](".self::ROOT_URL_GITHUB_PAGES . $relativePath. ")"
             ];
             array_push($rows, $row);
