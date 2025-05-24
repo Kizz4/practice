@@ -7,7 +7,7 @@ enum Status: string {
 
 class DynamicContentModifier{
     const ROOT_URL_GITHUB_PAGES = "https://kizz4.github.io/";
-    const ROOT_URL_GITHUB_REPO = "https://github.com/Kizz4/practice/";
+    const ROOT_URL_GITHUB = "https://github.com/Kizz4/";
     const STATUS_LABEL = ['done' => '✅ Done', 'on going' => '▶️ In Progress', 'not started' => '⏳ Not Started'];
     const DEFAULT_JEKYLL_LAYOUT ="---
 layout: default
@@ -106,7 +106,7 @@ layout: default
             $row = [
                 $betterSubRepoName, 
                 $status, 
-                "[View it on GitHub](".self::ROOT_URL_GITHUB_REPO . $relativePath. ")", 
+                "[View it on GitHub](".self::ROOT_URL_GITHUB . $relativePath. ")", 
                 "[View it on GitHub Pages](".self::ROOT_URL_GITHUB_PAGES . $relativePath. ")"
             ];
             array_push($rows, $row);

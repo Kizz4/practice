@@ -8,7 +8,8 @@ layout: default
 # Cherche tous les README.md sauf dans node_modules
 find . -type f -name "README.md" ! -path "*/node_modules/*" | while read -r readme; do
     dir=$(dirname "$readme")
-    index="$dir/index.md"
+    mkdir -p docs
+    index="$dir/docs/index.md"
 
     # Crée un nouveau index.md en ajoutant le header + contenu du README
     {
