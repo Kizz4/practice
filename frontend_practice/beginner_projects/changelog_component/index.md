@@ -1,8 +1,6 @@
-<!-- START JEKYLL LAYOUT -->
 ---
 layout: default
 ---
-<!-- END JEKYLL LAYOUT -->
 # Changelog component
 
 This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for beginners.  

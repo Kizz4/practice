@@ -1,8 +1,6 @@
-<!-- START JEKYLL LAYOUT -->
 ---
 layout: default
 ---
-<!-- END JEKYLL LAYOUT -->
 # Frontend Practice Projects
 
 This repository gathers all frontend practice projects inspired by the [roadmap.sh frontend project list](https://roadmap.sh/frontend/projects).  

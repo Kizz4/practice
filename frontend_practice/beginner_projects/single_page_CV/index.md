@@ -1,8 +1,6 @@
-<!-- START JEKYLL LAYOUT -->
 ---
 layout: default
 ---
-<!-- END JEKYLL LAYOUT -->
 # Single-Page CV 
 This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for beginners. And the [link](https://roadmap.sh/projects/single-page-cv) of the project himself 
 

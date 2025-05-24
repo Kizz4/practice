@@ -1,8 +1,6 @@
-<!-- START JEKYLL LAYOUT -->
 ---
 layout: default
 ---
-<!-- END JEKYLL LAYOUT -->
 # Frontend Practice Projects : **<u>Advanced</u>** Part
 
 This repository gathers all **<u>advanced</u>** frontend practice projects inspired by the [roadmap.sh frontend project list](https://roadmap.sh/frontend/projects).  

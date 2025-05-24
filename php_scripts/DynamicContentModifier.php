@@ -141,25 +141,15 @@ layout: default
         FileInjector::inject([$content], $tags, $it);
     }
 
-    public function updateOneLayoutContentIndex(string $dirPath){
-        $it = self::getReadMeIterator($dirPath);
-        $content = self::DEFAULT_JEKYLL_LAYOUT;
-        $tags = ["<!-- START JEKYLL LAYOUT -->", "<!-- END JEKYLL LAYOUT -->"];
-
-        FileInjector::inject([$content], $tags, $it);
-    }
-
-
     public function updateAllContent(
         bool $updateRepoOverview=true, 
         bool $updateProjectStructure=true,
-        bool $updateLayout=true,
         bool $updateHtml=true): void
         {
 
         if($updateHtml) self::updateCommonHTMLTags();
 
-        if(!($updateRepoOverview || $updateProjectStructure || $updateLayout)) return;
+        if(!($updateRepoOverview || $updateProjectStructure)) return;
 
         $it = self::getReadMeIterator(maxDepth:-1);
         foreach($it as $readMeFile){
@@ -170,7 +160,6 @@ layout: default
 
             if($updateRepoOverview) self::updateOneRepoOverviewContent_ReadMe($dirPath);
             if($updateProjectStructure) self::updateOneProjectStructureContentReadMe($dirPath);
-            if($updateLayout) self::updateOneLayoutContentIndex($dirPath);
         }
     }
 

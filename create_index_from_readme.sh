@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Ton message personnalisé en haut de chaque index.md
-HEADER="<!-- START JEKYLL LAYOUT --> 
-<!-- END JEKYLL LAYOUT -->"
+HEADER="---
+layout: default
+---"
 
 # Cherche tous les README.md sauf dans node_modules
 find . -type f -name "README.md" ! -path "*/node_modules/*" | while read -r readme; do
