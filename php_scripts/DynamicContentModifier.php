@@ -99,16 +99,18 @@ layout: default
         $dirNames = self::findDirNames($dirPath, maxDepth:0);
         $rows = [];
         foreach($dirNames as $subRepoName){
+            $relativePath = stristr($dirPath, $this->rootName);
             $betterSubRepoName = ucwords(str_replace("_", " ", $subRepoName));
-            $relativePath = stristr($dirPath, $this->rootName) . "/" . $subRepoName;
-            $relativePathGitHub = stristr($dirPath, $this->rootName) . "/tree/master/" . $subRepoName;
+            $pathPage = $relativePath . "/" . $subRepoName;
+            $pathGitHub = preg_replace("/$this->rootName/", "$this->rootName/tree/master", $relativePath, 1) . "/$subRepoName";
+            echo "pathGitHub : $pathGitHub\n\n";
             $status = self::STATUS_LABEL[self::findStatus($subRepoName)];
 
             $row = [
                 $betterSubRepoName, 
                 $status, 
-                "[View it on GitHub](".self::ROOT_URL_GITHUB . $relativePathGitHub. ")", 
-                "[View it on GitHub Pages](".self::ROOT_URL_GITHUB_PAGES . $relativePath. ")"
+                "[View it on GitHub](".self::ROOT_URL_GITHUB . $pathGitHub. ")", 
+                "[View it on GitHub Pages](".self::ROOT_URL_GITHUB_PAGES . $pathPage. ")"
             ];
             array_push($rows, $row);
         }
@@ -117,7 +119,7 @@ layout: default
 
         $it = self::getReadMeIterator($dirPath, dirToExclude: [".*", "node_modules", ...$dirNames]);
 
-        FileInjector::inject([$content], $tags, $it);
+        //FileInjector::inject([$content], $tags, $it);
     }
 
 
@@ -163,7 +165,7 @@ layout: default
         $dirPart = strrpos($dirPath, "/");   
         $dirName = substr($dirPath, $dirPart+1, strlen($dirPath));
         $relativePath = stristr($dirPath, $this->rootName) . "/public";
-        
+
         $content="";
         if(self::isVanillaProject($dirPath)){
             $content = "[Here to see the project on GitHub Page](".self::ROOT_URL_GITHUB_PAGES . $relativePath. ")";
@@ -187,7 +189,7 @@ layout: default
         bool $updateHtml=true): void
         {
 
-        if($updateHtml) self::updateCommonHTMLTags();
+        #if($updateHtml) self::updateCommonHTMLTags();
 
         if(!($updateRepoOverview || $updateProjectStructure || $updateProjectLink)) return;
 
@@ -199,8 +201,8 @@ layout: default
 
 
             if($updateRepoOverview) self::updateOneRepoOverviewContent_ReadMe($dirPath);
-            if($updateProjectStructure) self::updateOneProjectStructureContentReadMe($dirPath);
-            if($updateProjectLink) self::updateOneProjectPreviewLinkContentReadMe($dirPath);
+            #if($updateProjectStructure) self::updateOneProjectStructureContentReadMe($dirPath);
+            #if($updateProjectLink) self::updateOneProjectPreviewLinkContentReadMe($dirPath);
         }
     }
 
