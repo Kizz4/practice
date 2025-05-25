@@ -162,20 +162,21 @@ layout: default
 
         $dirPart = strrpos($dirPath, "/");   
         $dirName = substr($dirPath, $dirPart+1, strlen($dirPath));
-
         $relativePath = stristr($dirPath, $this->rootName) . "/public";
+        
+        $content="";
         if(self::isVanillaProject($dirPath)){
             $content = "[Here to see the project on GitHub Page](".self::ROOT_URL_GITHUB_PAGES . $relativePath. ")";
         }else{
             $command =  "cd " . escapeshellarg($dirPath . "/public") . " && npm install && npm run build";
             $output = shell_exec($command);
-            echo $output;
+            $content = "[Here to see the project on GitHub Page](".self::ROOT_URL_GITHUB_PAGES . $relativePath. "/dist)";
         }
         
 
         $tags = ["<!-- START LINK TO PREVIEW --> ", "<!-- END LINK TO PREVIEW -->"];
 
-        //FileInjector::inject([$content], $tags, $it);
+        FileInjector::inject([$content], $tags, $it);
     }
 
 
@@ -186,9 +187,9 @@ layout: default
         bool $updateHtml=true): void
         {
 
-        /* if($updateHtml) self::updateCommonHTMLTags();
+        if($updateHtml) self::updateCommonHTMLTags();
 
-        if(!($updateRepoOverview || $updateProjectStructure || $updateProjectLink)) return; */
+        if(!($updateRepoOverview || $updateProjectStructure || $updateProjectLink)) return;
 
         $it = self::getReadMeIterator(maxDepth:-1);
         foreach($it as $readMeFile){
@@ -197,8 +198,8 @@ layout: default
             $dirPath = substr($pathFile, 0, $filePart);
 
 
-            /* if($updateRepoOverview) self::updateOneRepoOverviewContent_ReadMe($dirPath);
-            if($updateProjectStructure) self::updateOneProjectStructureContentReadMe($dirPath); */
+            if($updateRepoOverview) self::updateOneRepoOverviewContent_ReadMe($dirPath);
+            if($updateProjectStructure) self::updateOneProjectStructureContentReadMe($dirPath);
             if($updateProjectLink) self::updateOneProjectPreviewLinkContentReadMe($dirPath);
         }
     }

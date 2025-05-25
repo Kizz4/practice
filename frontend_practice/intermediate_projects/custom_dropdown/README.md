@@ -53,6 +53,7 @@ custom_dropdown
 		package.json
 		index.html
 		package-lock.json
+		vite.config.js
 		src
 			icon_check.png
 			custom_dropdown.ts
@@ -71,7 +72,7 @@ custom_dropdown
 ## 🔍 Preview
 
 <!-- START LINK TO PREVIEW --> 
-
+[Here to see the project on GitHub Page](https://kizz4.github.io/practice/frontend_practice/intermediate_projects/custom_dropdown/public/dist)
 <!-- END LINK TO PREVIEW -->
 
 ### OR
