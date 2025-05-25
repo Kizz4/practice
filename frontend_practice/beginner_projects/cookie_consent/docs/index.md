@@ -10,7 +10,17 @@ The objective of this project is to create a cookie consent popup that notifies 
 
 ---
 
-## 📚 Key Requirements
+## 📚 Table of Contents
+
+- [Key Requirements](#key-requirements)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Preview](#preview)
+
+---
+
+## 🔑 Key Requirements
 
 - **Consent Popup**: Display a cookie consent popup with a message and an "Accept" button.
 - **Bonus : Persistent Storage**: Store the consent state in `cookie` so the popup doesn’t appear again after refreshing the page.
@@ -24,15 +34,30 @@ The objective of this project is to create a cookie consent popup that notifies 
 
 ---
 
+## 🚀 Features
+
+- **Cookie Notification**: Informs the user about cookie usage.
+- **Accept Button**: Once clicked, hides the popup and saves consent in a cookie.
+- **No Repetition**: Remembers user choice and hides the popup on subsequent visits.
+- **Reset Consent**: Includes a reset button that removes the cookie and reloads the page, allowing users to change their choice.
+- **Focused Interaction**: While the popup is visible, all other page interactions are disabled and the background is dimmed to highlight the consent message.
+
+---
+
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
 ```
 cookie_consent
-	img
-		icon-cookie.png
-	index.html
-	script.js
-	style.css
+	public
+		img
+			icon-cookie.png
+		index.html
+		script.js
+		style.css
+		changelog_component
+			index.html
+			style.css
+			README.md
 	README.md
 
 ```
@@ -41,8 +66,13 @@ cookie_consent
 ---
 
 ## 🔍 Preview
+<!-- START LINK TO PREVIEW --> 
+[Here to see the project on GitHub Page](https://kizz4.github.io/practice/frontend_practice/beginner_projects/cookie_consent/public)
+<!-- END LINK TO PREVIEW -->
 
-To preview the project locally, open `index.html` directly in your browser or use a local development server:
+### OR
+
+use a local development server:
 
 ```bash
 # From the project root
@@ -52,12 +82,3 @@ python3 -m http.server
 Then open [http://localhost:8000](http://localhost:8000) in your browser.
 
 ---
-
-## 🚀 Features
-
-- **Cookie Notification**: Informs the user about cookie usage.
-- **Accept Button**: Once clicked, hides the popup and saves consent in a cookie.
-- **No Repetition**: Remembers user choice and hides the popup on subsequent visits.
-- **Reset Consent**: Includes a reset button that removes the cookie and reloads the page, allowing users to change their choice.
-- **Focused Interaction**: While the popup is visible, all other page interactions are disabled and the background is dimmed to highlight the consent message.
-

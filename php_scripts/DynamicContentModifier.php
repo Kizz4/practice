@@ -27,15 +27,15 @@ layout: default
         $this->factoryIterator->setPath($dirPath);
         $it = $this->factoryIterator->getIterator();
 
-        //a unique file is expected so we return it immediatly
+        $allContent = [];
         foreach($it as $file){
             $content = file_get_contents($file->getPathname());
             $normalizedContent = normalizeString($content);
-            if ($normalizedContent === '')  return [];
-            return explode("\n", $normalizedContent);
+            if ($normalizedContent === '')  continue;
+            array_push($allContent, ...explode("\n", $normalizedContent));
         }
 
-        return [];
+        return $allContent;
     }
 
     //will search .toInclude file and read his content in the directory given
@@ -84,7 +84,7 @@ layout: default
 
     private function getReadMeIterator(?string $dirPath=null, array $dirToExclude=[".*", "node_modules"], $maxDepth=0){  
         $this->factoryIterator->setFilters(dirFilesToExclude:$dirToExclude, 
-                                            targetFiles:["README.md", "index.md"],
+                                            targetFiles:["README.md"],
                                             maxDepth: $maxDepth);
         if(isset($dirPath)) $this->factoryIterator->setPath($dirPath);
 
@@ -142,15 +142,31 @@ layout: default
         FileInjector::inject([$content], $tags, $it);
     }
 
+    public function updateOneProjectPreviewLinkContentReadMe(string $dirPath){
+        $it = self::getReadMeIterator($dirPath);
+
+        $dirPart = strrpos($dirPath, "/");   
+        $dirName = substr($dirPath, $dirPart+1, strlen($dirPath));
+
+        $relativePath = stristr($dirPath, $this->rootName) . "/public";
+        $content = "[Here to see the project on GitHub Page](".self::ROOT_URL_GITHUB_PAGES . $relativePath. ")";
+
+        $tags = ["<!-- START LINK TO PREVIEW --> ", "<!-- END LINK TO PREVIEW -->"];
+
+        FileInjector::inject([$content], $tags, $it);
+    }
+
+
     public function updateAllContent(
         bool $updateRepoOverview=true, 
         bool $updateProjectStructure=true,
+        bool $updateProjectLink=true,
         bool $updateHtml=true): void
         {
 
         if($updateHtml) self::updateCommonHTMLTags();
 
-        if(!($updateRepoOverview || $updateProjectStructure)) return;
+        if(!($updateRepoOverview || $updateProjectStructure || $updateProjectLink)) return;
 
         $it = self::getReadMeIterator(maxDepth:-1);
         foreach($it as $readMeFile){
@@ -161,6 +177,7 @@ layout: default
 
             if($updateRepoOverview) self::updateOneRepoOverviewContent_ReadMe($dirPath);
             if($updateProjectStructure) self::updateOneProjectStructureContentReadMe($dirPath);
+            if($updateProjectLink) self::updateOneProjectPreviewLinkContentReadMe($dirPath);
         }
     }
 

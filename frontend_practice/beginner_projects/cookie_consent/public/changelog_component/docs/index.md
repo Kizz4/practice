@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Changelog component
 
 This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for beginners.  
@@ -8,7 +11,17 @@ It showcases a timeline-style table of project updates, with date and descriptio
 
 ---
 
-## 📚 Key Requirements
+## 📚 Table of Contents
+
+- [Key Requirements](#key-requirements)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Preview](#preview)
+
+---
+
+## 🔑 Key Requirements
 
 - **Create Simple Layouts**: Build clean and structured layouts using HTML and CSS for an aesthetic and user-friendly presentation.
 - **Responsive Layout**: Ensure the component adjusts to different screen sizes.
@@ -19,6 +32,15 @@ It showcases a timeline-style table of project updates, with date and descriptio
 
 - HTML5
 - CSS3
+
+---
+
+## 🚀 Features
+
+- **Responsive Table Design**: Dates and updates are displayed side-by-side using a semantic table layout.
+- **Styled Timeline Markers**: Each row has a visual dot (using `::after`) and a vertical line to simulate a timeline.
+- **Interactive Button**: A styled button allows users to explore a full changelog page, with smooth transitions.
+- **Consistent Typography & Spacing**: Improved layout readability and aesthetic consistency.
 
 ---
 
@@ -37,7 +59,13 @@ changelog_component
 
 ## 🔍 Preview
 
-You can open `index.html` directly in your browser or use a local server to preview:
+<!-- START LINK TO PREVIEW --> 
+[Here to see the project on GitHub Page](https://kizz4.github.io/practice/frontend_practice/beginner_projects/cookie_consent/public/changelog_component/public)
+<!-- END LINK TO PREVIEW -->
+
+### OR
+
+use a local server to preview:
 
 ```bash
 # From the project folder
@@ -45,14 +73,5 @@ python3 -m http.server
 ```
 
 Then go to [http://localhost:8000](http://localhost:8000) in your browser.
-
----
-
-## 🚀 Features
-
-- **Responsive Table Design**: Dates and updates are displayed side-by-side using a semantic table layout.
-- **Styled Timeline Markers**: Each row has a visual dot (using `::after`) and a vertical line to simulate a timeline.
-- **Interactive Button**: A styled button allows users to explore a full changelog page, with smooth transitions.
-- **Consistent Typography & Spacing**: Improved layout readability and aesthetic consistency.
 
 ---

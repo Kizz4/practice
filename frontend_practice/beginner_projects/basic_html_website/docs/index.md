@@ -12,7 +12,16 @@ By completing this project, you'll gain a solid understanding of how to organize
 
 ---
 
-## 📚 Key Requirements
+## 📚 Table of Contents
+
+- [Key Requirements](#key-requirements)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Preview](#preview)
+
+---
+
+## 🔑 Key Requirements
 
 - **Semantic HTML**: Use appropriate HTML tags for structure (e.g., `<header>`, `<main>`, `<nav>`, `<footer>`, etc.)
 - **Multiple Pages**: Create at least four HTML pages: `index.html`, `projects.html`, `articles.html`, and `contact.html`
@@ -35,17 +44,18 @@ By completing this project, you'll gain a solid understanding of how to organize
 <!-- START PROJECT STRUCTURE -->
 ```
 basic_html_website
-	html
-		contact.html
+	public
 		index.html
-		projects.html
-		about_mentorship.html
-	style
-		home.css
-		about_mentorship.css
-		common.css
-		contact.css
-		projects.css
+		html
+			contact.html
+			projects.html
+			about_mentorship.html
+		style
+			home.css
+			about_mentorship.css
+			common.css
+			contact.css
+			projects.css
 	README.md
 
 ```
@@ -54,8 +64,13 @@ basic_html_website
 ---
 
 ## 🔍 Preview
+<!-- START LINK TO PREVIEW --> 
+[Here to see the project on GitHub Page](https://kizz4.github.io/practice/frontend_practice/beginner_projects/basic_html_website/public)
+<!-- END LINK TO PREVIEW -->
 
-You can open `index.html` directly in your browser or use a simple local server:
+### OR 
+
+use a simple local server:
 
 ```bash
 # From the project root
@@ -63,3 +78,5 @@ python3 -m http.server
 ```
 
 Then go to [http://localhost:8000](http://localhost:8000) in your browser.
+
+

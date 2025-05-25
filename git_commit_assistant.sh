@@ -5,7 +5,7 @@ export LIBGL_ALWAYS_SOFTWARE=1
 WIN_WIDTH=1000
 WIN_HEIGHT=600
 
-# ========== Helper Function ==========
+# ========== Main UI Functions ==========
 
 show_exit_message() {
   if [ -z "$1" ]; then
@@ -13,8 +13,6 @@ show_exit_message() {
     exit 0
   fi
 }
-
-# ========== Main UI Functions ==========
 
 show_main_menu() {
   choice=$(zenity --list \

@@ -10,7 +10,17 @@ The purpose of this project is to build a restricted textarea component that lim
 
 ---
 
-## 📚 Key Requirements
+## 📚 Table of Contents
+
+- [Key Requirements](#key-requirements)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Preview](#preview)
+
+---
+
+## 🔑 Key Requirements
 
 - **Textarea with Character Limit**: Implement a `<textarea>` field that restricts input to a specific number of characters (e.g., 250).
 - **Live Character Counter**: Display a real-time counter showing how many characters have been entered.
@@ -22,34 +32,7 @@ The purpose of this project is to build a restricted textarea component that lim
 
 - HTML5
 - CSS3
-- JavaScript (vanilla)
-
----
-
-## 📁 Project Structure
-<!-- START PROJECT STRUCTURE -->
-```
-restricted_textarea
-	index.html
-	script.js
-	style.css
-	README.md
-
-```
-<!-- END PROJECT STRUCTURE -->
-
----
-
-## 🔍 Preview
-
-To run the project locally, open `index.html` in your browser or use a local web server:
-
-```bash
-# From the project root
-python3 -m http.server
-```
-
-Then go to [http://localhost:8000](http://localhost:8000)
+- JavaScript
 
 ---
 
@@ -60,3 +43,39 @@ Then go to [http://localhost:8000](http://localhost:8000)
 - **Error Styling**: Applies a visual alert when the limit is exceeded (e.g., red border or message).
 - **Accessibility Compliance**: Uses proper `<label>` elements.
 - **Responsive Layout**: The interface adjusts properly on various screen sizes.
+
+---
+
+## 📁 Project Structure
+<!-- START PROJECT STRUCTURE -->
+```
+restricted_textarea
+	public
+		index.html
+		script.js
+		style.css
+	README.md
+
+```
+<!-- END PROJECT STRUCTURE -->
+
+---
+
+## 🔍 Preview
+
+<!-- START LINK TO PREVIEW --> 
+[Here to see the project on GitHub Page](https://kizz4.github.io/practice/frontend_practice/beginner_projects/restricted_textarea/public)
+<!-- END LINK TO PREVIEW -->
+
+### OR
+
+use a local web server:
+
+```bash
+# From the project root
+python3 -m http.server
+```
+
+Then go to [http://localhost:8000](http://localhost:8000)
+
+---
