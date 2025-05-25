@@ -26,10 +26,12 @@ module.exports = {
         extensions: ['.ts', '.js'],
     },
     output: {
-        filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true // (optionnel, pour vider dist avant chaque build)
+        filename: 'bundle.js',
+        publicPath: '//home/gabdev/Documents/practice/frontend_practice/beginner_projects/age_calculator/public/',
+        clean:true
     },
+
     devServer: {
         static: {
             directory: path.resolve(__dirname, 'dist'),

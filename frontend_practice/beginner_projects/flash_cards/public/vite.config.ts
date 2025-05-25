@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [
     react(),
   ],
-
+  base: '//home/gabdev/Documents/practice/frontend_practice/beginner_projects/flash_cards/public/',
 })

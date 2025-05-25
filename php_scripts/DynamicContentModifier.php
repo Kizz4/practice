@@ -23,7 +23,7 @@ layout: default
     }
 
     private function findFileContent(string $dirPath, array $targetFiles): array{
-        $this->factoryIterator->setFilters(dirFilesToExclude:[], targetFiles:$targetFiles, maxDepth:0);
+        $this->factoryIterator->setFilters(dirFilesToExclude:[], targetFiles:$targetFiles, maxDepth:-1);
         $this->factoryIterator->setPath($dirPath);
         $it = $this->factoryIterator->getIterator();
 
@@ -142,18 +142,40 @@ layout: default
         FileInjector::inject([$content], $tags, $it);
     }
 
-    public function updateOneProjectPreviewLinkContentReadMe(string $dirPath){
+    private function isVanillaProject($dirPath): bool{
+        $this->factoryIterator->setFilters(
+                                        targetFiles:["package.json"],
+                                        maxDepth:-1
+                                    );
+
+        $it = $this->factoryIterator->getIterator();
+
+        // if we got any package.json that means this project use tools like npm 
+        foreach($it as $file){
+            return false;
+        }
+        return true;
+    }
+
+    public function updateOneProjectPreviewLinkContentReadMe(string $dirPath): void{
         $it = self::getReadMeIterator($dirPath);
 
         $dirPart = strrpos($dirPath, "/");   
         $dirName = substr($dirPath, $dirPart+1, strlen($dirPath));
 
         $relativePath = stristr($dirPath, $this->rootName) . "/public";
-        $content = "[Here to see the project on GitHub Page](".self::ROOT_URL_GITHUB_PAGES . $relativePath. ")";
+        if(self::isVanillaProject($dirPath)){
+            $content = "[Here to see the project on GitHub Page](".self::ROOT_URL_GITHUB_PAGES . $relativePath. ")";
+        }else{
+            $command =  "cd " . escapeshellarg($dirPath . "/public") . " && npm install && npm run build";
+            $output = shell_exec($command);
+            echo $output;
+        }
+        
 
         $tags = ["<!-- START LINK TO PREVIEW --> ", "<!-- END LINK TO PREVIEW -->"];
 
-        FileInjector::inject([$content], $tags, $it);
+        //FileInjector::inject([$content], $tags, $it);
     }
 
 
@@ -164,9 +186,9 @@ layout: default
         bool $updateHtml=true): void
         {
 
-        if($updateHtml) self::updateCommonHTMLTags();
+        /* if($updateHtml) self::updateCommonHTMLTags();
 
-        if(!($updateRepoOverview || $updateProjectStructure || $updateProjectLink)) return;
+        if(!($updateRepoOverview || $updateProjectStructure || $updateProjectLink)) return; */
 
         $it = self::getReadMeIterator(maxDepth:-1);
         foreach($it as $readMeFile){
@@ -175,8 +197,8 @@ layout: default
             $dirPath = substr($pathFile, 0, $filePart);
 
 
-            if($updateRepoOverview) self::updateOneRepoOverviewContent_ReadMe($dirPath);
-            if($updateProjectStructure) self::updateOneProjectStructureContentReadMe($dirPath);
+            /* if($updateRepoOverview) self::updateOneRepoOverviewContent_ReadMe($dirPath);
+            if($updateProjectStructure) self::updateOneProjectStructureContentReadMe($dirPath); */
             if($updateProjectLink) self::updateOneProjectPreviewLinkContentReadMe($dirPath);
         }
     }
@@ -188,7 +210,7 @@ layout: default
         $tags = ["<!-- START COMMON HEAD -->", "<!-- END COMMON HEAD -->", "<!-- START COMMON IMG -->", "<!-- END COMMON IMG -->"];
         $contentToInject = [
         '<link rel="icon" href="/practice/frontend_practice/common/img/icon_onglet.png" type="image/png"><link rel="stylesheet" href="/practice/frontend_practice/common/font/font.css">',
-        '<img src="/frontend_practice/common/img/icon_onglet.png" alt="icon of a salary man">'
+        '<img src="/practice/frontend_practice/common/img/icon_onglet.png" alt="icon of a salary man">'
         ];
         FileInjector::inject($contentToInject, $tags, $iterator);
     }   

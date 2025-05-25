@@ -4,6 +4,7 @@ export LIBGL_ALWAYS_SOFTWARE=1
 # ========== Global UI settings ==========
 WIN_WIDTH=1000
 WIN_HEIGHT=600
+REPO_NAME="$(basename "$PWD")"
 
 # ========== Main UI Functions ==========
 
@@ -39,8 +40,11 @@ update_files(){
 
   local PHP_SCRIPT="$BASE_DIR/php_scripts/updateFiles.php"
 
-  local SCRIPT="$BASE_DIR/create_index_from_readme.sh"
-  chmod +x "$SCRIPT"
+  local INDEX_SCRIPT="$BASE_DIR/create_index_from_readme.sh"
+  chmod +x "$INDEX_SCRIPT"
+
+  local BUILDER_TOOLS_SCRIPT="$BASE_DIR/insert_repo_name_for_builder_tools.sh"
+  chmod +x "$BUILDER_TOOLS_SCRIPT"
 
 
   if [ ! -f "$PHP_SCRIPT" ]; then
@@ -50,15 +54,21 @@ update_files(){
 
   echo "Running $PHP_SCRIPT with project: $project_name"
   php "$PHP_SCRIPT" "$project_name"
-  "$SCRIPT"
+
+  echo "Running $INDEX_SCRIPT"
+  "$INDEX_SCRIPT".
+
+  echo "Running $BUILDER_TOOLS_SCRIPT with Root: $BASE_DIR"
+  "$BUILDER_TOOLS_SCRIPT" "$BASE_DIR"
+
   git add -A
-  git commit -m "Update of README's files for $project_name"
+  git commit -m "Update of README(s) file(s), builder tool(s) config file(s), and every docs/index.md found for $project_name"
 }
 
 set_project_status() {
   declare -A project_status_map 
   allSelected=""
-  repoName="$(basename "$PWD")"
+  
 
   while true; do
     paths=$(zenity --file-selection --directory --multiple \
@@ -111,7 +121,7 @@ set_project_status() {
 
     for dir in "${dirArray[@]}"; do
       relativePath="${dir#$PWD/}" 
-      finalPath="$repoName/$relativePath" 
+      finalPath="$REPO_NAME/$relativePath" 
       project_status_map["$finalPath"]="$status"
       allSelected+="$finalPath"$'\n'
     done
@@ -141,7 +151,7 @@ set_project_status() {
   done
 
   git commit -m "Updating status for:" -m "$commitMsg"
-  update_files $repoName
+  update_files "$REPO_NAME"
   git push
 
   zenity --info --text="Statuses applied to:\n\n$commitMsg" --width=$WIN_WIDTH
@@ -155,6 +165,7 @@ make_simple_commit() {
   if [ -n "$msg" ]; then
     git add -A
     git commit -m "$msg"
+    update_files "$REPO_NAME"
     git push
     zenity --info --text="Commit created with message:\n\n$msg" --width=$WIN_WIDTH
   else

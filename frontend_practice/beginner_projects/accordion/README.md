@@ -51,15 +51,6 @@ accordion
 		index.html
 		script.js
 		style.css
-		accessible_form_ui
-			public
-				img
-					icon_hidden-password.svg
-					icon_calendar.jpg
-					icon_visible-password.png
-				index.html
-				style.css
-			README.md
 	README.md
 
 ```

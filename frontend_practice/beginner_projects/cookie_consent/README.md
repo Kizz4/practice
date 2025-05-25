@@ -51,10 +51,6 @@ cookie_consent
 		index.html
 		script.js
 		style.css
-		changelog_component
-			index.html
-			style.css
-			README.md
 	README.md
 
 ```
