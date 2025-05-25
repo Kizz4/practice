@@ -52,14 +52,14 @@ update_files(){
     return 1
   fi
 
+  echo "Running $BUILDER_TOOLS_SCRIPT with Root: $BASE_DIR"
+  "$BUILDER_TOOLS_SCRIPT" "$REPO_NAME"
+
   echo "Running $PHP_SCRIPT with project: $project_name"
   php "$PHP_SCRIPT" "$project_name"
 
   echo "Running $INDEX_SCRIPT"
   "$INDEX_SCRIPT".
-
-  echo "Running $BUILDER_TOOLS_SCRIPT with Root: $BASE_DIR"
-  "$BUILDER_TOOLS_SCRIPT" "$REPO_NAME"
 
   git add -A
   git commit -m "Update of README(s) file(s), builder tool(s) config file(s), and every docs/index.md found for $project_name"
