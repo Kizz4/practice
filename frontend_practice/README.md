@@ -7,11 +7,11 @@ The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaS
 
 ## 🔍 Repo Overview
 <!-- START REPO OVERVIEW -->
-| Sub-Repo Name | 🔗 Link to the GitHub Page | Status |
-|---|---|---|
-| Advanced Projects | [Link](https://kizz4.github.io/practice/frontend_practice/advanced_projects) | ⏳ Not Started |
-| Beginner Projects | [Link](https://kizz4.github.io/practice/frontend_practice/beginner_projects) | ✅ Done |
-| Intermediate Projects | [Link](https://kizz4.github.io/practice/frontend_practice/intermediate_projects) | ▶️ In Progress |
+| Sub-Repo Name | Status | 🔗 Link to the GitHub | 🔗 Link to the GitHub Page |
+|---|---|---|---|
+| Advanced Projects | ⏳ Not Started | [View it on GitHub](https://github.com/Kizz4/practice/frontend_practice/tree/master/advanced_projects) | [View it on GitHub Pages](https://kizz4.github.io/practice/frontend_practice/advanced_projects) |
+| Beginner Projects | ✅ Done | [View it on GitHub](https://github.com/Kizz4/practice/frontend_practice/tree/master/beginner_projects) | [View it on GitHub Pages](https://kizz4.github.io/practice/frontend_practice/beginner_projects) |
+| Intermediate Projects | ▶️ In Progress | [View it on GitHub](https://github.com/Kizz4/practice/frontend_practice/tree/master/intermediate_projects) | [View it on GitHub Pages](https://kizz4.github.io/practice/frontend_practice/intermediate_projects) |
 
 <!-- END REPO OVERVIEW -->
 

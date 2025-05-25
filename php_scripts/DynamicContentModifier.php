@@ -7,7 +7,11 @@ enum Status: string {
 
 class DynamicContentModifier{
     const ROOT_URL_GITHUB_PAGES = "https://kizz4.github.io/";
+    const ROOT_URL_GITHUB = "https://github.com/Kizz4/";
     const STATUS_LABEL = ['done' => '✅ Done', 'on going' => '▶️ In Progress', 'not started' => '⏳ Not Started'];
+    const DEFAULT_JEKYLL_LAYOUT ="---
+layout: default
+---";
     private string $rootPath;
     private string $rootName;
     private FactoryRecursiveItIt $factoryIterator;
@@ -19,19 +23,19 @@ class DynamicContentModifier{
     }
 
     private function findFileContent(string $dirPath, array $targetFiles): array{
-        $this->factoryIterator->setFilters(dirFilesToExclude:[], targetFiles:$targetFiles, maxDepth:0);
+        $this->factoryIterator->setFilters(dirFilesToExclude:[], targetFiles:$targetFiles, maxDepth:-1);
         $this->factoryIterator->setPath($dirPath);
         $it = $this->factoryIterator->getIterator();
 
-        //a unique file is expected so we return it immediatly
+        $allContent = [];
         foreach($it as $file){
             $content = file_get_contents($file->getPathname());
             $normalizedContent = normalizeString($content);
-            if ($normalizedContent === '')  return [];
-            return explode("\n", $normalizedContent);
+            if ($normalizedContent === '')  continue;
+            array_push($allContent, ...explode("\n", $normalizedContent));
         }
 
-        return [];
+        return $allContent;
     }
 
     //will search .toInclude file and read his content in the directory given
@@ -91,15 +95,21 @@ class DynamicContentModifier{
 
     public function updateOneRepoOverviewContent_ReadMe(string $dirPath){
 
-        $columnsName = ["Sub-Repo Name", "🔗 Link to the GitHub Page", "Status"];
+        $columnsName = ["Sub-Repo Name", "Status", "🔗 Link to the GitHub","🔗 Link to the GitHub Page"];
         $dirNames = self::findDirNames($dirPath, maxDepth:0);
         $rows = [];
         foreach($dirNames as $subRepoName){
             $betterSubRepoName = ucwords(str_replace("_", " ", $subRepoName));
             $relativePath = stristr($dirPath, $this->rootName) . "/" . $subRepoName;
+            $relativePathGitHub = stristr($dirPath, $this->rootName) . "/tree/master/" . $subRepoName;
             $status = self::STATUS_LABEL[self::findStatus($subRepoName)];
 
-            $row = [$betterSubRepoName, "[Link](".self::ROOT_URL_GITHUB_PAGES . $relativePath. ")", $status];
+            $row = [
+                $betterSubRepoName, 
+                $status, 
+                "[View it on GitHub](".self::ROOT_URL_GITHUB . $relativePathGitHub. ")", 
+                "[View it on GitHub Pages](".self::ROOT_URL_GITHUB_PAGES . $relativePath. ")"
+            ];
             array_push($rows, $row);
         }
         $content = arrayToTableString($columnsName, $rows);
@@ -111,7 +121,7 @@ class DynamicContentModifier{
     }
 
 
-     public function updateOneProjectStructureContentReadMe(string $dirPath){
+    public function updateOneProjectStructureContentReadMe(string $dirPath){
         $it = self::getReadMeIterator($dirPath);
 
         $dirPart = strrpos($dirPath, "/");   
@@ -132,16 +142,54 @@ class DynamicContentModifier{
         FileInjector::inject([$content], $tags, $it);
     }
 
+    private function isVanillaProject($dirPath): bool{
+        $this->factoryIterator->setFilters(
+                                        targetFiles:["package.json"],
+                                        maxDepth:-1
+                                    );
+
+        $it = $this->factoryIterator->getIterator();
+
+        // if we got any package.json that means this project use tools like npm 
+        foreach($it as $file){
+            return false;
+        }
+        return true;
+    }
+
+    public function updateOneProjectPreviewLinkContentReadMe(string $dirPath): void{
+        $it = self::getReadMeIterator($dirPath);
+
+        $dirPart = strrpos($dirPath, "/");   
+        $dirName = substr($dirPath, $dirPart+1, strlen($dirPath));
+        $relativePath = stristr($dirPath, $this->rootName) . "/public";
+        
+        $content="";
+        if(self::isVanillaProject($dirPath)){
+            $content = "[Here to see the project on GitHub Page](".self::ROOT_URL_GITHUB_PAGES . $relativePath. ")";
+        }else{
+            $command =  "cd " . escapeshellarg($dirPath . "/public") . " && npm install && npm run build";
+            $output = shell_exec($command);
+            $content = "[Here to see the project on GitHub Page](".self::ROOT_URL_GITHUB_PAGES . $relativePath. "/dist)";
+        }
+        
+
+        $tags = ["<!-- START LINK TO PREVIEW --> ", "<!-- END LINK TO PREVIEW -->"];
+
+        FileInjector::inject([$content], $tags, $it);
+    }
+
 
     public function updateAllContent(
         bool $updateRepoOverview=true, 
         bool $updateProjectStructure=true,
-        bool $updateHtml=false): void
+        bool $updateProjectLink=true,
+        bool $updateHtml=true): void
         {
 
         if($updateHtml) self::updateCommonHTMLTags();
 
-        if(!($updateRepoOverview || $updateProjectStructure)) return;
+        if(!($updateRepoOverview || $updateProjectStructure || $updateProjectLink)) return;
 
         $it = self::getReadMeIterator(maxDepth:-1);
         foreach($it as $readMeFile){
@@ -152,6 +200,7 @@ class DynamicContentModifier{
 
             if($updateRepoOverview) self::updateOneRepoOverviewContent_ReadMe($dirPath);
             if($updateProjectStructure) self::updateOneProjectStructureContentReadMe($dirPath);
+            if($updateProjectLink) self::updateOneProjectPreviewLinkContentReadMe($dirPath);
         }
     }
 
@@ -161,8 +210,8 @@ class DynamicContentModifier{
         $iterator = $this->factoryIterator->getIterator();
         $tags = ["<!-- START COMMON HEAD -->", "<!-- END COMMON HEAD -->", "<!-- START COMMON IMG -->", "<!-- END COMMON IMG -->"];
         $contentToInject = [
-        '<link rel="icon" href="/frontend_practice/common/img/icon_onglet.png" type="image/png">\n<link rel="stylesheet" href="/frontend_practice/common/font/font.css">',
-        '<img src="/frontend_practice/common/img/icon_onglet.png" alt="icon of a salary man">'
+        '<link rel="icon" href="/practice/frontend_practice/common/img/icon_onglet.png" type="image/png"><link rel="stylesheet" href="/practice/frontend_practice/common/font/font.css">',
+        '<img src="/practice/frontend_practice/common/img/icon_onglet.png" alt="icon of a salary man">'
         ];
         FileInjector::inject($contentToInject, $tags, $iterator);
     }   

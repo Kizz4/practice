@@ -6,7 +6,8 @@ function isRegex(string $pattern): bool{
 function normalizeString(string $content): string{
     $contentWithoutCom = preg_replace('/#.*(\n|$)/', "\n", $content);
     $normalizedContent = trim(preg_replace('/[\s\r\t\n]+/', "\n", $contentWithoutCom));
-    return trim($normalizedContent, "/");
+    $normalizedContent = preg_replace('/\/$/m', '', $normalizedContent);
+    return $normalizedContent;
 }
 
 

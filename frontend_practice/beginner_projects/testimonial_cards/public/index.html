@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testimonial Cards</title>
+    <meta name="description" content="Gabriel Chamboredon - Front-End Developer Testimonial Cards">
+    <meta name="keywords" content="Gabriel, developer, HTML, CSS, testimonials, frontend, UI, UX">
+    <meta name="author" content="Gabriel Chamboredon">
+
+    <meta property="og:title" content="Gabriel Dev - Testimonial Cards">
+    <meta property="og:description" content="Explore Gabriel's testimonial cards project — a responsive UI component designed with semantic HTML and CSS.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://testimonialcards.example.com">
+    <meta property="og:image" content="https://testimonialcards.example.com/preview.png">
+
+
+    <!-- START COMMON HEAD -->
+<link rel="icon" href="/practice/frontend_practice/common/img/icon_onglet.png" type="image/png"><link rel="stylesheet" href="/practice/frontend_practice/common/font/font.css">
+<!-- END COMMON HEAD -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <article id="testimonials">
+            <h2 class="visually-hidden">Testimonials</h2>
+            <article class="testimonial msg-testimonial">
+                <h3 class="visually-hidden">Testimonial</h3>
+                <blockquote class="comment">
+                    <p>
+                        I have been solving all the project ideas on roadmap.sh and I am surprised how far 
+                        I have come from where I started.
+                    </p>
+
+                    <p>Highly recommended!</p>
+                </blockquote>  
+                
+                <div class="profil"> 
+                    <img class="profil-picture" src="img/profile_picture1.jpg" alt="profil picture of Artem Jones">
+                    <p class="profil-info">Artem Jones<br><span class="job">Full Stack Developer</span></p>         
+                </div>
+            </article>
+
+            <article class="testimonial classic-testimonial">
+                <h3 class="visually-hidden">Testimonial</h3>
+                <blockquote class="comment">
+                    <p>
+                        Since starting my career in 2021, I have only followed one resource, roadmap.sh, 
+                        it truly helped me go from 0 to having a job and changing the financial trajectory of my family
+                    </p>
+
+                    
+                    <div class="profil"> 
+                        <img class="profil-picture" src="img/profile_picture3.png" alt="profil picture of John Doe">
+                        <p class="profil-info">John Doe<br><span class="job">Junior Frontend Developer</span></p>         
+                    </div>
+                </blockquote>          
+            </article>
+
+            <article class="testimonial profile-picture-aside-testimonial">
+                <h3 class="visually-hidden">Testimonial</h3>
+                <img class="profil-picture" src="img/profile_picture2.jpg" alt="profil picture of Grace Stewart">
+
+                <blockquote class="comment">
+                    <div class="rating">
+                        <p class="star-p">★</p>
+                        <p class="star-p">★</p>
+                        <p class="star-p">★</p>
+                        <p class="star-p">★</p>
+                        <p class="star-p">★</p>
+                    </div>
+                    <div class="profil"> 
+                        <p class="profil-info">Grace Stewart<br><span class="job">Engineering Manager</span></p>         
+                    </div>
+                    
+                    <p>
+                        I find myself recommending roadmap.sh to all the internees or junior developers. 
+                        It's a great way to skill up and grow in your career.
+                    </p> 
+                </blockquote>    
+            </article>
+
+            <article class="testimonial swapable-testimonial">
+                <h3 class="visually-hidden">Testimonial</h3>
+                <input type="radio" name="slider" id="slide1" checked>
+                <input type="radio" name="slider" id="slide2">
+                <input type="radio" name="slider" id="slide3">
+
+                <div class="slides">
+                    <blockquote class="comment slide" id="s1">        
+                        <p>
+                            roadmap.sh is an incredible resource. I was fortunate to discover it during my university days in 2018. 
+                            Back then, it was just a single repository with three images. 
+                            It's amazing to see how much impact it has had on millions of lives since then.
+                        </p> 
+
+                        <div class="swap-container"> 
+                            <label for="slide3">&lt;</label>
+                            <img class="profil-picture-for-swap" src="img/profile_picture2.jpg" alt="profil picture of Grace Stewart">
+                            <img class="profil-picture" src="img/profile_picture3.png" alt="profil picture of John Doe">
+                            <img class="profil-picture-for-swap" src="img/profile_picture1.jpg" alt="profil picture of Artem Jones">
+                            <label for="slide2">&gt;</label>               
+                        </div>  
+
+                        <p class="profil-info">John Doe</p>    
+                    </blockquote>
+
+                    <blockquote class="comment slide" id="s2">        
+                        <p>
+                            roadmap.sh changed my life. As a career switcher, I followed every step and solved all the projects. 
+                            It gave me the skills and confidence to land a Full Stack developer job. 
+                            I'm proud of my journey and grateful for this amazing resource.
+                        </p> 
+                            
+                        <div class="swap-container"> 
+                            <label for="slide1">&lt;</label>
+                            <img class="profil-picture-for-swap" src="img/profile_picture3.png" alt="profil picture of John Doe">
+                            <img class="profil-picture" src="img/profile_picture1.jpg" alt="profil picture of Artem Jones">
+                            <img class="profil-picture-for-swap" src="img/profile_picture2.jpg" alt="profil picture of Grace Stewart">
+                            <label for="slide3">&gt;</label>               
+                        </div>  
+
+                        <p class="profil-info">Artem Jones</p>   
+
+                    </blockquote>
+
+                    <blockquote class="comment slide" id="s3">        
+                        <p>
+                            As an engineering manager, I regularly recommend roadmap.sh to junior developers. The structure is clear, 
+                            the challenges are relevant, and the growth I see in my team is remarkable. 
+                            It's one of the best resources out there for building real skills.
+                        </p> 
+
+                        
+                        
+                        <div class="swap-container"> 
+                            <label for="slide2">&lt;</label>
+                            <img class="profil-picture-for-swap" src="img/profile_picture1.jpg" alt="profil picture of Artem Jones">
+                            <img class="profil-picture" src="img/profile_picture2.jpg" alt="profil picture of Grace Stewart">
+                            <img class="profil-picture-for-swap" src="img/profile_picture3.png" alt="profil picture of John Doe">
+                            <label for="slide1">&gt;</label>               
+                        </div>
+
+                        <p class="profil-info">Grace Stewart</p>
+                        
+                    </blockquote>      
+                </div>
+
+                
+                
+            </article>
+        </article>
+    </main>
+</body>
+</html>

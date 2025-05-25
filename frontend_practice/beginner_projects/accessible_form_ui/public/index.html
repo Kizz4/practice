@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Accessible Form</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Build a fully accessible and responsive profile form UI using semantic HTML and CSS.">
+    <meta name="keywords" content="accessible form, frontend project, HTML, CSS, UI, UX, accessibility, roadmap.sh">
+    <meta name="author" content="Gabriel Chamboredon">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Accessible Form UI - Frontend Project">
+    <meta property="og:description" content="An accessible and responsive form interface with semantic HTML and CSS, built as part of the Frontend Projects Roadmap.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/accessible-form-ui">
+    <meta property="og:image" content="https://yourdomain.com/img/form-preview.png">
+
+    <!-- START COMMON HEAD -->
+<link rel="icon" href="/practice/frontend_practice/common/img/icon_onglet.png" type="image/png"><link rel="stylesheet" href="/practice/frontend_practice/common/font/font.css">
+<!-- END COMMON HEAD -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <div class="form-wrapper">
+            <form>
+                <div class="form-component">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="What should we call you?" required
+                        aria-invalid="false" maxlength="64">
+                    <p class="error-message hidden" id="name-error"></p>
+                </div>
+
+                <div class="form-component">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="john@doe.com" value="john@doe.com" required
+                        aria-invalid="true" maxlength="128">
+                    <p class="error-message visible" id="email-error">Email is already taken</p>
+                </div>
+
+                <div class="form-component">
+                    <label for="password">Enter Password</label>
+                    <div class="password-input-wrapper">
+
+                        <input type="radio" id="radio-visible-password" name="trigger-visibility-password"
+                            aria-hidden="true">
+                        <input type="radio" id="radio-hidden-password" name="trigger-visibility-password" checked
+                            aria-hidden="true">
+
+                        <input type="password" class="password-hidden" name="password" placeholder="xxxxxxxxxx" required
+                            minlength="4" maxlength="8" aria-invalid="false" aria-hidden="false">
+                        <input type="text" class="password-visible" name="password" placeholder="xxxxxxxxxx" required
+                            minlength="4" maxlength="8" aria-invalid="false" aria-hidden="true">
+
+                        <img class="password-hidden" src="img/icon_visible-password.png" alt="icon visible password"
+                            aria-hidden="false">
+                        <img class="password-visible" src="img/icon_hidden-password.svg" alt="icon hidden password"
+                            aria-hidden="true">
+                    </div>
+
+                    <p class="error-message hidden" id="password-error"></p>
+                </div>
+
+                <div class="form-component">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="password-input-wrapper">
+                        <input type="radio" id="radio-visible-confirm-password"
+                            name="trigger-visibility-confirm-password" aria-hidden="true">
+                        <input type="radio" id="radio-hidden-confirm-password"
+                            name="trigger-visibility-confirm-password" checked aria-hidden="true">
+
+                        <input type="password" class="confirm-password-hidden" name="confirm-password"
+                            placeholder="xxxxxxxxxx" required minlength="4" maxlength="8" aria-invalid="false"
+                            aria-hidden="false">
+                        <input type="text" class="confirm-password-visible" name="confirm-password"
+                            placeholder="xxxxxxxxxx" required minlength="4" maxlength="8" aria-invalid="false"
+                            aria-hidden="true">
+
+                        <img class="confirm-password-hidden" src="img/icon_visible-password.png"
+                            alt="icon visible password" aria-hidden="false">
+                        <img class="confirm-password-visible" src="img/icon_hidden-password.svg"
+                            alt="icon hidden password" aria-hidden="true">
+                    </div>
+                    <p class="error-message hidden" id="confirm-password-error"></p>
+                </div>
+
+
+                <button type="submit">Update Profile</button>
+            </form>
+
+            <div id="completion-wrapper">
+                <div id="completion-tracker">
+                    <p>65%</p>
+                </div>
+                <p>Profile Completeness</p>
+
+                <div id="profil-requirement">
+                    <p class="requirement-completed">Create Account</p>
+                    <p class="requirement-completed">Update Roadmap Progress</p>
+                    <p class="requirement-completed">Setup Public Profile</p>
+                    <p>Complete your first project</p>
+                    <p>Invite your Friend</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
