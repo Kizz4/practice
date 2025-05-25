@@ -17,7 +17,7 @@ show_exit_message() {
 
 show_main_menu() {
   choice=$(zenity --list \
-    --title="Git Commit Assistant" \
+    --title="git Commit Assistant" \
     --width=$WIN_WIDTH --height=$WIN_HEIGHT \
     --column="Available Actions" \
     "Set status of a Project(s) or Repo(s)" \
@@ -59,7 +59,7 @@ update_files(){
   "$INDEX_SCRIPT".
 
   echo "Running $BUILDER_TOOLS_SCRIPT with Root: $BASE_DIR"
-  "$BUILDER_TOOLS_SCRIPT" "$BASE_DIR"
+  "$BUILDER_TOOLS_SCRIPT" "$REPO_NAME"
 
   git add -A
   git commit -m "Update of README(s) file(s), builder tool(s) config file(s), and every docs/index.md found for $project_name"

@@ -28,7 +28,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        publicPath: '//home/gabdev/Documents/practice/frontend_practice/beginner_projects/age_calculator/public/',
+        publicPath: '/practice/frontend_practice/beginner_projects/age_calculator/public/',
         clean:true
     },
 
