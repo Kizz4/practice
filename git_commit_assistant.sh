@@ -59,7 +59,7 @@ update_files(){
   php "$PHP_SCRIPT" "$project_name"
 
   echo "Running $INDEX_SCRIPT"
-  "$INDEX_SCRIPT".
+  "$INDEX_SCRIPT"
 
   git add -A
   git commit -m "Update of README(s) file(s), builder tool(s) config file(s), and every docs/index.md found for $project_name"
