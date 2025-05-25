@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-# Frontend Practice Projects
+# Frontend Practice Projects 
 
 This repository gathers all frontend practice projects inspired by the [roadmap.sh frontend project list](https://roadmap.sh/frontend/projects).  
 The goal is to build each project step-by-step to reinforce HTML, CSS, and JavaScript skills — from beginner to advanced level.

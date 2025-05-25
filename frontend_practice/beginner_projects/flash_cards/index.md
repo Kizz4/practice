@@ -87,7 +87,7 @@ flash_cards
 
 ## 🔍 Preview
 <!-- START LINK TO PREVIEW --> 
-[Here to see the project on GitHub Page](https://kizz4.github.io/practice/frontend_practice/beginner_projects/flash_cards/public)
+[Here to see the project on GitHub Page](https://kizz4.github.io/practice/frontend_practice/beginner_projects/flash_cards/public/dist)
 <!-- END LINK TO PREVIEW -->
 
 ### OR

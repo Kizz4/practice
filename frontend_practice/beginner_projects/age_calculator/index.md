@@ -78,7 +78,7 @@ age_calculator
 
 ## 🔍 Preview
 <!-- START LINK TO PREVIEW --> 
-[Here to see the project on GitHub Page](https://kizz4.github.io/practice/frontend_practice/beginner_projects/age_calculator/public)
+[Here to see the project on GitHub Page](https://kizz4.github.io/practice/frontend_practice/beginner_projects/age_calculator/public/dist)
 <!-- END LINK TO PREVIEW -->
 
 ### OR
