@@ -10,7 +10,7 @@ find . -type f -name "webpack.config.js" ! -path "*/node_modules/*" | while read
 
     projectPath=$(dirname "$config")
     cleanProjectPath="${projectPath#./}"
-    githubPath="/$rootName/$cleanProjectPath/"
+    githubPath="/$rootName/$cleanProjectPath/dist/"
 
     echo "📦 Replacing publicPath with: $githubPath"$'\n'
 
@@ -23,7 +23,7 @@ find . -type f -name "vite.config.ts" ! -path "*/node_modules/*" | while read -r
 
     projectPath=$(dirname "$config")
     cleanProjectPath="${projectPath#./}"
-    githubPath="/$rootName/$cleanProjectPath/"
+    githubPath="/$rootName/$cleanProjectPath/dist/"
 
     echo "📦 Replacing base with: $githubPath"$'\n'
 
