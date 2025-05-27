@@ -162,10 +162,10 @@ layout: default
         $it = self::getReadMeIterator($dirPath);
 
         $dirPart = strrpos($dirPath, "/");   
-        $dirName = substr($dirPath, $dirPart+1, strlen($dirPath));
         $relativePath = stristr($dirPath, $this->rootName) . "/public";
 
         $content="";
+            
         if(self::isVanillaProject($dirPath)){
             $content = "[Here to see the project on GitHub Page](".self::ROOT_URL_GITHUB_PAGES . $relativePath. ")";
         }else{

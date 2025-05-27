@@ -152,7 +152,7 @@ set_project_status() {
 
   git commit -m "Updating status for:" -m "$commitMsg"
   update_files "$REPO_NAME"
-  git push
+  #git push
 
   zenity --info --text="Statuses applied to:\n\n$commitMsg" --width=$WIN_WIDTH
 }
