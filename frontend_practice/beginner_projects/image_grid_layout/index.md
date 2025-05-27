@@ -18,7 +18,6 @@ You will practice organizing multiple images in a grid layout that adapts to dif
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Preview](#preview)
-- [Prerequisites](#prerequisites)
 
 ---
 

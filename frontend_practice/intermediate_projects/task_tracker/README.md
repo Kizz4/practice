@@ -50,27 +50,29 @@ The goal of this project is to create a task tracker that allows users to add ne
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
 ```
-task-tracker/
-├── public/
-│   ├── index.html
-│   └── vite.config.ts
-├── src/
-│   ├── main.ts
-│   ├── style.css
-│   ├── taskActions.ts
-│   ├── factories/
-│   │   ├── TaskFactory.ts
-│   │   └── TaskListFactory.ts
-│   ├── models/
-│   │   ├── Task.ts
-│   │   └── TaskList.ts
-│   └── img/
-│       ├── delete.png
-│       └── delete_red.png
-├── package.json
-├── package-lock.json
-├── tsconfig.json
-└── README.md
+task_tracker
+	public
+		vite.config.ts
+		package.json
+		index.html
+		package-lock.json
+		src
+			img
+				delete.png
+				delete_red.png
+			taskActions.ts
+			main.ts
+			vite-env.d.ts
+			factories
+				TaskFactory.ts
+				TaskListFactory.ts
+			style.css
+			models
+				TaskList.ts
+				Task.ts
+		tsconfig.json
+	README.md
+
 ```
 <!-- END PROJECT STRUCTURE -->
 
