@@ -51,7 +51,7 @@ export function toggleInteraction(list: HTMLUListElement, menuButton: HTMLButton
     }
   });
 
-  // navigation clavier
+  // Keyboard Navigation
   menuButton.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();

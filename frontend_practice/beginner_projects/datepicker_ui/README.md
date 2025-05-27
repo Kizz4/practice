@@ -15,7 +15,6 @@ It is a static component that can later be enhanced with JavaScript for interact
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Preview](#preview)
-- [Prerequisites](#prerequisites)
 
 ---
 
