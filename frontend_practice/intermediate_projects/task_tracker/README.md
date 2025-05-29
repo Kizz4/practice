@@ -1,5 +1,4 @@
 # Task Tracker
-[https://roadmap.sh/projects/task-tracker-js](https://roadmap.sh/projects/task-tracker-js)
 This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for intermediate developers. 
 You can find the specific project details [here](https://roadmap.sh/projects/task-tracker-js).
 
