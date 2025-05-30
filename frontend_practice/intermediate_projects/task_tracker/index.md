@@ -2,8 +2,7 @@
 layout: default
 ---
 # Task Tracker
-
-This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for intermediate developers.  
+This project is part of the [Frontend Projects Roadmap](https://roadmap.sh/frontend/projects) for intermediate developers. 
 You can find the specific project details [here](https://roadmap.sh/projects/task-tracker-js).
 
 The goal of this project is to create a task tracker that allows users to add new tasks, mark them as complete, or delete them. Completed tasks are moved to the end of the list and displayed with a strikethrough. Users can also unmark tasks to return them to the pending list.
