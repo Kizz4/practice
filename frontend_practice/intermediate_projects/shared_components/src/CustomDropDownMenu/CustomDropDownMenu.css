@@ -1,0 +1,110 @@
+
+#cddm-menu *:focus{
+  border: none;
+  outline : 4px solid gold;
+}
+
+#cddm-menu #cddm-list :first-child{
+  border-radius: 20px 20px 0 0;
+}
+
+#cddm-menu #cddm-list :last-child{
+  border-radius: 0 0 20px 20px;
+}
+
+/* ---------------------
+   cddm structure
+---------------------- */
+#cddm-controller,
+#cddm-list {
+  all: unset;
+  position: relative;
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+#cddm-controller,
+#cddm-list > li {
+  cursor: pointer;
+  padding: 0.8em;
+  padding-right: 4em;
+}
+
+/* ---------------------
+   cddm visibility
+---------------------- */
+#cddm-controller.cddm-hide ~ #cddm-list{
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#cddm-controller.cddm-show ~ #cddm-list {
+  opacity: 1;
+}
+
+/* ---------------------
+   List items
+---------------------- */
+#cddm-list {
+  list-style: none;
+  margin-top: 1em;
+  border-radius: 20px;
+  display: block;
+  transition: opacity 0.6s ease-in-out;
+}
+
+#cddm-list > li {
+  width: 100%;
+  border-bottom: 2px solid black;
+  box-sizing: border-box;
+}
+
+#cddm-list > li:last-of-type {
+  border-bottom: none;
+}
+
+/* ---------------------
+   Pseudo-elements
+---------------------- */
+#cddm-controller::after,
+#cddm-list li.selected::after {
+  content: "";
+  text-align: center;
+  position: absolute;
+  right: 0;
+  transform: translateX(-50%);
+  width: 2em;
+  height: 2em;
+}
+
+#cddm-controller.cddm-hide::after {
+  content: ">";
+}
+
+#cddm-controller.cddm-show::after {
+  content: "v";
+}
+
+#cddm-list li.selected::after {
+  background-image: url("icon_check.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* ---------------------
+   Screen Reader Only
+---------------------- */
+#cddm-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+  white-space: nowrap;
+}

@@ -19,13 +19,7 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
-
-    "baseUrl": ".",
-    "paths": {
-      "shared_components": ["../../shared_components/src"],
-      "shared_components/*": ["../../shared_components/src/*"]
-    },
+    "noUncheckedSideEffectImports": true
   },
   "include": ["src"]
 }

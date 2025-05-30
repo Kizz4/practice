@@ -1,10 +1,31 @@
 
+let list:HTMLUListElement|null = null;
+let attributesForListElement:Map<string, string> = new Map<string, string>();
+
+export function setList(newList:HTMLUListElement): void{list = newList;}
+export function setAttributesForListElement(attributes:Map<string, string>): void{attributesForListElement = attributes;}
+
+export function setListContent(newListElements:string[]): void{
+  if(list === null) return;
+  list.innerHTML = "";
+  newListElements.forEach(content => {
+    const li = document.createElement('li');
+
+    attributesForListElement.forEach((value, key) => {
+      li.setAttribute(key, value)
+    });
+
+    li.textContent = content;
+    list!.appendChild(li);
+  });
+}
 
 
-export function toggleInteraction(list: HTMLUListElement, menuButton: HTMLButtonElement, status: HTMLParagraphElement) {
+export function toggleInteraction(newList:HTMLUListElement, menuButton: HTMLButtonElement, status: HTMLParagraphElement) {
+  setList(newList);
   let isOpen = false;
   let currentItemSelected: HTMLLIElement | null = null;
-  const items = list.querySelectorAll('li');
+  const items = list!.querySelectorAll('li');
 
   function toggleMenu(open?: boolean) {
     isOpen = typeof open === 'boolean' ? open : !isOpen;
@@ -46,7 +67,7 @@ export function toggleInteraction(list: HTMLUListElement, menuButton: HTMLButton
   menuButton.addEventListener('click', () => toggleMenu());
 
   document.addEventListener('click', (e) => {
-    if (isOpen && !menuButton.contains(e.target as Node) && !list.contains(e.target as Node)) {
+    if (isOpen && !menuButton.contains(e.target as Node) && !list!.contains(e.target as Node)) {
       toggleMenu(false);
     }
   });
