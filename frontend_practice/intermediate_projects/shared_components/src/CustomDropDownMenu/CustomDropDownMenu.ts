@@ -5,14 +5,24 @@ import { createHTMLElement } from '../utils/reusableFunctions';
 export class CustomDropDownMenu {
   private menu: HTMLElement;
   private button: HTMLButtonElement;
+  private searchBar: HTMLFormElement | undefined;
   private list: HTMLUListElement;
   private status: HTMLParagraphElement;
   private items: HTMLLIElement[] = [];
   private isOpen = false;
   private defaultButtonText: string;
+  private maxItemDisplayable: number;
 
-  constructor(private contents: string[], defaultButtonText = 'Select an Item') {
+  constructor(
+    private contents: string[],
+    defaultButtonText: string = 'Select an Item',
+    maxItemDisplayable: number = 5,
+    withSearchBar: boolean = false,
+    searchPlaceHolder: string = "") {
+
     this.defaultButtonText = defaultButtonText;
+    this.maxItemDisplayable = maxItemDisplayable;
+
     this.menu = createHTMLElement('nav', { id: 'cddm-menu' });
 
     this.button = createHTMLElement(
@@ -35,29 +45,112 @@ export class CustomDropDownMenu {
     });
 
     this.status = createHTMLElement('p',
-      { id: 'cddm-status', 'aria-live': 'polite' },
+      { id: 'cddm-status', class: 'sr-only', 'aria-live': 'polite' },
       'No item selected'
     );
 
-    this.menu.append(this.button, this.list, this.status);
+    if (withSearchBar) {
+      const label = createHTMLElement(
+        'label',
+        { for: 'search-input', class: 'sr-only' },
+        "Search :"
+      );
+
+      const input =
+        createHTMLElement(
+          'input',
+          {
+            id: 'search-input',
+            name: 'search-input',
+            class: "focusable",
+            placeholder: searchPlaceHolder,
+          },
+        );
+      const searchIcon = createHTMLElement(
+        'img',
+        { id: 'search-icon', src: "CustomDropDownMenu/search_icon.png", alt: "search icon" }
+      );
+
+      this.searchBar = createHTMLElement(
+        'form',
+        {
+          id: 'cddm-search',
+          name: 'cddm-search',
+          class: 'on-focus',
+          'aria-role': 'searchbar',
+        },
+      );
+
+
+      this.searchBar.append(label, input, searchIcon);
+      this.menu.append(this.button, this.searchBar, this.list, this.status);
+
+      this.attachSearchBarListener(input);
+
+    } else this.menu.append(this.button, this.list, this.status);
+
+
 
     this.setMenuContents(contents);
     this.attachListeners();
+    this.addListMaxHeight();
   }
 
-  public getMenu(): HTMLElement {
-    return this.menu;
+  public getMenu(): HTMLElement { return this.menu; }
+  public getSearchForm(): HTMLFormElement | undefined { return this.searchBar; }
+  public getSearchInput(): HTMLInputElement | null | undefined { return this.searchBar?.querySelector("#search-input");}
+  public getDefaultButtonText(): string { return this.defaultButtonText; }
+  public getMaxItemDisplayable(): number { return this.maxItemDisplayable; }
+
+  public setDefaultButtonText(defaultButtonText: string): void { this.defaultButtonText = defaultButtonText; }
+  public setMaxItemDisplayable(maxItemDisplayable: number): void {
+    this.maxItemDisplayable = maxItemDisplayable;
+    this.addListMaxHeight();
+  }
+
+
+  private addListMaxHeight() {
+    const style = window.getComputedStyle(this.list);
+
+    const properties = [
+      "height",
+      "paddingTop",
+      "paddingBottom",
+      "marginTop",
+      "marginBottom",
+      "borderTopWidth",
+      "borderBottomWidth"
+    ];
+
+    const units: Record<string, number[]> = {};
+
+    for (const prop of properties) {
+      const value = style.getPropertyValue(prop);
+      const match = value.trim().match(/^([0-9.]+)([a-z%]+)$/i);
+      if (match) {
+        const num = parseFloat(match[1]);
+        const unit = match[2];
+        if (!units[unit]) units[unit] = [];
+        units[unit].push(num);
+      }
+    }
+
+    const calcParts = Object.entries(units).map(
+      ([unit, values]) => `${values.reduce((a, b) => a + b, 0)}${unit}`
+    );
+    this.list.style.maxHeight = `calc(${calcParts.join(" + ")})`;
+
   }
 
   private createElementList(content: string): HTMLLIElement {
-    const li = createHTMLElement('li',{
-          class: 'cddm-item',
-          role: 'option',
-          tabindex: '-1',
-          'aria-selected': 'false'
-        },
-        content
-      );
+    const li = createHTMLElement('li', {
+      class: 'cddm-item',
+      role: 'option',
+      tabindex: '-1',
+      'aria-selected': 'false'
+    },
+      content
+    );
     return li;
   }
 
@@ -65,7 +158,7 @@ export class CustomDropDownMenu {
     const li = this.createElementList(content);
     this.list.appendChild(li);
     this.items.push(li);
-    this.attachItemListener(li, (this.items.length-1))
+    this.attachItemListener(li, (this.items.length - 1))
   }
 
   public setMenuContents(contents: string[], isMenuOpen?: boolean): void {
@@ -77,7 +170,7 @@ export class CustomDropDownMenu {
     contents.forEach(content => { this.appendElementToMenu(content) });
 
     this.toggleMenu(this.isOpen);
-    if (this.isOpen) this.items[0].focus(); 
+    if (this.isOpen) this.items[0].focus();
   }
 
   private toggleMenu(open?: boolean): void {
@@ -92,7 +185,12 @@ export class CustomDropDownMenu {
     });
 
     if (this.isOpen) {
-      this.items[0]?.focus();
+      let firstHiddenElement = this.menu
+        .firstElementChild!
+        .nextElementSibling! as HTMLElement;
+      if (this.searchBar) firstHiddenElement = firstHiddenElement.querySelector("#search-input") as HTMLElement;
+
+      firstHiddenElement.focus();
     } else {
       this.button.focus();
     }
@@ -117,6 +215,18 @@ export class CustomDropDownMenu {
       this.button.textContent = this.defaultButtonText;
       this.status.textContent = 'No item selected';
     }
+  }
+
+  private attachSearchBarListener(input: HTMLInputElement) {
+    input.addEventListener("focus", () => {
+      this.searchBar!.classList.add("on-focus");
+      input.style.border = "none";
+    });
+
+    input.addEventListener("blur", () => {
+      this.searchBar!.classList.remove("on-focus");
+      input.style.border = "none";
+    });
   }
 
   private attachItemListener(item: HTMLLIElement, idx: number): void {
@@ -152,12 +262,12 @@ export class CustomDropDownMenu {
     this.button.addEventListener('click', () => this.toggleMenu());
 
     document.addEventListener('click', e => {
-      if (
-        this.isOpen &&
-        !this.button.contains(e.target as Node) &&
-        !this.list.contains(e.target as Node)
-      ) {
-        this.toggleMenu(false);
+      if (this.isOpen) {
+        let isStillOpen = false;
+        Array.from(this.menu.children).forEach(child => {
+          isStillOpen = child.contains(e.target as Node) || isStillOpen;
+        });
+        this.toggleMenu(isStillOpen);
       }
     });
 

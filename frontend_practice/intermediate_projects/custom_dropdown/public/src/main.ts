@@ -1,7 +1,7 @@
 import './style.css'
 import { CustomDropDownMenu } from 'shared_components';
 
-const listContent = ["First Item", "Second Item", "Third Item", "Fourth Item", "Fifth Item"]
-const customDropDownMenu = new CustomDropDownMenu(listContent);
+const listContent = ["First Item", "Second Item", "Third Item", "Fourth Item", "Fifth Item", "Sixth Item", "Seventh Item"]
+const customDropDownMenu = new CustomDropDownMenu(listContent, "Select an Item", 5, true, "Make your searh here");
 
 document.querySelector<HTMLDivElement>('#app')!.appendChild(customDropDownMenu.getMenu());
