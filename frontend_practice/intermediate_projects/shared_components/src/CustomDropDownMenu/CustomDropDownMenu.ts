@@ -1,5 +1,8 @@
 import './CustomDropDownMenu.css';
 import { createHTMLElement } from '../utils/reusableFunctions';
+import searchIconUrl from './search_icon.png';
+import checkIconUrl from './icon_check.png';
+
 
 
 export class CustomDropDownMenu {
@@ -68,7 +71,7 @@ export class CustomDropDownMenu {
         );
       const searchIcon = createHTMLElement(
         'img',
-        { id: 'search-icon', src: "CustomDropDownMenu/search_icon.png", alt: "search icon" }
+        { id: 'search-icon', src: searchIconUrl, alt: "search icon" }
       );
 
       this.searchBar = createHTMLElement(
@@ -85,20 +88,22 @@ export class CustomDropDownMenu {
       this.searchBar.append(label, input, searchIcon);
       this.menu.append(this.button, this.searchBar, this.list, this.status);
 
-      this.attachSearchBarListener(input);
-
     } else this.menu.append(this.button, this.list, this.status);
 
 
 
     this.setMenuContents(contents);
     this.attachListeners();
-    this.addListMaxHeight();
   }
+
+
+
+
+
 
   public getMenu(): HTMLElement { return this.menu; }
   public getSearchForm(): HTMLFormElement | undefined { return this.searchBar; }
-  public getSearchInput(): HTMLInputElement | null | undefined { return this.searchBar?.querySelector("#search-input");}
+  public getSearchInput(): HTMLInputElement | null | undefined { return this.searchBar?.querySelector("#search-input"); }
   public getDefaultButtonText(): string { return this.defaultButtonText; }
   public getMaxItemDisplayable(): number { return this.maxItemDisplayable; }
 
@@ -109,40 +114,46 @@ export class CustomDropDownMenu {
   }
 
 
-  private addListMaxHeight() {
-    const style = window.getComputedStyle(this.list);
 
-    const properties = [
-      "height",
-      "paddingTop",
-      "paddingBottom",
-      "marginTop",
-      "marginBottom",
-      "borderTopWidth",
-      "borderBottomWidth"
-    ];
+
+
+  private addListMaxHeight() {
+    const children = this.list.children as HTMLCollectionOf<HTMLElement>
+    const elements = Array.from(children);
+
+
+    const properties = ["height"];
 
     const units: Record<string, number[]> = {};
 
+
     for (const prop of properties) {
-      const value = style.getPropertyValue(prop);
-      const match = value.trim().match(/^([0-9.]+)([a-z%]+)$/i);
-      if (match) {
-        const num = parseFloat(match[1]);
-        const unit = match[2];
-        if (!units[unit]) units[unit] = [];
-        units[unit].push(num);
+      for (const element of elements) {
+
+        const style = window.getComputedStyle(element)
+        const value = style.getPropertyValue(prop);
+        const match = value.trim().match(/^([0-9.]+)([a-z%]+)$/i);
+        if (match) {
+          const num = parseFloat(match[1]);
+          const unit = match[2];
+          if (!units[unit]) units[unit] = [];
+          units[unit].push(num);
+        }
       }
     }
-
+    const percentageFactor = this.maxItemDisplayable / elements.length
     const calcParts = Object.entries(units).map(
       ([unit, values]) => `${values.reduce((a, b) => a + b, 0)}${unit}`
     );
-    this.list.style.maxHeight = `calc(${calcParts.join(" + ")})`;
 
+    this.list.style.maxHeight = `calc((${calcParts.join(" + ")}) * ${percentageFactor})`;
   }
 
-  private createElementList(content: string): HTMLLIElement {
+
+
+
+
+  private createItemList(content: string): HTMLLIElement {
     const li = createHTMLElement('li', {
       class: 'cddm-item',
       role: 'option',
@@ -151,15 +162,28 @@ export class CustomDropDownMenu {
     },
       content
     );
+
+    const checkIcon = createHTMLElement('img',
+      { id: 'check-icon', src: checkIconUrl, alt: "check icon" }
+    );
+
+    li.appendChild(checkIcon);
     return li;
   }
 
+
+
+
+
   public appendElementToMenu(content: string): void {
-    const li = this.createElementList(content);
+    const li = this.createItemList(content);
     this.list.appendChild(li);
     this.items.push(li);
     this.attachItemListener(li, (this.items.length - 1))
   }
+
+
+
 
   public setMenuContents(contents: string[], isMenuOpen?: boolean): void {
     this.isOpen = typeof isMenuOpen === "boolean" ? isMenuOpen : this.isOpen;
@@ -173,6 +197,10 @@ export class CustomDropDownMenu {
     if (this.isOpen) this.items[0].focus();
   }
 
+
+
+
+
   private toggleMenu(open?: boolean): void {
     this.isOpen = typeof open === 'boolean' ? open : !this.isOpen;
     this.button.setAttribute('aria-expanded', String(this.isOpen));
@@ -185,6 +213,7 @@ export class CustomDropDownMenu {
     });
 
     if (this.isOpen) {
+      this.addListMaxHeight();
       let firstHiddenElement = this.menu
         .firstElementChild!
         .nextElementSibling! as HTMLElement;
@@ -195,6 +224,10 @@ export class CustomDropDownMenu {
       this.button.focus();
     }
   }
+
+
+
+
 
   private toggleSelected(item: HTMLLIElement): void {
     const prev = this.items.find(li => li.classList.contains('cddm-selected'));
@@ -217,17 +250,12 @@ export class CustomDropDownMenu {
     }
   }
 
-  private attachSearchBarListener(input: HTMLInputElement) {
-    input.addEventListener("focus", () => {
-      this.searchBar!.classList.add("on-focus");
-      input.style.border = "none";
-    });
 
-    input.addEventListener("blur", () => {
-      this.searchBar!.classList.remove("on-focus");
-      input.style.border = "none";
-    });
-  }
+
+
+
+
+
 
   private attachItemListener(item: HTMLLIElement, idx: number): void {
     item.addEventListener('click', () => {
@@ -258,7 +286,65 @@ export class CustomDropDownMenu {
     });
   }
 
+
   private attachListeners(): void {
+    this.attachSearchBarListener();
+    this.attachScrollableListListener();
+    this.attachMenuToggleListener();    
+  }
+
+
+  private attachSearchBarListener(): void {
+    if (!this.searchBar) return;
+    const children = this.searchBar.children as HTMLCollectionOf<HTMLElement>;
+
+    Array.from(children).forEach((child) => {
+      child.addEventListener("focus", () => {
+        this.searchBar!.classList.add("on-focus");
+        child.style.border = "none";
+      });
+
+      child.addEventListener("blur", () => {
+        this.searchBar!.classList.remove("on-focus");
+        child.style.border = "none";
+      });
+    });
+  }
+
+
+
+
+  private checkOverflow(el: HTMLElement) {
+    const { scrollTop, scrollHeight, clientHeight } = el;
+
+    const hiddenAbove = scrollTop > 0;
+    const hiddenBelow = scrollTop + clientHeight < scrollHeight;
+
+    return { hiddenAbove, hiddenBelow };
+  }
+
+
+
+
+
+  private attachScrollableListListener(): void {
+    this.list.addEventListener("scroll", () => {
+      const { hiddenAbove, hiddenBelow } = this.checkOverflow(this.list);
+      if (hiddenAbove) {
+        this.list.classList.add("scrollable-to-top");
+
+      } else this.list.classList.remove("scrollable-to-top");
+
+      if (hiddenBelow) {
+        this.list.classList.add("scrollable-to-bottom");
+
+      } else this.list.classList.remove("scrollable-to-bottom");
+    });
+  }
+
+
+
+  private attachMenuToggleListener(): void {
     this.button.addEventListener('click', () => this.toggleMenu());
 
     document.addEventListener('click', e => {

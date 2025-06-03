@@ -11,6 +11,10 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "baseUrl": "src",
+    "typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ],
   },
   "include": ["src"]
 }
