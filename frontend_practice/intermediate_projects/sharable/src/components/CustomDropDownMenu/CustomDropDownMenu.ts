@@ -17,7 +17,7 @@ export class CustomDropDownMenu extends EventTarget{
   private maxItemDisplayable: number;
 
   constructor(
-    private contents: string[],
+    contents: string[],
     defaultButtonText: string = 'Select an Item',
     maxItemDisplayable: number = 5,
     withSearchBar: boolean = false,
