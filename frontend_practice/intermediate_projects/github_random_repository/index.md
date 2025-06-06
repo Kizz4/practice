@@ -57,6 +57,11 @@ Users can fetch another random repository with a button click.
 ```
 github_random_repository
 	public
+		dist
+			index.html
+			assets
+				index-BaiKPFAq.css
+				index-BVTRErKr.js
 		package.json
 		index.html
 		package-lock.json
