@@ -1,7 +1,8 @@
 /* ---------------------
    Base layout
 ---------------------- */
-html, body {
+html,
+body {
   max-height: 100%;
   margin: 0;
   font-family: 'Quicksand', sans-serif;
@@ -9,6 +10,9 @@ html, body {
 }
 
 #app {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
   max-width: 800px;
   width: 80%;
   height: 500px;
@@ -16,68 +20,24 @@ html, body {
   position: relative;
 }
 
-
-img{
+#github-icon {
   vertical-align: middle;
-  width: 1em;
-  height: 1em;
-}
-
-#github-icon{
   width: 4em;
   height: 4em;
 }
 
-#feedback-info{
-  background-color: lightgray;
-  text-align: center;
-  padding: 4em 0;
-  border-radius: 10px;
-}
-
-#retry-button{
-  all:unset;
-  color: white;
-  background-color: red;
-  border-radius: 10px;
-  padding: .5em 0;
-  width: 100%;
-  text-align: center;
-  cursor: pointer;
-}
-
-#retry-button:hover{
-  background-color: rgb(240, 0, 0);
-}
-
-#retry-button:active{
-  background-color: rgb(175, 0, 0);
-}
-
-.hidden{
+.hidden {
   display: none !important;
 }
 
-#feedback-info.error{
-  background-color: rgba(255, 0, 0, .2);
-}
+@media(max-width:500px) {
+  h2 {
+    text-align: center;
+  }
 
-#repo-info-wrapper{
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 1em;
-}
+  h2 #github-icon {
+    width: 100%;
+    object-fit: contain;
+  }
 
-#repo-stats-wrapper, #repo-stats-wrapper p{
-  display: flex;
-  justify-content: space-between;  
-}
-
-#repo-stats-wrapper{
-  overflow: hidden;
-}
-
-#repo-description{
-  color: lightgray;
-  font-size: smaller;
 }

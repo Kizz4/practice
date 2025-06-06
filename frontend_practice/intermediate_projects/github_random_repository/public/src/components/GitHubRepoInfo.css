@@ -1,0 +1,65 @@
+#section-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#section-info img {
+    width: 1.5em;
+    height: 1.5em;
+    object-fit: cover;
+}
+
+button {
+    all: unset;
+    color: white;
+    border-radius: 10px;
+    padding: .5em 0;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+#refresh-button {
+    background-color: black;
+}
+
+#refresh-button:hover {
+    background-color: rgb(35, 35, 35);
+}
+
+#refresh-button:active {
+    background-color: rgb(75, 75, 75);
+}
+
+#repo-info-wrapper {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1em;
+}
+
+#repo-stats-wrapper,
+#repo-stats-wrapper p {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: .9em;
+}
+
+#repo-stats-wrapper {
+    justify-content: space-between;
+}
+
+#repo-stats-wrapper p {
+    gap: .2em;
+}
+
+#repo-stats-wrapper {
+    overflow: hidden;
+}
+
+#repo-description {
+    color: gray;
+    font-size: smaller;
+}
+

@@ -1,3 +1,8 @@
+:root{
+  --border-width: 2px;
+  --input-padding: .2em;
+}
+
 
 #cddm-menu :focus, #cddm-menu .on-focus{
   outline: none;
@@ -15,22 +20,26 @@
 #cddm-menu{
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1.5em;
   width: 100%;
+}
+
+.hidden{
+  display: none !important;
 }
 
 /* ---------------------
    cddm structure
 ---------------------- */
 #cddm-controller,
-#cddm-list, #cddm-search input{
+#cddm-list, #cddm-form-search input{
   all: unset;
   position: relative;
   width: 100%;
 }
 
 #cddm-controller{
-  border: 2px solid black;
+  border: var(--border-width) solid black;
   border-radius: 10px;
 }
 
@@ -60,17 +69,23 @@
 /* ---------------------
    Search bar
 ---------------------- */
-#cddm-search{
+#cddm-form-search{
   display: flex;
-  border: 2px solid black;
+  border: var(--border-width) solid black;
   border-radius: 20px;
-  padding: .2em;
+  padding: var(--input-padding);
 }
 
 #search-icon{
   width: 2em;
   height: 2em;
   object-fit: cover;
+}
+
+#cddm-error-feedback{
+  color: rgb(180, 0, 0);
+  margin: 0;
+  margin-left: calc(var(--border-width) + var(--input-padding));
 }
 
 /* ---------------------
@@ -83,13 +98,13 @@
 }
 
 #cddm-list > li {
-  border-bottom: 2px solid black;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  border-bottom: var(--border-width) solid black;
+  border-left: var(--border-width) solid black;
+  border-right: var(--border-width) solid black;
 }
 
 #cddm-list li:first-of-type{
-  border-top: 2px solid black;
+  border-top: var(--border-width) solid black;
 }
 
 #cddm-list li:first-of-type:focus{
@@ -134,21 +149,31 @@
 /* ---------------------
    Scrollable List
 ---------------------- */
+#cddm-list-wrapper{
+  position: relative;
+  margin-bottom: .5em;
+}
 
-#cddm-list.scrollable-to-top::before, #cddm-list.scrollable-to-bottom::after{
+#cddm-list-wrapper:has(::after){
+  padding-top: 2em;
+}
+
+#cddm-list-wrapper:has(#cddm-list.scrollable-to-top)::before, 
+#cddm-list-wrapper:has(#cddm-list.scrollable-to-bottom)::after{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2em;
+  font-size: 1.8em;
 }
 
-#cddm-list.scrollable-to-top::before{
+#cddm-list-wrapper:has(#cddm-list.scrollable-to-top)::before{
   content: "⇧";
-  top: 0;
+  top: -1em;
 }
 
-#cddm-list.scrollable-to-bottom::after{
+#cddm-list-wrapper:has(#cddm-list.scrollable-to-bottom)::after{
   content: "⇩";
+  bottom: -1em;
 }
 
 /* ---------------------

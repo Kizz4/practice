@@ -21,10 +21,15 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
+    "typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ],
+    
     "baseUrl": ".",
     "paths": {
-      "shared_components": ["../../shared_components/src"],
-      "shared_components/*": ["../../shared_components/src/*"]
+      "sharable": ["../../sharable/src"],
+      "sharable/*": ["../../sharable/src/*"]
     },
 
   },

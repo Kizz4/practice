@@ -1,67 +1,41 @@
 import './style.css'
-import { CustomDropDownMenu, createHTMLElement } from 'shared_components';
+import { CustomDropDownMenu, createHTMLElement } from 'sharable';
 import { getRandomRepositoryByLanguage, getLanguageNames } from './github_api_functions.ts'
+import { PromiseFeedback } from './components/PromiseFeedback.ts'
+import { GitHubRepoInfo } from './components/GitHubRepoInfo.ts'
+import gitHubIconUrl from './img/GitHub_icon.png';
 
-getLanguageNames().then(names => {
-  console.log(names);
-}); 
 
+let GitHubRepoInfoComponent:GitHubRepoInfo = new GitHubRepoInfo();
 
-const listContent = ["First Item", "Second Item", "Third Item", "Fourth Item", "Fifth Item"]
-const customDropDownMenu = new CustomDropDownMenu(listContent);
+const app = document.querySelector<HTMLDivElement>('#app')!;
+const feedbackComponent = new PromiseFeedback<any>("Please select a language");
+const customDropDownMenu = new CustomDropDownMenu([], "Select a Language", 5, true, "Write the desired language here");
+getLanguageNames().then(names => { customDropDownMenu.setMenuContents(names) });
 
 const componentTitle = createHTMLElement('h2', {}, "GitHub Repository Finder");
-const iconGitHub = createHTMLElement("img" , {id:"github-icon", src:"src/icon_GitHub.png", alt:"GitHub icon"})
+const iconGitHub = createHTMLElement("img", { id: "github-icon", src: gitHubIconUrl, alt: "GitHub icon" })
 componentTitle.prepend(iconGitHub);
 
-const feedbackWrapper = createHTMLElement("div", {id:"feedback-wrapper"});
-const infoDefaultContent = createHTMLElement("p", {id:"feedback-info", class:"error hidden"}, "Please select a language");
-const retryButton = createHTMLElement("button", {id:"retry-button", class:"error hidden"}, "Click to retry")
-feedbackWrapper.appendChild(infoDefaultContent);
-feedbackWrapper.appendChild(retryButton);
 
-const infoSection = createHTMLElement("section", {id:"section-info"});
+const promiseResultListener = (repo:any) => {
+  GitHubRepoInfoComponent.from(repo);
+  feedbackComponent.component.classList.add("hidden");
+  GitHubRepoInfoComponent.component.classList.remove("hidden");
 
-const repoInfoWrapper = createHTMLElement("div", {id:"repo-info-wrapper"});
-const repoNameTitle = createHTMLElement('p', {id:"repo-name"}, "repo name");
-const repoDescription = createHTMLElement('p', {id:"repo-description"}, "repo description");
+}
 
-const repoStatsWrapper = createHTMLElement('div', {id:"repo-stats-wrapper"});
-const repoLanguage = createHTMLElement('p', {id:"repo-language"}, "language");
-const iconLanguage = createHTMLElement('img',  {id:"language-icon", src:"src/icon_language.png", alt:"icon to represent language programming"});
-repoLanguage.prepend(iconLanguage);
+const fetchHandler = (e: Event) => {
+  feedbackComponent.component.classList.remove("hidden");
+  GitHubRepoInfoComponent.component.classList.add("hidden");
+  const selectedLanguage = (e as CustomEvent).detail.value;
+  feedbackComponent.from(() => getRandomRepositoryByLanguage(selectedLanguage), promiseResultListener);
+}
 
-const repoStarsCount = createHTMLElement('p', {id:"repo-stars-count"}, "xxx");
-const iconStarsCount = createHTMLElement('img',  {id:"stars-icon", src:"src/icon_stars.png", alt:"star icon"});
-repoStarsCount.prepend(iconStarsCount);
-
-const repoForkCount = createHTMLElement('p', {id:"repo-fork-count"}, "xxx");
-const iconForkCount = createHTMLElement('img', {id:"fork-icon", src:"src/icon_fork.png", alt:"fork icon"});
-repoForkCount.prepend(iconForkCount);
-
-const repoOpenIssuesCount = createHTMLElement('p', {id:"repo-open-issues-count"}, "xxx");
-const iconOpenIssuesCount = createHTMLElement('img',  {id:"issues-icon", src:"src/icon_issues.png", alt:"issues icon"});
-repoOpenIssuesCount.prepend(iconOpenIssuesCount);
-
-repoStatsWrapper.appendChild(repoLanguage);
-repoStatsWrapper.appendChild(repoStarsCount);
-repoStatsWrapper.appendChild(repoForkCount);
-repoStatsWrapper.appendChild(repoOpenIssuesCount);
+customDropDownMenu.addEventListener("menu:selected", fetchHandler);
+GitHubRepoInfoComponent.addEventListener("repo:refresh", fetchHandler);
 
 
-repoInfoWrapper.appendChild(repoNameTitle);
-repoInfoWrapper.appendChild(repoDescription);
-repoInfoWrapper.appendChild(repoStatsWrapper);
-
-const refreshButton = createHTMLElement('button', {id:"refresh-button"}, "Refresh");
-infoSection.appendChild(repoInfoWrapper);
-infoSection.appendChild(refreshButton);
+app.append(componentTitle, customDropDownMenu.menu, feedbackComponent.component, GitHubRepoInfoComponent.component)
 
 
-document.querySelector<HTMLDivElement>('#app')!.appendChild(componentTitle);
-document.querySelector<HTMLDivElement>('#app')!.appendChild(customDropDownMenu.getMenu());
-document.querySelector<HTMLDivElement>('#app')!.appendChild(feedbackWrapper);
-document.querySelector<HTMLDivElement>('#app')!.appendChild(repoInfoWrapper);
-
-
-getRandomRepositoryByLanguage("java");

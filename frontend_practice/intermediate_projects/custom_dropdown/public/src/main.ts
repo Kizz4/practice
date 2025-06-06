@@ -1,5 +1,5 @@
 import './style.css'
-import { CustomDropDownMenu } from 'shared_components';
+import { CustomDropDownMenu } from 'sharable';
 
 const listContent = ["First Item", "Second Item", "Third Item", "Fourth Item", "Fifth Item", "Sixth Item", "Seventh Item"]
 const customDropDownMenu = new CustomDropDownMenu(listContent, "Select an Item", 5, true, "Make your search here");

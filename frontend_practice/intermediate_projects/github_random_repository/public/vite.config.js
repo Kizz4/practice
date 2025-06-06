@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite';
 import path from 'path';
 
+
 export default defineConfig({
   resolve: {
     alias: {
-      'shared_components': path.resolve(__dirname, '../../shared_components/src'),
-      'shared_components/*': path.resolve(__dirname, '../../shared_components/src/*')
+      'src' : path.resolve(__dirname, "src"),
+      'sharable': path.resolve(__dirname, '../../sharable/src'),
+      'sharable/*': path.resolve(__dirname, '../../sharable/src/*')
     }
   }
 });
