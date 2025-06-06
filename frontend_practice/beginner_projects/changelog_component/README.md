@@ -57,7 +57,7 @@ changelog_component
 
 ## 🔍 Preview
 
-<!-- START LINK TO PREVIEW --> 
+<!-- START LINK TO PREVIEW -->
 [Here to see the project on GitHub Page](https://kizz4.github.io/practice/frontend_practice/beginner_projects/changelog_component/public)
 <!-- END LINK TO PREVIEW -->
 

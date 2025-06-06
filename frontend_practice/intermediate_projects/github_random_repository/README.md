@@ -86,7 +86,7 @@ github_random_repository
 
 ## 🔍 Preview
 <!-- START LINK TO PREVIEW -->
-[View on GitHub Pages](https://yourusername.github.io/github_random_repository/public)
+[Here to see the project on GitHub Page](https://kizz4.github.io/practice/frontend_practice/intermediate_projects/github_random_repository/public/dist)
 <!-- END LINK TO PREVIEW -->
 
 ---
