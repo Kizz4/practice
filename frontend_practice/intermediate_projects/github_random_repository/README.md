@@ -52,15 +52,33 @@ Users can fetch another random repository with a button click.
 ## 📁 Project Structure
 <!-- START PROJECT STRUCTURE -->
 ```
-github_random_repository/
-├── public/
-│   ├── index.html
-│   ├── style.css
-│   ├── main.ts
-│   ├── vite.config.js
-│   ├── tsconfig.json
-│   └── package.json
-├── README.md
+github_random_repository
+	public
+		package.json
+		index.html
+		package-lock.json
+		vite.config.js
+		src
+			github_api_functions.ts
+			components
+				GitHubRepoInfo.ts
+				PromiseFeedback.css
+				PromiseFeedback.ts
+				GitHubRepoInfo.css
+			img
+				language_icon.png
+				star_icon.png
+				fork_icon.png
+				issue_icon.png
+				GitHub_icon.png
+			main.ts
+			vite-env.d.ts
+			types
+				images.d.ts
+			style.css
+		tsconfig.json
+	README.md
+
 ```
 <!-- END PROJECT STRUCTURE -->
 

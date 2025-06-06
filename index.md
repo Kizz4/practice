@@ -23,3 +23,5 @@ A **GitHub Pages site** is available to **navigate visually through the projects
 # Practice Projects Monorepo
 
 This repository is a collection of practice projects, categorized and grouped into a single monorepo.
+
+

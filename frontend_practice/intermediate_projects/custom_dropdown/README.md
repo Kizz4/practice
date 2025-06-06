@@ -55,8 +55,6 @@ custom_dropdown
 		package-lock.json
 		vite.config.js
 		src
-			icon_check.png
-			custom_dropdown.ts
 			main.ts
 			vite-env.d.ts
 			style.css
