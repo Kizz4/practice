@@ -171,13 +171,7 @@ layout: default
         }else{
             $command =  "cd " . escapeshellarg($dirPath . "/public") . " && npm install && npm run build";
             $output = shell_exec($command);
-            $content = "[Here to see the project on GitHub Page](".self::ROOT_URL_GITHUB_PAGES . $relativePath. "/dist)";
-            $arr = explode("/", $relativePath);
-
-            if($arr[(count($arr)-2)] === "github_random_repository"){
-                echo $arr[(count($arr)-2)];
-                echo "content : $content\n\n";
-            }            
+            $content = "[Here to see the project on GitHub Page](".self::ROOT_URL_GITHUB_PAGES . $relativePath. "/dist)";        
         }
         
 
