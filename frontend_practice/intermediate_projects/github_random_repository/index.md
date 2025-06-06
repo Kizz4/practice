@@ -60,8 +60,15 @@ github_random_repository
 		dist
 			index.html
 			assets
-				index-BaiKPFAq.css
-				index-BVTRErKr.js
+				fork_icon-DhXq0j-b.png
+				star_icon-D3Ke6_58.png
+				check_icon-Ce6kLaos.png
+				GitHub_icon-Ddye9yyk.png
+				index-iydxXAfT.css
+				search_icon-BWcp0o6w.png
+				index-DM-kdhE5.js
+				language_icon-zkDQeBFw.png
+				issue_icon-exnd4F4S.png
 		package.json
 		index.html
 		package-lock.json
