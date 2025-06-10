@@ -1,0 +1,8 @@
+{
+  "name": "intermediate_frontend_projects",
+  "private": true,
+  "workspaces": [
+    "sharable",
+    "**/public"
+  ]
+}

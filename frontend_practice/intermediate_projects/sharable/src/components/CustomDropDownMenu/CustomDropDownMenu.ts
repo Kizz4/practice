@@ -1,5 +1,4 @@
-import './CustomDropDownMenu.css';
-import { createHTMLElement } from '../../index';
+import { createHTMLElement } from '@index';
 import searchIconUrl from './search_icon.png';
 import checkIconUrl from './check_icon.png';
 
@@ -131,9 +130,8 @@ export class CustomDropDownMenu extends EventTarget{
       },
     );
 
-
     form.append(label, input, searchIcon, dataList);
-    this.searchBar.append(form, errorFeedback);
+    this.searchBar!.append(form, errorFeedback);
 
   }
 

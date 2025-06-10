@@ -1,6 +1,5 @@
-import { createHTMLElement } from 'sharable';
-import { ValueObserver } from 'sharable';
-import './PromiseFeedback.css';
+import { createHTMLElement } from '@index';
+import { ValueObserver } from '@index';
 
 const Status = {
   Waiting: "waiting",
@@ -9,7 +8,7 @@ const Status = {
   Failure: "failure"
 } as const;
 
-export type Status = typeof Status[keyof typeof Status];
+type Status = typeof Status[keyof typeof Status];
 
 export class PromiseFeedback<T> {
   private _component: HTMLDivElement;

@@ -1,0 +1,32 @@
+export declare class CustomDropDownMenu extends EventTarget {
+    private _menu;
+    private button;
+    private searchBar;
+    private list;
+    private status;
+    private items;
+    private isOpen;
+    private defaultButtonText;
+    private maxItemDisplayable;
+    constructor(contents: string[], defaultButtonText?: string, maxItemDisplayable?: number, withSearchBar?: boolean, searchPlaceHolder?: string);
+    get menu(): HTMLElement;
+    getSearchInput(): HTMLInputElement | null | undefined;
+    setDefaultButtonText(defaultButtonText: string): void;
+    setMaxItemDisplayable(maxItemDisplayable: number): void;
+    private emitSelection;
+    private initSearchBar;
+    private createItemList;
+    appendElementToMenu(content: string): void;
+    appendInputSuggestion(item: string, datalist?: HTMLDataListElement): void;
+    setMenuContents(contents: string[], isMenuOpen?: boolean): void;
+    private addListMaxHeight;
+    private toggleMenu;
+    private toggleSelected;
+    private attachItemListener;
+    private attachListeners;
+    private attachSearchBarListener;
+    private checkOverflow;
+    private addScrollableHint;
+    private attachScrollableListListener;
+    private attachMenuToggleListener;
+}

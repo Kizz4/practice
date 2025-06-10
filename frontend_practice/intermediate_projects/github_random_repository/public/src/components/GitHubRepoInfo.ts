@@ -1,5 +1,6 @@
 import './GitHubRepoInfo.css';
 import { createHTMLElement } from 'sharable';
+
 import languageIconUrl from 'src/img/language_icon.png';
 import starIconUrl from 'src/img/star_icon.png';
 import forkIconUrl from 'src/img/fork_icon.png';

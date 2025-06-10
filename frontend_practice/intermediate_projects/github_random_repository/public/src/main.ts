@@ -1,7 +1,7 @@
 import './style.css'
-import { CustomDropDownMenu, createHTMLElement } from 'sharable';
+import 'sharable/dist/sharable.css'; 
+import { CustomDropDownMenu, PromiseFeedback, createHTMLElement } from 'sharable';
 import { getRandomRepositoryByLanguage, getLanguageNames } from './github_api_functions.ts'
-import { PromiseFeedback } from './components/PromiseFeedback.ts'
 import { GitHubRepoInfo } from './components/GitHubRepoInfo.ts'
 import gitHubIconUrl from './img/GitHub_icon.png';
 

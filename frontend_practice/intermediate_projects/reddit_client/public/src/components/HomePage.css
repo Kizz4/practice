@@ -1,0 +1,23 @@
+#home-page{
+    text-align: center;
+}
+
+#subreddit-name-form{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1em;
+}
+
+#home-page input, #home-page button{
+    all: unset;
+}
+
+#home-page input{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: .5em;
+}
+
