@@ -1,0 +1,77 @@
+@use './styles/mixins' as mixins;
+
+#home-page{
+    text-align: center;
+    display: grid;
+    gap: 1em;
+}
+
+#home-page input, #home-page button{
+    all: unset;
+}
+
+
+#home-page button{
+    width: fit-content;
+    font-size: 2em;
+    font-weight: bold;
+
+    border: 2px solid black;
+    border-radius: 100%;
+    aspect-ratio: 1 / 1;
+    padding: .5em;
+
+    display: flex;
+    align-items: center;
+
+    transition: background-color 0.4s ease;
+}
+
+#home-page button:hover{
+    animation: fillAnimation .15s linear both;
+}
+
+#home-page button:active{
+    animation: none;
+    transition: none;
+    background-color: orangered;
+}
+
+
+#home-page button, #home-page input[type="submit"]{
+    cursor: pointer;
+}
+
+#subreddit-name-form{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1em;
+}
+
+
+
+#home-page input{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: .5em;
+}
+
+#home-page input[type="submit"]{
+    background-color: orange;
+    transition: background-color 0.1s ease;
+}
+
+#home-page input[type="submit"]:hover{
+    background-color: rgb(255, 145, 0);
+}
+
+#home-page input[type="submit"]:active{
+    background-color: rgb(255, 120, 0);
+}
+
+@keyframes fillAnimation{
+    @include mixins.generateFillAnimation(5, orange, white);
+}

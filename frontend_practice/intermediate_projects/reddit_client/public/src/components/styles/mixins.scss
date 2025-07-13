@@ -1,0 +1,13 @@
+@mixin generateFillAnimation($step, $fill-color1, $fill-color2) {
+  @if $step > 100 {
+    @warn "The step value #{$step} is greater than the maximum allowed value '100'. Setting step to '100'}.";
+    $step: 100;
+  }
+
+  @for $i from 0 through calc(100/$step) {
+    $percentage: $i*$step;
+    #{$percentage}% {
+      background: linear-gradient(to top, $fill-color1 #{$percentage + '%'}, $fill-color2 #{$percentage + '%'});
+    }
+  }
+}

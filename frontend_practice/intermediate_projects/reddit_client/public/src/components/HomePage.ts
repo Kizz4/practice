@@ -1,5 +1,5 @@
 import { createHTMLElement } from "sharable";
-import "./HomePage.css"
+import "./HomePage.scss"
 
 export function getHomePage(): HTMLDivElement {
     const homePage = createHTMLElement("div", {id:"home-page"});

@@ -33,6 +33,6 @@
   background-color: rgba(0, 255, 0, .2);
 }
 
-.hidden{
+#cddm-menu .hidden{
   display: none !important;
 }
