@@ -1,13 +1,13 @@
-package com.languapp.core;
+package com.mylearningapp.core;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LanguAppApplication {
+public class MyLearningAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LanguAppApplication.class, args);
+		SpringApplication.run(MyLearningAppApplication.class, args);
 	}
 
 }
