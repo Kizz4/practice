@@ -1,1 +1,2 @@
-rootProject.name = "mylearningapp"
+rootProject.name = "flashcard"
+
