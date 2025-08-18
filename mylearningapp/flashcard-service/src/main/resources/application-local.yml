@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/flashcarddb
+    username: user
+    password: pass
+  jpa:
+    hibernate:
+      ddl-auto: validate   # Flyway gérera le schéma 
+server:
+  port: 8081

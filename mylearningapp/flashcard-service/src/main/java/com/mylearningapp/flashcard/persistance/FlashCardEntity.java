@@ -1,7 +1,12 @@
-package com.mylearningapp.flashcard.model;
+package com.mylearningapp.flashcard.persistance;
+
+import java.util.UUID;
+
+import com.mylearningapp.flashcard.domain.FlashCardType;
+import com.mylearningapp.flashcard.domain.VisibilityType;
+import com.mylearningapp.flashcard.domain.FlashCardConstraints;
 
 import jakarta.persistence.*;
-import com.mylearningapp.flashcard.ressources.types.FlashCardType;
 
 /*
 @Entity
@@ -41,6 +46,9 @@ public class FlashCardEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "owner_id", nullable = false, columnDefinition = "uuid")
+    private UUID ownerId;
+
     /*
     @Column(name = "nom_colonne")
     --------------------------------
@@ -51,10 +59,10 @@ public class FlashCardEntity {
     - `unique = true`
     - `length = 255`
     */
-    @Column(nullable = false)
+    @Column(nullable = false, length = FlashCardConstraints.FRONT_MAX_LEN)
     private String front;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = FlashCardConstraints.BACK_MAX_LEN)
     private String back;
     /*
     8. @Enumerated
@@ -71,44 +79,36 @@ public class FlashCardEntity {
     ⚠️ Le mode ORDINAL peut casser ta base si tu changes l’ordre des enums !
     */
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private FlashcardType type;
+    @Column(nullable = false, length = FlashCardConstraints.FLASHCARD_TYPE_MAX_LEN)
+    private FlashCardType type;
 
-    public Flashcard() {
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = FlashCardConstraints.VISIBILITY_MAX_LEN)
+    private VisibilityType visibility;
+
+    public FlashCardEntity() {
         // Constructeur vide requis par JPA
     }
 
-    public Flashcard(String front, String back) {
+    public FlashCardEntity(String front, String back) {
         this.front = front;
         this.back = back;
     }
 
     // Getters et setters
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
-    public String getFront() {
-        return front;
-    }
+    public UUID getOwnerId() { return ownerId; }
 
-    public void setFront(String front) {
-        this.front = front;
-    }
+    public String getFront() { return front; }
+    public void setFront(String front) { this.front = front; }
 
-    public String getBack() {
-        return back;
-    }
+    public String getBack() { return back; }
+    public void setBack(String back) { this.back = back; }
 
-    public void setBack(String back) {
-        this.back = back;
-    }
+    public FlashCardType getType() { return type; }
+    public void setBack(FlashCardType type) { this.type = type; }
 
-    public FlashCardType getType() {
-        return type;
-    }
-
-    public void setBack(FlashCardType type) {
-        this.type = type;
-    }
+    public VisibilityType getVisibility() { return visibility; }
+    public void setVisibility(VisibilityType visibility) { this.visibility = visibility; }
 }

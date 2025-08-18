@@ -1,3 +1,3 @@
 rootProject.name = "mylearningapp"
 
-include("flashcard-service")
+include(":flashcard-service")

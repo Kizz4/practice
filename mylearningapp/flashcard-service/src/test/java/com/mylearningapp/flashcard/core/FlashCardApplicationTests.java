@@ -1,10 +1,10 @@
-package com.languapp.core;
+package com.mylearningapp.flashcard.core;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LanguAppApplicationTests {
+class FlashCardApplicationTests {
 
 	@Test
 	void contextLoads() {
