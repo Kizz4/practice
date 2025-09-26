@@ -1,12 +1,12 @@
-package com.mylearningapp.flashcard.web.dto;
+package com.mylearningapp.flashcard.web.dto.Response;
 
 import com.mylearningapp.flashcard.domain.FlashCardType;
 import java.time.Instant;
 
-public record FlashCardResponse(
+public record ReadFlashCardResponse(
     Long id,
-    String question,
-    String answer,
+    String front,
+    String back,
     FlashCardType type,
     Instant createdAt,
     Instant updatedAt

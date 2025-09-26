@@ -1,0 +1,9 @@
+# VCS
+.git
+.gitignore
+
+# Gradle / build outputs
+.gradle
+**/.gradle
+**/build
+**/out

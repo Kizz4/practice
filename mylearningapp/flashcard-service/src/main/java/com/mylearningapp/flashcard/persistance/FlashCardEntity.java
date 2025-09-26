@@ -1,10 +1,15 @@
 package com.mylearningapp.flashcard.persistance;
 
+import java.time.Instant;
+import java.util.Objects;
 import java.util.UUID;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import com.mylearningapp.flashcard.domain.FlashCardType;
 import com.mylearningapp.flashcard.domain.VisibilityType;
-import com.mylearningapp.flashcard.domain.FlashCardConstraints;
+import com.mylearningapp.flashcard.domain.FlashCardConstraint;
 
 import jakarta.persistence.*;
 
@@ -59,10 +64,10 @@ public class FlashCardEntity {
     - `unique = true`
     - `length = 255`
     */
-    @Column(nullable = false, length = FlashCardConstraints.FRONT_MAX_LEN)
+    @Column(nullable = false, length = FlashCardConstraint.FRONT_MAX_LEN)
     private String front;
 
-    @Column(nullable = false, length = FlashCardConstraints.BACK_MAX_LEN)
+    @Column(nullable = false, length = FlashCardConstraint.BACK_MAX_LEN)
     private String back;
     /*
     8. @Enumerated
@@ -79,26 +84,34 @@ public class FlashCardEntity {
     ⚠️ Le mode ORDINAL peut casser ta base si tu changes l’ordre des enums !
     */
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = FlashCardConstraints.FLASHCARD_TYPE_MAX_LEN)
+    @Column(nullable = false, length = FlashCardConstraint.TYPE_MAX_LEN)
     private FlashCardType type;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = FlashCardConstraints.VISIBILITY_MAX_LEN)
+    @Column(nullable = false, length = FlashCardConstraint.VISIBILITY_MAX_LEN)
     private VisibilityType visibility;
+
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false, columnDefinition = "timestamptz")
+    private Instant createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at", nullable = false, columnDefinition = "timestamptz")
+    private Instant updatedAt;
+
 
     public FlashCardEntity() {
         // Constructeur vide requis par JPA
-    }
-
-    public FlashCardEntity(String front, String back) {
-        this.front = front;
-        this.back = back;
     }
 
     // Getters et setters
     public Long getId() { return id; }
 
     public UUID getOwnerId() { return ownerId; }
+
+    public Instant getCreatedAt() { return createdAt; }
+    
+    public Instant getUpdatedAt() { return updatedAt; }
 
     public String getFront() { return front; }
     public void setFront(String front) { this.front = front; }
@@ -107,8 +120,28 @@ public class FlashCardEntity {
     public void setBack(String back) { this.back = back; }
 
     public FlashCardType getType() { return type; }
-    public void setBack(FlashCardType type) { this.type = type; }
+    public void setType(FlashCardType type) { this.type = type; }
 
     public VisibilityType getVisibility() { return visibility; }
     public void setVisibility(VisibilityType visibility) { this.visibility = visibility; }
+
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (!(o instanceof FlashCardEntity)) return false;
+
+        FlashCardEntity entity = (FlashCardEntity) o;
+
+        return Objects.equals(this.id, entity.id) && Objects.equals(this.ownerId, entity.ownerId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.id, this.ownerId);
+    }
+
+    @Override
+    public String toString() {
+        return "FlashCardEntity{id='" + this.id + "'\nfront='" + this.front + "\nback='" + this.back + "'\ncreatedAt='" + this.createdAt + "'\nupdatedAt='" + this.updatedAt + "'}";
+    }
 }

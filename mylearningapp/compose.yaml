@@ -1,0 +1,60 @@
+services:
+  flashcard:
+    build: 
+      context:  .
+      dockerfile: ./flashcard-service/dockerfile
+    depends_on:
+      - db
+    environment:
+      SPRING_PROFILES_ACTIVE: pg
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/flashcard
+      SPRING_DATASOURCE_USERNAME: flashcard
+      SPRING_DATASOURCE_PASSWORD: flashcard
+    develop:
+      watch:
+        - action: sync
+          path: ./flashcard-service
+          target: /flashcard
+    networks:
+      - backend
+      - frontend
+  frontend:
+    image: node:20
+    user: "node"
+    working_dir: /app
+    volumes: 
+      - ./frontend:/app
+      - ./frontend/app/node_modules:/app/node_modules 
+      - ./scripts/frontend-container-starter-command.sh:/usr/local/bin/frontend-container-starter-command.sh:ro
+    entrypoint: ["/usr/local/bin/frontend-container-starter-command.sh"]
+    environment:
+      - VITE_PORT=5173
+      - HOST=0.0.0.0
+    ports: 
+      - "5173:5173" 
+    networks:
+      - frontend
+
+  adminer:
+    image: adminer:5.4.0
+    ports: ["9083:8080"]
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: flashcard
+      POSTGRES_USER: flashcard
+      POSTGRES_PASSWORD: flashcard
+    ports: ["5432:5432"]
+    networks:
+      - backend
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+networks:
+  backend: {}
+  frontend: {}
+
+volumes:
+  dbdata: {}
+  node_modules: {}
+    

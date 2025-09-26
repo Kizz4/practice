@@ -3,3 +3,6 @@ spring:
     name: flashcard-service
   jpa:
     open-in-view: false   # évite de traîner la session JPA jusqu'au web
+  flyway:
+    locations: classpath:db_migration
+    placeholder-replacement: true

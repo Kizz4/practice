@@ -12,7 +12,10 @@ import com.mylearningapp.flashcard.domain.FlashCardType;
 @Repository
 public interface FlashCardRepository extends JpaRepository<FlashCardEntity, Long> {
     List<FlashCardEntity> findAllByOwnerId(UUID ownerId);
+    FlashCardEntity findByIdAndOwnerId(Long id, UUID ownerId);
     List<FlashCardEntity> findByFrontContent(String text);
     List<FlashCardEntity> findByBackContent(String text);
     List<FlashCardEntity> findByType(FlashCardType type);
+    long deleteByIdAndOwnerSub(Long id, UUID ownerSub);
+
 }

@@ -1,0 +1,61 @@
+# ------------------------------
+# Base image (FROM)
+# ------------------------------
+# Spécifie l'image de base à partir de laquelle construire l'image Docker
+# Stage 1 : builder
+FROM gradle:8.14.0-jdk21 AS build
+
+# ------------------------------
+# Argument de construction (ARG)
+# ------------------------------
+# Les ARG sont utilisés uniquement à la construction de l'image
+ARG APP_VERSION=0.0.1
+ARG WORKDIR="flashcard"
+# Peut être utilisé comme une variable plus bas
+
+# ------------------------------
+# Définir le répertoire de travail (WORKDIR)
+# ------------------------------
+# Crée et utilise un dossier comme dossier de travail
+WORKDIR /${WORKDIR}
+
+# ------------------------------
+# Étiquettes (LABEL)
+# ------------------------------
+# Ajoute des métadonnées à l’image
+LABEL maintainer="Gabriel"
+LABEL version=$APP_VERSION
+LABEL description="FlashCard Service"
+
+# ------------------------------
+# Création d'un utilisateur non-root (USER)
+# ------------------------------
+# Bonne pratique : ne pas exécuter les apps en root
+RUN addgroup --system appgroup && \
+    adduser --system --ingroup appgroup appuser
+
+# 1) fichiers “stables” → deps Gradle mises en cache
+COPY flashcard-service/build.gradle.kts settings.gradle.kts ./
+COPY gradle gradle
+
+# 2) (option) amorcer le cache de deps sans sources
+RUN gradle :flashcard-service:dependencies --no-daemon || true
+
+# 3) sources (souvent modifiées) -> ex : .java
+COPY . /${WORKDIR}
+
+# 4) compilation
+RUN gradle :flashcard-service:bootJar --no-daemon
+
+# ------------------------------
+# Volumes (VOLUME)
+# ------------------------------
+# Indique qu’un répertoire doit être monté en tant que volume
+VOLUME ["/data"]
+
+# ------------------------------
+# Ports exposés (EXPOSE)
+# ------------------------------
+EXPOSE 8000
+
+
