@@ -2,7 +2,7 @@
 set -euo pipefail
 
 if [ ! -f "package.json" ]; then
-    npm create vite@latest app -- --template react-ts --yes
+    npm create vite@latest . -- --template react-ts --yes
 fi
 
 if [ ! -f "package-lock.json" ]; then

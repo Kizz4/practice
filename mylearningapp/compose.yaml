@@ -19,19 +19,11 @@ services:
       - backend
       - frontend
   frontend:
-    image: node:20
-    user: "node"
+    image: node:lts
     working_dir: /app
     volumes: 
       - ./frontend:/app
-      - ./frontend/app/node_modules:/app/node_modules 
-      - ./scripts/frontend-container-starter-command.sh:/usr/local/bin/frontend-container-starter-command.sh:ro
-    entrypoint: ["/usr/local/bin/frontend-container-starter-command.sh"]
-    environment:
-      - VITE_PORT=5173
-      - HOST=0.0.0.0
-    ports: 
-      - "5173:5173" 
+      - node_modules:/app/node_modules
     networks:
       - frontend
 

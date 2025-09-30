@@ -1,0 +1,42 @@
+# ------------------------------
+# Base image (FROM)
+# ------------------------------
+# Spécifie l'image de base à partir de laquelle construire l'image Docker
+# Stage 1 : builder
+FROM node:20 AS build
+
+# ------------------------------
+# Argument de construction (ARG)
+# ------------------------------
+# Les ARG sont utilisés uniquement à la construction de l'image
+ARG APP_VERSION=0.0.1
+ARG WORKDIR="app"
+ARG UID=1000
+ARG GID=7777
+# Peut être utilisé comme une variable plus bas
+
+# ------------------------------
+# Définir le répertoire de travail (WORKDIR)
+# ------------------------------
+# Crée et utilise un dossier comme dossier de travail
+WORKDIR /${WORKDIR}
+
+# ------------------------------
+# Étiquettes (LABEL)
+# ------------------------------
+# Ajoute des métadonnées à l’image
+LABEL maintainer="Gabriel"
+LABEL version=$APP_VERSION
+LABEL description="App Frontend"
+
+# ------------------------------
+# Création d'un utilisateur non-root (USER)
+# ------------------------------
+# Bonne pratique : ne pas exécuter les apps en root
+RUN mkdir -p /${WORKDIR}/node_modules && 
+
+USER node:dockermylearningapp 
+
+
+
+
